@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { openWhatsApp } from '../../utils/whatsapp';
-import { X, MessageCircle } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 
 interface WhatsAppModalProps {
   open: boolean;
@@ -35,36 +36,58 @@ const WhatsAppModal: React.FC<WhatsAppModalProps> = ({ open, onClose }) => {
     }, 500);
   };
 
-  if (!open) return null;
-
   return (
-    <div className="fixed inset-0 z-[120] flex items-center justify-center bg-black/40 backdrop-blur-sm">
-      <div className="bg-surface dark:bg-[#10182a] rounded-2xl shadow-2xl border border-cyan-400/20 w-full max-w-md p-8 relative animate-fade-in z-[130]">
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 z-[120] flex items-center justify-center backdrop-blur-sm"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) onClose();
+          }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="bg-surface rounded-2xl shadow-2xl border border-text/10 dark:border-white/5 w-full max-w-md p-8 relative z-[130] backdrop-blur-xl mx-4"
+          >
+        {/* Close Button */}
         <button 
           onClick={onClose} 
-          className="absolute top-4 right-4 text-cyan-400 hover:text-cyan-200 text-2xl font-bold transition-colors"
+          className="absolute top-4 right-4 text-text-muted hover:text-text text-2xl font-bold transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-text/5"
+          aria-label="Close modal"
         >
           &times;
         </button>
         
-        <div className="flex items-center gap-3 mb-2">
-          <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
-            <MessageCircle size={24} className="text-green-500" />
+        {/* Header Section */}
+        <div className="flex items-center gap-4 mb-6">
+          <div className="w-14 h-14 rounded-full bg-gradient-to-br from-green-500/20 to-green-600/20 dark:from-green-500/15 dark:to-green-600/15 border border-green-500/30 dark:border-green-500/20 flex items-center justify-center shadow-lg">
+            <MessageCircle size={28} className="text-green-500 dark:text-green-400" />
           </div>
-          <div>
-            <h2 className="text-2xl font-bold text-cyan-400">Schedule a Call</h2>
+          <div className="flex-1">
+            <h2 className="text-2xl font-display font-bold text-text mb-1">Schedule a Call</h2>
             <p className="text-text-muted text-sm">We'll redirect you to WhatsApp</p>
           </div>
         </div>
         
-        <p className="text-text-muted text-sm mb-6">
+        {/* Description */}
+        <p className="text-text-muted text-sm mb-6 leading-relaxed">
           Please provide your details and we'll open WhatsApp for you to schedule a call.
         </p>
         
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+          {/* Name Field */}
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-text mb-2">
-              Your Name <span className="text-red-400">*</span>
+              Your Name <span className="text-red-500 dark:text-red-400">*</span>
             </label>
             <input
               id="name"
@@ -74,13 +97,14 @@ const WhatsAppModal: React.FC<WhatsAppModalProps> = ({ open, onClose }) => {
               placeholder="Enter your name"
               value={form.name}
               onChange={handleChange}
-              className="w-full rounded-lg px-4 py-3 bg-background border border-cyan-400/20 focus:border-cyan-400 outline-none text-text transition-colors"
+              className="w-full rounded-lg px-4 py-3 bg-background border border-text/10 dark:border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-text placeholder:text-text-muted transition-all duration-200"
             />
           </div>
           
+          {/* Reason Field */}
           <div>
             <label htmlFor="reason" className="block text-sm font-medium text-text mb-2">
-              Reason for Call <span className="text-red-400">*</span>
+              Reason for Call <span className="text-red-500 dark:text-red-400">*</span>
             </label>
             <textarea
               id="reason"
@@ -90,30 +114,33 @@ const WhatsAppModal: React.FC<WhatsAppModalProps> = ({ open, onClose }) => {
               value={form.reason}
               onChange={handleChange}
               rows={4}
-              className="w-full rounded-lg px-4 py-3 bg-background border border-cyan-400/20 focus:border-cyan-400 outline-none text-text resize-none transition-colors"
+              className="w-full rounded-lg px-4 py-3 bg-background border border-text/10 dark:border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-text placeholder:text-text-muted resize-none transition-all duration-200"
             />
           </div>
           
+          {/* Submit Button */}
           <button
             type="submit"
             disabled={loading || !form.name.trim() || !form.reason.trim()}
-            className="mt-2 px-6 py-3 rounded-lg bg-gradient-to-r from-green-500 via-green-400 to-green-500 text-white font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+            className="mt-2 px-6 py-3 rounded-lg bg-gradient-to-r from-green-500 via-green-500 to-green-600 dark:from-green-500 dark:via-green-500 dark:to-green-600 text-white font-bold text-lg shadow-lg hover:shadow-xl hover:shadow-green-500/30 dark:hover:shadow-green-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-lg flex items-center justify-center gap-2"
           >
             {loading ? (
               <>
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                Opening WhatsApp...
+                <span>Redirecting...</span>
               </>
             ) : (
               <>
                 <MessageCircle size={20} />
-                Open WhatsApp
+                <span>Continue to WhatsApp</span>
               </>
             )}
           </button>
         </form>
-      </div>
-    </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

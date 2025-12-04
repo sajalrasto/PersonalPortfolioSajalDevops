@@ -174,7 +174,7 @@ const ResumePage: React.FC = () => {
                             // Download CV functionality - you can add actual CV download link here
                             const link = document.createElement('a');
                             link.href = '/resume.pdf'; // Update with actual CV path
-                            link.download = 'Vishwjeet_Kumar_Resume.pdf';
+                            link.download = 'Vishwjeet_resume.pdf';
                             link.click();
                         }}
                     >
