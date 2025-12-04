@@ -110,6 +110,227 @@ const ArticleCard = React.memo<{
 
 ArticleCard.displayName = 'ArticleCard';
 
+// Professional Shimmer/Skeleton Components - Theme-Aware & Reactive
+const ShimmerBox: React.FC<{ className?: string; delay?: number }> = ({ className = '', delay = 0 }) => {
+  return (
+    <div
+      className={`relative overflow-hidden rounded-lg bg-text/5 dark:bg-white/5 ${className}`}
+    >
+      {/* Shimmer Effect - Light Mode (Subtle) */}
+      <div
+        className="absolute inset-0 animate-shimmer dark:hidden"
+        style={{
+          background: 'linear-gradient(90deg, transparent 0%, rgba(0, 240, 255, 0.08) 50%, transparent 100%)',
+          backgroundSize: '200% 100%',
+          animationDelay: `${delay}s`,
+        }}
+      />
+      {/* Shimmer Effect - Dark Mode (More Visible) */}
+      <div
+        className="absolute inset-0 animate-shimmer hidden dark:block"
+        style={{
+          background: 'linear-gradient(90deg, transparent 0%, rgba(0, 240, 255, 0.15) 50%, transparent 100%)',
+          backgroundSize: '200% 100%',
+          animationDelay: `${delay}s`,
+        }}
+      />
+    </div>
+  );
+};
+
+const HeroSectionSkeleton: React.FC = () => (
+  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 mb-12 lg:items-stretch">
+    {/* Left Sidebar Skeleton */}
+    <div className="lg:col-span-3 space-y-6">
+      <ShimmerBox className="h-6 w-32 mb-4" />
+      <div className="space-y-6">
+        {[...Array(8)].map((_, i) => (
+          <div key={i} className="pb-6 border-b border-text/5 dark:border-white/5 last:border-0">
+            <ShimmerBox className="h-4 w-full mb-2" delay={i * 0.1} />
+            <ShimmerBox className="h-4 w-3/4 mb-2" delay={i * 0.1 + 0.05} />
+            <div className="flex gap-2 mt-2">
+              <ShimmerBox className="h-3 w-20" delay={i * 0.1 + 0.1} />
+              <ShimmerBox className="h-3 w-16" delay={i * 0.1 + 0.15} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Center Column Skeleton */}
+    <div className="lg:col-span-6 space-y-6">
+      <ShimmerBox className="h-6 w-24 absolute top-4 left-4" />
+      <ShimmerBox className="h-64 md:h-80 lg:h-96 rounded-xl" />
+      <div className="space-y-4">
+        <ShimmerBox className="h-8 w-full" />
+        <ShimmerBox className="h-8 w-5/6" />
+        <ShimmerBox className="h-4 w-full" />
+        <ShimmerBox className="h-4 w-full" />
+        <ShimmerBox className="h-4 w-4/5" />
+      </div>
+      <div className="flex items-center gap-3 mt-6">
+        <ShimmerBox className="w-8 h-8 rounded-full" />
+        <div className="space-y-2">
+          <ShimmerBox className="h-4 w-32" />
+          <ShimmerBox className="h-3 w-24" />
+        </div>
+      </div>
+      {/* Related Story Skeleton */}
+      <div className="mt-6 pt-6 border-t border-text/10 dark:border-white/10">
+        <ShimmerBox className="h-5 w-32 mb-4" />
+        <div className="flex gap-4 pb-4 border-b border-text/5 dark:border-white/5">
+          <ShimmerBox className="w-24 h-24 rounded-lg flex-shrink-0" />
+          <div className="flex-1 space-y-2">
+            <ShimmerBox className="h-4 w-full" />
+            <ShimmerBox className="h-4 w-5/6" />
+            <ShimmerBox className="h-3 w-20" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Right Sidebar Skeleton */}
+    <div className="lg:col-span-3 space-y-6">
+      <div className="flex gap-4 mb-6 border-b border-text/10 dark:border-white/10">
+        <ShimmerBox className="h-5 w-32 pb-2" />
+        <ShimmerBox className="h-5 w-32 pb-2" />
+      </div>
+      <div className="space-y-4 mb-6">
+        {[...Array(5)].map((_, i) => (
+          <div key={i} className="flex items-start gap-3">
+            <ShimmerBox className="w-8 h-8 flex-shrink-0" delay={i * 0.1} />
+            <ShimmerBox className="h-4 w-full" delay={i * 0.1 + 0.05} />
+          </div>
+        ))}
+      </div>
+      <div className="mt-6 pt-6 border-t border-text/10 dark:border-white/10">
+        <ShimmerBox className="h-5 w-28 mb-4" />
+        <div className="space-y-4">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="flex gap-3 pb-4 border-b border-text/5 dark:border-white/5 last:border-0">
+              <ShimmerBox className="w-20 h-20 rounded-lg flex-shrink-0" delay={i * 0.1} />
+              <div className="flex-1 space-y-2">
+                <ShimmerBox className="h-4 w-full" delay={i * 0.1 + 0.05} />
+                <ShimmerBox className="h-3 w-24" delay={i * 0.1 + 0.1} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const WorldNewsSkeleton: React.FC = () => (
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 md:items-stretch">
+    {[...Array(3)].map((_, colIndex) => (
+      <div key={colIndex} className="border-l-4 border-text/20 dark:border-white/20 pl-4 flex flex-col min-h-[400px]">
+        <div className="mb-4">
+          <div className="flex items-center gap-2 mb-2">
+            <ShimmerBox className="h-5 w-16" delay={colIndex * 0.1} />
+            <ShimmerBox className="h-5 w-24" delay={colIndex * 0.1 + 0.05} />
+          </div>
+        </div>
+        <div className="space-y-4 flex-1">
+          {[...Array(5)].map((_, i) => (
+            <div key={i} className="pb-3 border-b border-text/5 dark:border-white/5 last:border-0">
+              <ShimmerBox className="h-4 w-full mb-2" delay={colIndex * 0.1 + i * 0.05} />
+              <ShimmerBox className="h-4 w-5/6 mb-2" delay={colIndex * 0.1 + i * 0.05 + 0.02} />
+              <div className="flex gap-2 mt-1">
+                <ShimmerBox className="h-3 w-16" delay={colIndex * 0.1 + i * 0.05 + 0.04} />
+                <ShimmerBox className="h-3 w-20" delay={colIndex * 0.1 + i * 0.05 + 0.06} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
+const ArticleGridSkeleton: React.FC = () => (
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-10">
+    {[...Array(6)].map((_, i) => (
+      <div key={i} className="rounded-lg overflow-hidden border border-text/10 dark:border-white/10 bg-surface/90 dark:bg-surface/70">
+        <ShimmerBox className="h-40 md:h-48 w-full" delay={i * 0.1} />
+        <div className="p-5 md:p-6 space-y-3">
+          <ShimmerBox className="h-5 w-full" delay={i * 0.1 + 0.05} />
+          <ShimmerBox className="h-5 w-5/6" delay={i * 0.1 + 0.1} />
+          <ShimmerBox className="h-4 w-full" delay={i * 0.1 + 0.15} />
+          <ShimmerBox className="h-4 w-4/5" delay={i * 0.1 + 0.2} />
+          <div className="flex items-center gap-3 mt-4">
+            <ShimmerBox className="w-6 h-6 rounded-full" delay={i * 0.1 + 0.25} />
+            <ShimmerBox className="h-3 w-20" delay={i * 0.1 + 0.3} />
+            <ShimmerBox className="h-3 w-16" delay={i * 0.1 + 0.35} />
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
+const DailyContentSkeleton: React.FC = () => (
+  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:items-stretch">
+    {/* FAQ Skeleton */}
+    <div className="lg:col-span-5 flex flex-col min-h-[500px]">
+      <div className="mb-6 pb-3 border-b border-text/10 dark:border-white/10">
+        <div className="flex items-center gap-2 mb-2">
+          <ShimmerBox className="h-5 w-12" />
+          <ShimmerBox className="h-5 w-40" />
+        </div>
+      </div>
+      <div className="space-y-3 flex-1">
+        {[...Array(8)].map((_, i) => (
+          <div key={i} className="border-l-4 border-text/20 dark:border-white/20 pl-4 py-2">
+            <ShimmerBox className="h-4 w-full mb-2" delay={i * 0.1} />
+            <ShimmerBox className="h-4 w-5/6" delay={i * 0.1 + 0.05} />
+          </div>
+        ))}
+      </div>
+      <ShimmerBox className="h-10 w-32 mt-6 rounded-lg" delay={0.8} />
+    </div>
+
+    {/* Jokes Skeleton */}
+    <div className="lg:col-span-4 flex flex-col min-h-[500px]">
+      <div className="mb-6 pb-3 border-b border-text/10 dark:border-white/10">
+        <div className="flex items-center gap-2 mb-2">
+          <ShimmerBox className="h-5 w-16" />
+          <ShimmerBox className="h-5 w-24" />
+        </div>
+      </div>
+      <div className="space-y-4 flex-1">
+        {[...Array(4)].map((_, i) => (
+          <div key={i} className="bg-text/5 dark:bg-white/5 p-5 rounded-lg border-2 border-text/10 dark:border-white/10">
+            <ShimmerBox className="h-4 w-full mb-2" delay={i * 0.1} />
+            <ShimmerBox className="h-4 w-5/6 mb-3" delay={i * 0.1 + 0.05} />
+            <ShimmerBox className="h-5 w-4/5 mb-2" delay={i * 0.1 + 0.1} />
+            <ShimmerBox className="h-3 w-20" delay={i * 0.1 + 0.15} />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Horoscopes Skeleton */}
+    <div className="lg:col-span-3 flex flex-col min-h-[500px]">
+      <div className="mb-6 pb-3 border-b border-text/10 dark:border-white/10">
+        <div className="flex items-center gap-2 mb-2">
+          <ShimmerBox className="h-5 w-16" />
+          <ShimmerBox className="h-5 w-28" />
+        </div>
+      </div>
+      <div className="space-y-4 flex-1">
+        {[...Array(6)].map((_, i) => (
+          <div key={i} className="border-l-2 border-text/20 dark:border-white/20 pl-3 py-2">
+            <ShimmerBox className="h-4 w-20 mb-2" delay={i * 0.1} />
+            <ShimmerBox className="h-3 w-full" delay={i * 0.1 + 0.05} />
+            <ShimmerBox className="h-3 w-5/6" delay={i * 0.1 + 0.1} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
 // Helper function to format date with year
 const formatDateWithYear = (dateString: string | undefined): string => {
   if (!dateString) {
@@ -141,7 +362,6 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
   const [allPosts, setAllPosts] = useState<BlogPostType[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [displayedPosts, setDisplayedPosts] = useState(6);
-  const [activeFilter, setActiveFilter] = useState('Tech');
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(0);
@@ -371,24 +591,8 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
     fetchDailyContent();
   }, []);
 
-  const filteredPosts = useMemo(() => {
-    if (activeFilter === 'All') return allPosts;
-    
-    return allPosts.filter(post => {
-        if (activeFilter === 'Tech') {
-          return post.category?.toLowerCase().includes('tech') || 
-                 post.category?.toLowerCase().includes('ai') ||
-                 post.category?.toLowerCase().includes('development') ||
-                 post.title?.toLowerCase().includes('tech');
-        } else if (activeFilter === 'Development') {
-          return post.category?.toLowerCase().includes('development') ||
-                 post.category?.toLowerCase().includes('web') ||
-                 post.category?.toLowerCase().includes('software') ||
-                 post.title?.toLowerCase().includes('development');
-        }
-        return true;
-      });
-  }, [allPosts, activeFilter]);
+  // Show all posts (no filtering)
+  const filteredPosts = useMemo(() => allPosts, [allPosts]);
 
   const visiblePosts = useMemo(() => filteredPosts.slice(0, displayedPosts), [filteredPosts, displayedPosts]);
   const hasMore = displayedPosts < filteredPosts.length;
@@ -477,6 +681,19 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
         url={window.location.href}
         keywords={['Tech Blog', 'Software Engineering', 'AI', 'Web Development', 'Programming']}
       />
+      <style>{`
+        @keyframes shimmer {
+          0% {
+            background-position: -200% 0;
+          }
+          100% {
+            background-position: 200% 0;
+          }
+        }
+        .animate-shimmer {
+          animation: shimmer 2s linear infinite;
+        }
+      `}</style>
       <div 
         ref={containerRef}
         className="min-h-screen overflow-x-hidden bg-background relative"
@@ -768,7 +985,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                         <span className="mx-2">|</span>
                         <span>CALL US (123) 456 7890</span>
                         <span className="mx-2">/</span>
-                        <span>HELLO@NEWSFACTORY.COM</span>
+                        <span>HELLO@VISHWJEET.ME</span>
                       </div>
                         </div>
 
@@ -830,6 +1047,9 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
    
 
                   {/* Main Content - 3 Column Layout */}
+                  {isLoading && allPosts.length === 0 ? (
+                    <HeroSectionSkeleton />
+                  ) : (
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 mb-12 lg:items-stretch">
                     {/* Left Sidebar - Recent Articles */}
                     <motion.div
@@ -861,7 +1081,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                         </div>
                 </motion.div>
                         ))}
-              </div>
+        </div>
 
                     </motion.div>
 
@@ -920,7 +1140,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                             <div className="flex items-center gap-3 text-sm text-text-muted mb-0">
                               <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-fuchsia flex items-center justify-center text-white font-bold text-xs">
                                 {mainStories[0].author?.charAt(0) || 'M'}
-                          </div>
+                    </div>
                           <div>
                                 <div className="font-semibold text-text">
                                   {mainStories[0].author || 'Michael Jordy and Sarah Apsari'}
@@ -940,31 +1160,31 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                               </h3>
                               <div className="space-y-4">
                                 {relatedArticles.map((post, index) => (
-                                  <motion.div
+                <motion.div
                                     key={post.id || index}
                                     initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
+                  animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.9 + index * 0.1, duration: 0.4 }}
-                                    onClick={() => handleBlogClick(post)}
+                      onClick={() => handleBlogClick(post)}
                                     className="group cursor-pointer flex gap-4 pb-4 border-b border-text/5 dark:border-white/5 last:border-0"
                                   >
-                                    {post.image && post.image !== '#' ? (
+                          {post.image && post.image !== '#' ? (
                                       <div className="w-24 h-24 rounded-lg overflow-hidden bg-gradient-to-br from-primary/10 via-violet-500/10 to-fuchsia-500/10 flex-shrink-0">
-                                        <img
-                                          src={post.image}
-                                          alt={post.title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            loading="lazy"
-                            onError={(e) => {
-                              e.currentTarget.style.display = 'none';
-                            }}
-                          />
+                <img 
+                  src={post.image} 
+                  alt={post.title} 
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                              loading="lazy"
+                              onError={(e) => {
+                                e.currentTarget.style.display = 'none';
+                              }}
+                            />
                                       </div>
-                                    ) : (
+                          ) : (
                                       <div className="w-24 h-24 rounded-lg bg-gradient-to-br from-primary/20 via-violet-500/20 to-fuchsia-500/20 flex items-center justify-center flex-shrink-0">
                                         <span className="text-lg font-bold text-text/50">{post.title?.charAt(0) || 'A'}</span>
-                              </div>
-                                    )}
+                            </div>
+                          )}
                                     <div className="flex-1">
                                       <h4 className="text-sm font-bold text-text mb-2 leading-tight group-hover:text-primary transition-colors line-clamp-2">
                                         {post.title || `Related Article ${index + 1}`}
@@ -976,20 +1196,20 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                                         <span>{post.author || 'Author'}</span>
                                         <span>•</span>
                                         <span>{formatDateWithYear(post.date)}</span>
-                            </div>
-                          </div>
-                                  </motion.div>
-                                ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
                       </div>
                     </div>
-                          )}
+              )}
 
-                  </div>
+          </div>
               )}
                     </motion.div>
 
                     {/* Right Sidebar - Trending Topics */}
-                <motion.div
+                  <motion.div
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.9, duration: 0.6 }}
@@ -997,7 +1217,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                     >
                       {/* Tabs */}
                       <div className="flex gap-4 mb-6 border-b border-text/10 dark:border-white/10">
-                        <button 
+                  <button
                           onClick={() => setActiveTab('trending')}
                           className={`pb-2 px-1 text-sm font-bold transition-colors ${
                             activeTab === 'trending' 
@@ -1006,8 +1226,8 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                           }`}
                         >
                           TRENDING TOPIC
-                        </button>
-                        <button 
+                  </button>
+                  <button
                           onClick={() => setActiveTab('latest')}
                           className={`pb-2 px-1 text-sm font-bold transition-colors ${
                             activeTab === 'latest' 
@@ -1016,8 +1236,8 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                           }`}
                         >
                           LATEST UPDATE
-                        </button>
-                      </div>
+                  </button>
+                </div>
 
                       {/* Trending Topics List */}
                       {activeTab === 'trending' && (
@@ -1036,10 +1256,10 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                               <h3 className="text-sm font-bold text-text leading-tight group-hover:text-primary transition-colors line-clamp-2">
                                 {post.title || `Trending Topic ${index + 1}`}
                               </h3>
-                        </div>
+                </div>
                           </motion.div>
                         ))}
-                        </div>
+              </div>
                       )}
 
                       {/* Latest Update List */}
@@ -1059,15 +1279,15 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                                 <h3 className="text-sm font-bold text-text leading-tight group-hover:text-primary transition-colors line-clamp-2">
                                   {post.title || `Latest Update ${index + 1}`}
                                 </h3>
-                              </div>
+                </div>
                               <div className="flex items-center gap-2 text-xs text-text-muted mt-1 ml-10">
                                 <span>{post.author || 'Author'}</span>
                                 <span>•</span>
                                 <span>{formatDateWithYear(post.date)}</span>
-                              </div>
+              </div>
                             </motion.div>
                           ))}
-                        </div>
+                </div>
                       )}
 
                       {/* Additional Articles */}
@@ -1077,19 +1297,19 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                         </h3>
                         <div className="space-y-4">
                         {allPosts.slice(5, 10).map((post, index) => (
-                          <motion.div
+                    <motion.div
                             key={post.id || index}
                             initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
+                      animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 1.5 + index * 0.05, duration: 0.4 }}
-                            onClick={() => handleBlogClick(post)}
+                      onClick={() => handleBlogClick(post)}
                             className="group cursor-pointer flex gap-3 pb-4 border-b border-text/5 dark:border-white/5 last:border-0"
-                          >
+                    >
                             <div className="w-20 h-20 rounded-lg overflow-hidden bg-gradient-to-br from-primary/10 via-violet-500/10 to-fuchsia-500/10 flex-shrink-0">
                           {post.image && post.image !== '#' ? (
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
+                            <img
+                              src={post.image}
+                              alt={post.title}
                               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                               loading="lazy"
                               onError={(e) => {
@@ -1099,7 +1319,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                           ) : (
                                 <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/20 to-violet-500/20">
                                   <span className="text-xs font-bold text-text/50">{post.title?.charAt(0) || 'A'}</span>
-                            </div>
+                        </div>
                           )}
                         </div>
                             <div className="flex-1">
@@ -1116,6 +1336,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                       </div>
                     </motion.div>
                   </div>
+                  )}
 
                   {/* Additional News Sections - Crypto, Politics, World News */}
                   <motion.div
@@ -1130,9 +1351,12 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                         WORLD NEWS & MARKETS
                       </h2>
                       <div className="h-1 w-20 bg-red-600 dark:bg-red-500"></div>
-                    </div>
+                            </div>
 
                     {/* 3 Column News Layout - Equal Height */}
+                    {loadingContent ? (
+                      <WorldNewsSkeleton />
+                    ) : (
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 md:items-stretch">
                       {/* Crypto News Column */}
                       <div className="border-l-4 border-yellow-500 dark:border-yellow-400 pl-4 flex flex-col min-h-[400px]">
@@ -1142,11 +1366,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                             <span>Market Updates</span>
                           </h3>
                         </div>
-                        {loadingContent ? (
-                          <div className="flex items-center justify-center py-8 flex-1">
-                            <RefreshCw size={16} className="text-primary animate-spin" />
-                          </div>
-                        ) : cryptoNews.length > 0 ? (
+                        {cryptoNews.length > 0 ? (
                           <div className="space-y-4 flex-1">
                             {cryptoNews.slice(0, 5).map((news, index) => (
                               <motion.div
@@ -1161,30 +1381,26 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                                 </h4>
                                 <div className="flex items-center gap-2 text-xs text-text-muted mt-1">
                                   <span>{news.source}</span>
-                                  <span>•</span>
+                            <span>•</span>
                                   <span>{news.date}</span>
                       </div>
                     </motion.div>
                   ))}
                           </div>
                         ) : (
-                          <div className="text-text-muted text-sm flex-1 flex items-center">Loading crypto news...</div>
+                          <div className="text-text-muted text-sm flex-1 flex items-center">No crypto news available</div>
                         )}
-                      </div>
-
+              </div>
+              
                       {/* Politics News Column */}
                       <div className="border-l-4 border-blue-500 dark:border-blue-400 pl-4 flex flex-col min-h-[400px]">
                         <div className="mb-4">
                           <h3 className="text-lg font-bold text-text mb-2 flex items-center gap-2">
                             <span className="px-2 py-1 bg-blue-500 text-white text-xs font-bold uppercase">POLITICS</span>
                             <span>Global Affairs</span>
-                          </h3>
-                        </div>
-                        {loadingContent ? (
-                          <div className="flex items-center justify-center py-8 flex-1">
-                            <RefreshCw size={16} className="text-primary animate-spin" />
+              </h3>
                           </div>
-                        ) : politicsNews.length > 0 ? (
+                        {politicsNews.length > 0 ? (
                           <div className="space-y-4 flex-1">
                             {politicsNews.slice(0, 5).map((news, index) => (
                               <motion.div
@@ -1201,14 +1417,14 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                                   <span>{news.source}</span>
                                   <span>•</span>
                                   <span>{news.date}</span>
-                                </div>
-                </motion.div>
-                            ))}
+              </div>
+            </motion.div>
+          ))}
                           </div>
                         ) : (
-                          <div className="text-text-muted text-sm flex-1 flex items-center">Loading politics news...</div>
+                          <div className="text-text-muted text-sm flex-1 flex items-center">No politics news available</div>
                         )}
-                      </div>
+        </div>
 
                       {/* World News Column */}
                       <div className="border-l-4 border-green-500 dark:border-green-400 pl-4 flex flex-col min-h-[400px]">
@@ -1218,11 +1434,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                             <span>Global Headlines</span>
                           </h3>
                         </div>
-                        {loadingContent ? (
-                          <div className="flex items-center justify-center py-8 flex-1">
-                            <RefreshCw size={16} className="text-primary animate-spin" />
-                          </div>
-                        ) : worldNews.length > 0 ? (
+                        {worldNews.length > 0 ? (
                           <div className="space-y-4 flex-1">
                             {worldNews.slice(0, 5).map((news, index) => (
                               <motion.div
@@ -1239,85 +1451,35 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                                   <span>{news.source}</span>
                                   <span>•</span>
                                   <span>{news.date}</span>
-                                </div>
+                  </div>
             </motion.div>
                             ))}
           </div>
                         ) : (
-                          <div className="text-text-muted text-sm flex-1 flex items-center">Loading world news...</div>
-                        )}
-                      </div>
+                          <div className="text-text-muted text-sm flex-1 flex items-center">No world news available</div>
+            )}
+          </div>
                     </div>
+                    )}
                   </motion.div>
 
                   {/* Filter Tabs and Article Grid */}
-                  <motion.div
+            <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.2, duration: 0.6 }}
                     className="mb-12"
                   >
-                    {/* Section Header with Filter */}
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-8">
+                    {/* Section Header */}
+                    <div className="mb-8">
                       <h2 className="text-3xl md:text-4xl font-display font-bold text-text">
                         MORE TOP STORIES
               </h2>
-              
-                      {/* Segmented Control */}
-              <div className="flex items-center justify-center md:justify-end">
-                <div className="relative inline-flex rounded-full bg-surface-highlight dark:bg-surface/50 border border-text/10 dark:border-white/10 p-1 shadow-inner">
-                  <motion.div
-                            className="absolute inset-y-1 rounded-full bg-white dark:bg-surface-highlight"
-                    initial={false}
-                    animate={{
-                      left: activeFilter === 'Tech' ? '4px' : 'calc(50% + 2px)',
-                      width: 'calc(50% - 6px)',
-                    }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                    style={{
-                      boxShadow: '0 0 15px rgba(255, 255, 255, 0.15), inset 0 0 8px rgba(255, 255, 255, 0.08)',
-                    }}
-                  />
-                  
-                  <button
-                    onClick={() => {
-                      setActiveFilter('Tech');
-                      setDisplayedPosts(6);
-                    }}
-                    className={`relative z-10 px-8 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
-                      activeFilter === 'Tech'
-                        ? 'text-text font-semibold'
-                        : 'text-text-muted'
-                    }`}
-                  >
-                    Tech
-                  </button>
-                  
-                  <button
-                    onClick={() => {
-                      setActiveFilter('Development');
-                      setDisplayedPosts(6);
-                    }}
-                    className={`relative z-10 px-8 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${
-                      activeFilter === 'Development'
-                        ? 'text-text font-semibold'
-                        : 'text-text-muted'
-                    }`}
-                  >
-                    Development
-                  </button>
-                </div>
-                </div>
-              </div>
+                    </div>
               
                     {/* Article Grid */}
             {isLoading && allPosts.length === 0 ? (
-              <div className="flex items-center justify-center py-20">
-                <div className="text-center">
-                  <RefreshCw size={32} className="mx-auto mb-4 text-primary animate-spin" />
-                  <p className="text-text-muted">Fetching real blog posts from RSS feeds...</p>
-                </div>
-              </div>
+              <ArticleGridSkeleton />
             ) : visiblePosts.length === 0 ? (
               <div className="flex items-center justify-center py-20">
                 <div className="text-center">
@@ -1340,22 +1502,22 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                 {/* Load More Button */}
                 {hasMore && (
                   <div className="flex justify-center mt-8">
-                    <motion.button
+                <motion.button
                       onClick={handleLoadMore}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                               className="px-8 py-3 rounded-lg bg-gradient-to-r from-primary via-cyan-400 to-primary text-black dark:text-white font-bold text-sm flex items-center gap-2 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
                     >
                       Load More <ArrowRight size={16} />
                     </motion.button>
                   </div>
                 )}
-              </>
-            )}
-                  </motion.div>
+                    </>
+                  )}
+            </motion.div>
 
                   {/* Newspaper Style Section - Daily Content */}
-            <motion.div
+              <motion.div
                     initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.4, duration: 0.6 }}
@@ -1366,11 +1528,11 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
               <div className="flex items-center justify-between mb-2">
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-text">
                   DAILY SPECIALS
-              </h2>
+                </h2>
                 <span className="text-xs text-text-muted font-mono">
                   {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase()}
                 </span>
-          </div>
+                </div>
               <div className="h-1 w-24 bg-red-600 dark:bg-red-500"></div>
                 </div>
 
@@ -1436,8 +1598,15 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                   </h3>
                 </div>
                 {loadingContent ? (
-                  <div className="flex items-center justify-center py-8 flex-1">
-                    <RefreshCw size={20} className="text-primary animate-spin" />
+                  <div className="space-y-4 flex-1">
+                    {[...Array(4)].map((_, i) => (
+                      <div key={i} className="bg-text/5 dark:bg-white/5 p-5 rounded-lg border-2 border-text/10 dark:border-white/10">
+                        <ShimmerBox className="h-4 w-full mb-2" delay={i * 0.1} />
+                        <ShimmerBox className="h-4 w-5/6 mb-3" delay={i * 0.1 + 0.05} />
+                        <ShimmerBox className="h-5 w-4/5 mb-2" delay={i * 0.1 + 0.1} />
+                        <ShimmerBox className="h-3 w-20" delay={i * 0.1 + 0.15} />
+                      </div>
+                    ))}
                   </div>
                 ) : dailyJokes.length > 0 ? (
                   <div className="space-y-4 flex-1">
@@ -1480,8 +1649,14 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                   </h3>
                 </div>
                 {loadingContent ? (
-                  <div className="flex items-center justify-center py-8 flex-1">
-                    <RefreshCw size={20} className="text-primary animate-spin" />
+                  <div className="space-y-4 flex-1">
+                    {[...Array(6)].map((_, i) => (
+                      <div key={i} className="border-l-2 border-text/20 dark:border-white/20 pl-3 py-2">
+                        <ShimmerBox className="h-4 w-20 mb-2" delay={i * 0.1} />
+                        <ShimmerBox className="h-3 w-full" delay={i * 0.1 + 0.05} />
+                        <ShimmerBox className="h-3 w-5/6" delay={i * 0.1 + 0.1} />
+                      </div>
+                    ))}
                   </div>
                 ) : (
                   <div className="space-y-4 flex-1">
