@@ -1,0 +1,23 @@
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient-move {
+  background-size: 200% 200%;
+  animation: gradient-move 4s ease-in-out infinite;
+}
+@keyframes grid-fade {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.3; }
+}
+.animate-grid-fade {
+  animation: grid-fade 6s ease-in-out infinite;
+}
+@keyframes grid-fade2 {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.15; }
+}
+.animate-grid-fade2 {
+  animation: grid-fade2 8s ease-in-out infinite;
+}

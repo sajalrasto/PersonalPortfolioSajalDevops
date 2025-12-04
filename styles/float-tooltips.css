@@ -1,0 +1,21 @@
+@keyframes float-x {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-12px) translateX(8px); }
+}
+.animate-float-x {
+  animation: float-x 3.2s ease-in-out infinite;
+}
+@keyframes float-x2 {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-10px) translateX(-10px); }
+}
+.animate-float-x2 {
+  animation: float-x2 3.7s ease-in-out infinite;
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+.animate-float-y {
+  animation: float-y 2.8s ease-in-out infinite;
+}

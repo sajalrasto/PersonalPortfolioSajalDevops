@@ -1,0 +1,195 @@
+/* Resume Page Animations */
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes float-up-down {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-15px) translateX(5px);
+  }
+}
+
+.animate-float-annotation {
+  animation: float-up-down 4s ease-in-out infinite;
+}
+
+@keyframes rotate-3d {
+  0% {
+    transform: perspective(1000px) rotateY(-5deg) rotateX(10deg);
+  }
+  50% {
+    transform: perspective(1000px) rotateY(5deg) rotateX(10deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(-5deg) rotateX(10deg);
+  }
+}
+
+.animate-rotate-3d {
+  animation: rotate-3d 20s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes shimmer-text {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-shimmer-text {
+  background-size: 200% auto;
+  animation: shimmer-text 3s linear infinite;
+}
+
+/* Scroll reveal animations */
+@keyframes scroll-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-reveal {
+  animation: scroll-reveal 0.8s ease-out forwards;
+}
+
+/* Stagger animation for list items */
+@keyframes stagger-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.stagger-item {
+  animation: stagger-fade-in 0.5s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* Match percentage circle animation */
+@keyframes circle-fill {
+  from {
+    stroke-dashoffset: 283;
+  }
+  to {
+    stroke-dashoffset: 23;
+  }
+}
+
+.animate-circle-fill {
+  animation: circle-fill 1.5s ease-out forwards;
+  animation-delay: 1s;
+}
+
+/* Annotation line draw animation */
+@keyframes draw-line {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.animate-draw-line {
+  animation: draw-line 0.8s ease-out forwards;
+}
+
+/* Card hover effects */
+.resume-card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.resume-card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 240, 255, 0.15);
+}
+
+/* Floating particles */
+@keyframes particle-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.particle {
+  animation: particle-float var(--duration, 5s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+/* Badge pulse animation */
+@keyframes badge-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.animate-badge-pulse {
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+/* Text gradient animation */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-text {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Smooth transitions for theme changes */
+.theme-transition {
+  transition: 
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+

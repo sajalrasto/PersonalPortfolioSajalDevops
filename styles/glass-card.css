@@ -1,0 +1,8 @@
+.glass-card {
+  box-shadow: 0 16px 64px 0 #00eaff55, 0 1.5px 0 0 #fff2;
+  background: rgba(24, 32, 54, 0.65);
+  border: 1.5px solid rgba(0,234,255,0.12);
+  transform-style: preserve-3d;
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
