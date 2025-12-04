@@ -171,11 +171,13 @@ const ResumePage: React.FC = () => {
                     <MagneticButton 
                         className="h-12 md:h-14 px-6 md:px-8 bg-primary text-black hover:bg-white font-bold text-sm md:text-base flex items-center gap-2 justify-center w-full sm:w-auto"
                         onClick={() => {
-                            // Download CV functionality - you can add actual CV download link here
+                            // Download CV functionality
                             const link = document.createElement('a');
-                            link.href = '/resume.pdf'; // Update with actual CV path
+                            link.href = '/Vishwjeet_resume.pdf';
                             link.download = 'Vishwjeet_resume.pdf';
+                            document.body.appendChild(link);
                             link.click();
+                            document.body.removeChild(link);
                         }}
                     >
                         <Download size={18} className="md:w-5 md:h-5" /> Download CV

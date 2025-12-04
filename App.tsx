@@ -6,7 +6,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import ClientInfoModal from './components/ui/ClientInfoModal';
 import WhatsAppModal from './components/ui/WhatsAppModal';
 import { AppRoutes } from './routes';
-import { Menu, X, FileText, Briefcase, User } from 'lucide-react';
+import { Menu, X, FileText, Briefcase, User, Moon, Sun } from 'lucide-react';
 
 // Header Component
 const Header: React.FC<{ isDark: boolean; toggleTheme: () => void }> = ({ isDark, toggleTheme }) => {
@@ -51,9 +51,9 @@ const Header: React.FC<{ isDark: boolean; toggleTheme: () => void }> = ({ isDark
         </div>
 
         <div className="flex items-center gap-4">
-          <span className="hidden md:inline-flex">
+          <div className="hidden md:block">
             <ThemeToggle isDark={isDark} toggle={toggleTheme} />
-          </span>
+          </div>
           <button
             type="button"
             onClick={() => window.dispatchEvent(new CustomEvent('openClientInfoModal'))}
@@ -72,7 +72,9 @@ const MobileMenu: React.FC<{
   isMenuOpen: boolean; 
   setIsMenuOpen: (open: boolean) => void;
   navigate: (path: string) => void;
-}> = ({ isMenuOpen, setIsMenuOpen, navigate }) => {
+  isDark: boolean;
+  toggleTheme: () => void;
+}> = ({ isMenuOpen, setIsMenuOpen, navigate, isDark, toggleTheme }) => {
   const handleNav = useCallback((path: string) => {
     navigate(path);
     setIsMenuOpen(false);
@@ -181,6 +183,17 @@ const MobileMenu: React.FC<{
           />
         )}
       </motion.button>
+      
+      {/* Theme Toggle Button - Below Floating Menu */}
+      <motion.button
+        onClick={toggleTheme}
+        className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 via-sky-400 to-cyan-300 shadow-lg hover:shadow-xl flex items-center justify-center text-white transition-all duration-300 relative z-10"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        aria-label="Toggle Theme"
+      >
+        {isDark ? <Moon size={22} /> : <Sun size={22} />}
+      </motion.button>
     </div>
   );
 };
@@ -283,6 +296,8 @@ const AppContent: React.FC = () => {
         isMenuOpen={isMenuOpen} 
         setIsMenuOpen={setIsMenuOpen}
         navigate={handleNavigate}
+        isDark={isDark}
+        toggleTheme={toggleTheme}
       />
 
       {/* Global Contact Modal */}
