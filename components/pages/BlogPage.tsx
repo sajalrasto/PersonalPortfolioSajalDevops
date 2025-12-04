@@ -897,7 +897,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
         />
 
         {/* Main Content Container with Paper Corner Fold Effect */}
-        <div className="relative z-10 pt-24 md:pt-32 pb-20 px-4 md:px-6 lg:px-8">
+        <div className="relative z-10 pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-3 sm:px-4 md:px-6 lg:px-8">
           {/* Full Width Container */}
           <div className="w-full mx-auto">
             {/* 3D Paper Container - Tilted Effect */}
@@ -964,16 +964,16 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                   />
                 )}
                 {/* Paper Content */}
-                <div className="p-6 md:p-8 lg:p-12">
+                <div className="p-4 sm:p-6 md:p-8 lg:p-12">
                   {/* Header Section - Newspaper Style */}
                   <motion.div
                     initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.6 }}
-                    className="mb-8 md:mb-12"
+                    className="mb-6 md:mb-8 lg:mb-12"
                   >
-                    {/* Top Bar */}
-                    <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-text/10 dark:border-white/10">
+                    {/* Top Bar - Hidden on Mobile */}
+                    <div className="hidden md:flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-text/10 dark:border-white/10">
                       <div className="flex flex-wrap items-center gap-4 text-xs text-text-muted">
                         <span className="hover:text-text transition-colors cursor-pointer">EVENTS</span>
                         <span className="hover:text-text transition-colors cursor-pointer">BREAKING NEWS</span>
@@ -989,14 +989,27 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                       </div>
                         </div>
 
+                    {/* Mobile Date Display */}
+                    <div className="md:hidden mb-4 pb-3 border-b border-text/10 dark:border-white/10">
+                      <div className="text-xs text-text-muted font-mono text-center">
+                        {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase()}
+                      </div>
+                    </div>
+
                     {/* Main Navigation */}
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6 pb-6 border-b-2 border-text/20 dark:border-white/20">
-                      <div className="flex items-center gap-4 w-full md:w-auto">
+                      {/* Mobile: Title First */}
+                      <h1 className="md:hidden text-2xl font-display font-bold text-text text-center w-full">
+                        ENGINEERING JOURNAL
+                      </h1>
+                      
+                      {/* Desktop: Search and Language */}
+                      <div className="hidden md:flex items-center gap-4 w-full md:w-auto">
                         <div className="flex items-center gap-2 text-sm">
                           <span className="font-semibold text-text">EN</span>
                           <span className="text-text-muted">|</span>
                           <span className="text-text-muted">IN</span>
-                        </div>
+                          </div>
                         <div className="flex-1 md:flex-initial flex items-center gap-2 px-4 py-2 rounded-lg border border-text/10 dark:border-white/10 bg-surface/50 dark:bg-surface/30">
                           <Search size={16} className="text-text-muted" />
                           <input
@@ -1004,14 +1017,16 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                             placeholder="What are you looking for?"
                             className="flex-1 bg-transparent border-none outline-none text-sm text-text placeholder:text-text-muted"
                           />
-                        </div>
-                        </div>
+                            </div>
+                          </div>
 
-                      <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text text-center md:text-left">
+                      {/* Desktop: Title */}
+                      <h1 className="hidden md:block text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text text-center md:text-left">
                         ENGINEERING JOURNAL
                       </h1>
                       
-                      <div className="flex items-center gap-3">
+                      {/* Desktop: Buttons */}
+                      <div className="hidden md:flex items-center gap-3">
                         <button className="px-4 py-2 text-sm font-medium text-text hover:text-primary transition-colors">
                           LOGIN
                         </button>
@@ -1021,27 +1036,47 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                         >
                           SUBSCRIBE
                         </button>
-                          </div>
-                            </div>
+              </div>
 
-                    {/* Category Navigation */}
-                    <div className="flex flex-wrap items-center gap-2 md:gap-4 text-xs md:text-sm font-medium text-text-muted border-b border-text/10 dark:border-white/10 pb-4">
-                      <span className="hover:text-text transition-colors cursor-pointer">OPINION</span>
-                      <span className="text-text/20">|</span>
-                      <span className="hover:text-text transition-colors cursor-pointer">BUSINESS & TRENDS</span>
-                      <span className="text-text/20">|</span>
-                      <span className="hover:text-text transition-colors cursor-pointer">POLITICS</span>
-                      <span className="text-text/20">|</span>
-                      <span className="hover:text-text transition-colors cursor-pointer">SPORTS</span>
-                      <span className="text-text/20">|</span>
-                      <span className="hover:text-text transition-colors cursor-pointer">STYLE & EXPERIENCES</span>
-                      <span className="text-text/20">|</span>
-                      <span className="hover:text-text transition-colors cursor-pointer">SUSTAINABILITY</span>
-                      <span className="text-text/20">|</span>
-                      <span className="hover:text-text transition-colors cursor-pointer">ACADEMIC</span>
-                      <span className="text-text/20">|</span>
-                      <span className="hover:text-text transition-colors cursor-pointer">WORLDS OF LUXURY</span>
-                          </div>
+                      {/* Mobile: Search and Subscribe */}
+                      <div className="md:hidden w-full flex items-center gap-2">
+                        <div className="flex-1 flex items-center gap-2 px-3 py-2 rounded-lg border border-text/10 dark:border-white/10 bg-surface/50 dark:bg-surface/30">
+                          <Search size={14} className="text-text-muted" />
+                          <input
+                            type="text"
+                            placeholder="Search..."
+                            className="flex-1 bg-transparent border-none outline-none text-xs text-text placeholder:text-text-muted"
+                          />
+                        </div>
+                        <button 
+                          onClick={() => window.dispatchEvent(new CustomEvent('openClientInfoModal'))}
+                          className="px-4 py-2 rounded-full bg-text text-white dark:bg-primary dark:text-black font-bold text-[10px] uppercase tracking-wider hover:opacity-90 transition-opacity"
+                        >
+                          SUBSCRIBE
+                        </button>
+                        </div>
+        </div>
+
+                    {/* Category Navigation - Scrollable on Mobile */}
+                    <div className="overflow-x-auto -mx-6 md:mx-0 px-6 md:px-0 pb-4 border-b border-text/10 dark:border-white/10">
+                      <div className="flex items-center gap-2 md:gap-4 text-xs md:text-sm font-medium text-text-muted min-w-max md:min-w-0 md:flex-wrap">
+                        <span className="hover:text-text transition-colors cursor-pointer whitespace-nowrap">OPINION</span>
+                        <span className="text-text/20 hidden md:inline">|</span>
+                        <span className="hover:text-text transition-colors cursor-pointer whitespace-nowrap">BUSINESS & TRENDS</span>
+                        <span className="text-text/20 hidden md:inline">|</span>
+                        <span className="hover:text-text transition-colors cursor-pointer whitespace-nowrap">POLITICS</span>
+                        <span className="text-text/20 hidden md:inline">|</span>
+                        <span className="hover:text-text transition-colors cursor-pointer whitespace-nowrap">SPORTS</span>
+                        <span className="text-text/20 hidden md:inline">|</span>
+                        <span className="hover:text-text transition-colors cursor-pointer whitespace-nowrap hidden md:inline">STYLE & EXPERIENCES</span>
+                        <span className="text-text/20 hidden md:inline">|</span>
+                        <span className="hover:text-text transition-colors cursor-pointer whitespace-nowrap hidden md:inline">SUSTAINABILITY</span>
+                        <span className="text-text/20 hidden md:inline">|</span>
+                        <span className="hover:text-text transition-colors cursor-pointer whitespace-nowrap hidden md:inline">ACADEMIC</span>
+                        <span className="text-text/20 hidden md:inline">|</span>
+                        <span className="hover:text-text transition-colors cursor-pointer whitespace-nowrap hidden md:inline">WORLDS OF LUXURY</span>
+                      </div>
+                    </div>
                   </motion.div>
 
    
@@ -1051,46 +1086,13 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                     <HeroSectionSkeleton />
                   ) : (
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 mb-12 lg:items-stretch">
-                    {/* Left Sidebar - Recent Articles */}
-                    <motion.div
-                      initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.7, duration: 0.6 }}
-                      className="lg:col-span-3 space-y-6 flex flex-col"
-                    >
-                      <h2 className="text-lg font-bold text-text mb-4 pb-2 border-b border-text/10 dark:border-white/10">
-                        Recent Articles
-                      </h2>
-                      <div className="space-y-6 flex-1">
-                        {leftSidebarPosts.slice(0, 12).map((post, index) => (
-                          <motion.div
-                            key={post.id || index}
-                            initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.8 + index * 0.05, duration: 0.4 }}
-                            onClick={() => handleBlogClick(post)}
-                            className="group cursor-pointer pb-6 border-b border-text/5 dark:border-white/5 last:border-0"
-                          >
-                            <h3 className="text-sm font-bold text-text mb-2 leading-tight group-hover:text-primary transition-colors line-clamp-2">
-                              {post.title || `Article Title ${index + 1}`}
-                            </h3>
-                            <div className="flex items-center gap-2 text-xs text-text-muted">
-                              <span>{post.author || 'John Doe'}</span>
-                              <span>•</span>
-                              <span>{formatDateWithYear(post.date)}</span>
-                        </div>
-                </motion.div>
-                        ))}
-        </div>
-
-                    </motion.div>
-
+                    {/* Mobile: Main Story First */}
                     {/* Center Column - Main Story */}
                 <motion.div
                       initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.8, duration: 0.6 }}
-                      className="lg:col-span-6 flex flex-col"
+                      className="lg:col-span-6 flex flex-col order-1 lg:order-2"
                     >
                       {mainStories.length > 0 && (
                         <div className="relative flex flex-col flex-1">
@@ -1103,7 +1105,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
 
                           {/* Main Story Image */}
                           <div 
-                            className="relative h-64 md:h-80 lg:h-96 rounded-xl overflow-hidden mb-6 cursor-pointer group"
+                            className="relative h-48 sm:h-64 md:h-80 lg:h-96 rounded-xl overflow-hidden mb-6 cursor-pointer group"
                             onClick={() => handleBlogClick(mainStories[0])}
                           >
                             {mainStories[0].image && mainStories[0].image !== '#' ? (
@@ -1130,14 +1132,14 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                       </div>
 
                           {/* Main Story Content */}
-                          <div onClick={() => handleBlogClick(mainStories[0])} className="cursor-pointer mb-8">
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-text mb-4 leading-tight group-hover:text-primary transition-colors">
+                          <div onClick={() => handleBlogClick(mainStories[0])} className="cursor-pointer mb-6 md:mb-8">
+                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-display font-bold text-text mb-3 md:mb-4 leading-tight group-hover:text-primary transition-colors">
                               {mainStories[0].title || 'House Democrats introduce resolution to censure Rep. Gosar'}
                         </h2>
-                            <p className="text-base md:text-lg text-text-muted mb-6 leading-relaxed">
+                            <p className="text-sm sm:text-base md:text-lg text-text-muted mb-4 md:mb-6 leading-relaxed line-clamp-3 md:line-clamp-none">
                               {mainStories[0].excerpt || 'Detailed description of the main story goes here...'}
                             </p>
-                            <div className="flex items-center gap-3 text-sm text-text-muted mb-0">
+                            <div className="flex items-center gap-3 text-xs sm:text-sm text-text-muted mb-0">
                               <div className="w-8 h-8 rounded-full bg-gradient-to-r from-primary to-fuchsia flex items-center justify-center text-white font-bold text-xs">
                                 {mainStories[0].author?.charAt(0) || 'M'}
                     </div>
@@ -1152,9 +1154,9 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                         </div>
         </div>
 
-                          {/* Related Articles Section - Below Main Story */}
+                          {/* Related Articles Section - Below Main Story - Hidden on Mobile */}
                           {relatedArticles.length > 0 && (
-                            <div className="mt-6 pt-6 border-t border-text/10 dark:border-white/10">
+                            <div className="hidden md:block mt-6 pt-6 border-t border-text/10 dark:border-white/10">
                               <h3 className="text-lg font-bold text-text mb-4 pb-2 border-b border-text/10 dark:border-white/10">
                                 Related Stories
                               </h3>
@@ -1208,15 +1210,16 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
               )}
                     </motion.div>
 
+                    {/* Mobile: Trending Topics Second */}
                     {/* Right Sidebar - Trending Topics */}
                   <motion.div
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.9, duration: 0.6 }}
-                      className="lg:col-span-3 flex flex-col"
+                      className="lg:col-span-3 flex flex-col order-2 lg:order-3"
                     >
                       {/* Tabs */}
-                      <div className="flex gap-4 mb-6 border-b border-text/10 dark:border-white/10">
+                      <div className="flex gap-4 mb-4 md:mb-6 border-b border-text/10 dark:border-white/10">
                   <button
                           onClick={() => setActiveTab('trending')}
                           className={`pb-2 px-1 text-sm font-bold transition-colors ${
@@ -1225,7 +1228,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                               : 'text-text-muted hover:text-text'
                           }`}
                         >
-                          TRENDING TOPIC
+                          TRENDING
                   </button>
                   <button
                           onClick={() => setActiveTab('latest')}
@@ -1235,13 +1238,13 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                               : 'text-text-muted hover:text-text'
                           }`}
                         >
-                          LATEST UPDATE
+                          LATEST
                   </button>
                 </div>
 
                       {/* Trending Topics List */}
                       {activeTab === 'trending' && (
-                        <div className="space-y-4 mb-6">
+                        <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
                           {trendingPosts.slice(0, 5).map((post, index) => (
             <motion.div
                             key={post.id || index}
@@ -1251,9 +1254,9 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                       onClick={() => handleBlogClick(post)}
               className="group cursor-pointer"
             >
-                            <div className="flex items-start gap-3">
-                              <span className="text-2xl font-bold text-red-600 flex-shrink-0">#{index + 1}</span>
-                              <h3 className="text-sm font-bold text-text leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                            <div className="flex items-start gap-2 md:gap-3">
+                              <span className="text-xl md:text-2xl font-bold text-red-600 flex-shrink-0">#{index + 1}</span>
+                              <h3 className="text-xs sm:text-sm font-bold text-text leading-tight group-hover:text-primary transition-colors line-clamp-2">
                                 {post.title || `Trending Topic ${index + 1}`}
                               </h3>
                 </div>
@@ -1264,7 +1267,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
 
                       {/* Latest Update List */}
                       {activeTab === 'latest' && (
-                        <div className="space-y-4 mb-6">
+                        <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
                           {allPosts.slice(0, 5).map((post, index) => (
                             <motion.div
                               key={post.id || index}
@@ -1274,13 +1277,13 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                               onClick={() => handleBlogClick(post)}
                               className="group cursor-pointer"
                             >
-                              <div className="flex items-start gap-3">
-                                <span className="text-2xl font-bold text-blue-600 flex-shrink-0">#{index + 1}</span>
-                                <h3 className="text-sm font-bold text-text leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                              <div className="flex items-start gap-2 md:gap-3">
+                                <span className="text-xl md:text-2xl font-bold text-blue-600 flex-shrink-0">#{index + 1}</span>
+                                <h3 className="text-xs sm:text-sm font-bold text-text leading-tight group-hover:text-primary transition-colors line-clamp-2">
                                   {post.title || `Latest Update ${index + 1}`}
                                 </h3>
                 </div>
-                              <div className="flex items-center gap-2 text-xs text-text-muted mt-1 ml-10">
+                              <div className="flex items-center gap-2 text-[10px] sm:text-xs text-text-muted mt-1 ml-7 md:ml-10">
                                 <span>{post.author || 'Author'}</span>
                                 <span>•</span>
                                 <span>{formatDateWithYear(post.date)}</span>
@@ -1290,8 +1293,8 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                 </div>
                       )}
 
-                      {/* Additional Articles */}
-                      <div className="mt-6 pt-6 border-t border-text/10 dark:border-white/10">
+                      {/* Additional Articles - Hidden on Mobile */}
+                      <div className="hidden md:block mt-6 pt-6 border-t border-text/10 dark:border-white/10">
                         <h3 className="text-lg font-bold text-text mb-4 pb-2 border-b border-text/10 dark:border-white/10">
                           More Articles
                         </h3>
@@ -1321,45 +1324,81 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                                   <span className="text-xs font-bold text-text/50">{post.title?.charAt(0) || 'A'}</span>
                         </div>
                           )}
-                        </div>
+                            </div>
                             <div className="flex-1">
                               <h3 className="text-sm font-bold text-text mb-1 leading-tight group-hover:text-primary transition-colors line-clamp-2">
                                 {post.title || `Article ${index + 1}`}
-                          </h3>
+              </h3>
                               <div className="text-xs text-text-muted">
                                 {formatDateWithYear(post.date)}
                         </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
                       </div>
+                </motion.div>
+
+                    {/* Mobile: Recent Articles Third */}
+                    {/* Left Sidebar - Recent Articles */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.7, duration: 0.6 }}
+                      className="lg:col-span-3 space-y-6 flex flex-col order-3 lg:order-1"
+                    >
+                      <h2 className="text-base md:text-lg font-bold text-text mb-4 pb-2 border-b border-text/10 dark:border-white/10">
+                        Recent Articles
+                      </h2>
+                      <div className="space-y-4 md:space-y-6 flex-1">
+                        {leftSidebarPosts.slice(0, 6).map((post, index) => (
+                          <motion.div
+                            key={post.id || index}
+                            initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.8 + index * 0.05, duration: 0.4 }}
+                            onClick={() => handleBlogClick(post)}
+                            className="group cursor-pointer pb-4 md:pb-6 border-b border-text/5 dark:border-white/5 last:border-0"
+                          >
+                            <h3 className="text-xs sm:text-sm font-bold text-text mb-1 md:mb-2 leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                              {post.title || `Article Title ${index + 1}`}
+                            </h3>
+                            <div className="flex items-center gap-2 text-[10px] sm:text-xs text-text-muted">
+                              <span className="truncate">{post.author || 'John Doe'}</span>
+                              <span>•</span>
+                              <span className="whitespace-nowrap">{formatDateWithYear(post.date)}</span>
+                  </div>
+                </motion.div>
+                        ))}
+          </div>
+
                     </motion.div>
-                  ))}
-                        </div>
-                      </div>
-                    </motion.div>
+          
                   </div>
                   )}
 
                   {/* Additional News Sections - Crypto, Politics, World News */}
-                  <motion.div
+            <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.1, duration: 0.6 }}
-                    className="mb-12 mt-12 pt-8 border-t-2 border-text/20 dark:border-white/20"
+                    className="mb-8 md:mb-12 mt-8 md:mt-12 pt-6 md:pt-8 border-t-2 border-text/20 dark:border-white/20"
                   >
                     {/* Section Header */}
-                    <div className="mb-6 pb-3 border-b border-text/10 dark:border-white/10">
-                      <h2 className="text-2xl md:text-3xl font-display font-bold text-text mb-2">
+                    <div className="mb-4 md:mb-6 pb-2 md:pb-3 border-b border-text/10 dark:border-white/10">
+                      <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-text mb-2">
                         WORLD NEWS & MARKETS
-                      </h2>
-                      <div className="h-1 w-20 bg-red-600 dark:bg-red-500"></div>
+              </h2>
+                      <div className="h-1 w-16 md:w-20 bg-red-600 dark:bg-red-500"></div>
                             </div>
 
                     {/* 3 Column News Layout - Equal Height */}
                     {loadingContent ? (
                       <WorldNewsSkeleton />
                     ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 md:items-stretch">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 md:items-stretch">
                       {/* Crypto News Column */}
-                      <div className="border-l-4 border-yellow-500 dark:border-yellow-400 pl-4 flex flex-col min-h-[400px]">
+                      <div className="border-l-4 border-yellow-500 dark:border-yellow-400 pl-3 md:pl-4 flex flex-col min-h-[300px] md:min-h-[400px]">
                         <div className="mb-4">
                           <h3 className="text-lg font-bold text-text mb-2 flex items-center gap-2">
                             <span className="px-2 py-1 bg-yellow-500 text-black text-xs font-bold uppercase">CRYPTO</span>
@@ -1383,17 +1422,17 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                                   <span>{news.source}</span>
                             <span>•</span>
                                   <span>{news.date}</span>
-                      </div>
-                    </motion.div>
-                  ))}
+              </div>
+            </motion.div>
+          ))}
                           </div>
                         ) : (
                           <div className="text-text-muted text-sm flex-1 flex items-center">No crypto news available</div>
                         )}
-              </div>
-              
+        </div>
+
                       {/* Politics News Column */}
-                      <div className="border-l-4 border-blue-500 dark:border-blue-400 pl-4 flex flex-col min-h-[400px]">
+                      <div className="border-l-4 border-blue-500 dark:border-blue-400 pl-3 md:pl-4 flex flex-col min-h-[300px] md:min-h-[400px]">
                         <div className="mb-4">
                           <h3 className="text-lg font-bold text-text mb-2 flex items-center gap-2">
                             <span className="px-2 py-1 bg-blue-500 text-white text-xs font-bold uppercase">POLITICS</span>
@@ -1417,17 +1456,17 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                                   <span>{news.source}</span>
                                   <span>•</span>
                                   <span>{news.date}</span>
-              </div>
+                  </div>
             </motion.div>
           ))}
-                          </div>
+          </div>
                         ) : (
                           <div className="text-text-muted text-sm flex-1 flex items-center">No politics news available</div>
                         )}
         </div>
 
                       {/* World News Column */}
-                      <div className="border-l-4 border-green-500 dark:border-green-400 pl-4 flex flex-col min-h-[400px]">
+                      <div className="border-l-4 border-green-500 dark:border-green-400 pl-3 md:pl-4 flex flex-col min-h-[300px] md:min-h-[400px]">
                         <div className="mb-4">
                           <h3 className="text-lg font-bold text-text mb-2 flex items-center gap-2">
                             <span className="px-2 py-1 bg-green-500 text-white text-xs font-bold uppercase">WORLD</span>
@@ -1437,10 +1476,10 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                         {worldNews.length > 0 ? (
                           <div className="space-y-4 flex-1">
                             {worldNews.slice(0, 5).map((news, index) => (
-                              <motion.div
+              <motion.div
                                 key={index}
                                 initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
+                animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 1.4 + index * 0.05, duration: 0.4 }}
                                 className="pb-3 border-b border-text/5 dark:border-white/5 last:border-0"
                               >
@@ -1468,13 +1507,13 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                     initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.2, duration: 0.6 }}
-                    className="mb-12"
+                    className="mb-8 md:mb-12"
                   >
                     {/* Section Header */}
-                    <div className="mb-8">
-                      <h2 className="text-3xl md:text-4xl font-display font-bold text-text">
+                    <div className="mb-6 md:mb-8">
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-text">
                         MORE TOP STORIES
-              </h2>
+                </h2>
                     </div>
               
                     {/* Article Grid */}
@@ -1502,52 +1541,52 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                 {/* Load More Button */}
                 {hasMore && (
                   <div className="flex justify-center mt-8">
-                <motion.button
+                  <motion.button
                       onClick={handleLoadMore}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                               className="px-8 py-3 rounded-lg bg-gradient-to-r from-primary via-cyan-400 to-primary text-black dark:text-white font-bold text-sm flex items-center gap-2 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
-                    >
+                  >
                       Load More <ArrowRight size={16} />
-                    </motion.button>
-                  </div>
+                  </motion.button>
+                </div>
                 )}
                     </>
                   )}
-            </motion.div>
+              </motion.div>
 
                   {/* Newspaper Style Section - Daily Content */}
               <motion.div
                     initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.4, duration: 0.6 }}
-                    className="mt-16 pt-12 border-t-2 border-text/20 dark:border-white/20"
+                    className="mt-8 md:mt-16 pt-8 md:pt-12 border-t-2 border-text/20 dark:border-white/20"
                   >
             {/* Section Header - Newspaper Style */}
-            <div className="mb-8 pb-4 border-b-2 border-text/20 dark:border-white/20">
-              <div className="flex items-center justify-between mb-2">
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-text">
+            <div className="mb-6 md:mb-8 pb-3 md:pb-4 border-b-2 border-text/20 dark:border-white/20">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-text">
                   DAILY SPECIALS
                 </h2>
-                <span className="text-xs text-text-muted font-mono">
+                <span className="text-[10px] sm:text-xs text-text-muted font-mono">
                   {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase()}
                 </span>
                 </div>
-              <div className="h-1 w-24 bg-red-600 dark:bg-red-500"></div>
+              <div className="h-1 w-16 md:w-24 bg-red-600 dark:bg-red-500"></div>
                 </div>
 
             {/* Newspaper 3-Column Layout - Equal Height */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 lg:items-stretch">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-6 lg:gap-8 lg:items-stretch">
               {/* Left Column - FAQ Section */}
-              <div className="lg:col-span-5 flex flex-col min-h-[500px]">
+              <div className="lg:col-span-5 flex flex-col min-h-[300px] md:min-h-[500px]">
                 <div className="mb-6 pb-3 border-b border-text/10 dark:border-white/10">
                   <h3 className="text-xl font-bold text-text mb-2 flex items-center gap-2">
                     <span className="px-2 py-1 bg-red-600 text-white text-xs font-bold uppercase">FAQ</span>
                     <span>Frequently Asked Questions</span>
                   </h3>
                 </div>
-                <div className="space-y-3 flex-1">
-                  {faqs.slice(0, 8).map((faq, index) => (
+                <div className="space-y-2 md:space-y-3 flex-1">
+                  {faqs.slice(0, 6).map((faq, index) => (
                   <motion.div
                     key={index}
                       initial={{ opacity: 0, y: 10 }}
@@ -1590,7 +1629,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
               </div>
 
               {/* Middle Column - Daily Jokes */}
-              <div className="lg:col-span-4 flex flex-col min-h-[500px]">
+              <div className="lg:col-span-4 flex flex-col min-h-[300px] md:min-h-[500px]">
                 <div className="mb-6 pb-3 border-b border-text/10 dark:border-white/10">
                   <h3 className="text-xl font-bold text-text mb-2 flex items-center gap-2">
                     <span className="px-2 py-1 bg-yellow-500 text-black text-xs font-bold uppercase">JOKE</span>
@@ -1598,9 +1637,9 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                   </h3>
                 </div>
                 {loadingContent ? (
-                  <div className="space-y-4 flex-1">
-                    {[...Array(4)].map((_, i) => (
-                      <div key={i} className="bg-text/5 dark:bg-white/5 p-5 rounded-lg border-2 border-text/10 dark:border-white/10">
+                  <div className="space-y-3 md:space-y-4 flex-1">
+                    {[...Array(3)].map((_, i) => (
+                      <div key={i} className="bg-text/5 dark:bg-white/5 p-4 md:p-5 rounded-lg border-2 border-text/10 dark:border-white/10">
                         <ShimmerBox className="h-4 w-full mb-2" delay={i * 0.1} />
                         <ShimmerBox className="h-4 w-5/6 mb-3" delay={i * 0.1 + 0.05} />
                         <ShimmerBox className="h-5 w-4/5 mb-2" delay={i * 0.1 + 0.1} />
@@ -1609,14 +1648,14 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                     ))}
                   </div>
                 ) : dailyJokes.length > 0 ? (
-                  <div className="space-y-4 flex-1">
-                    {dailyJokes.map((joke, index) => (
+                  <div className="space-y-3 md:space-y-4 flex-1">
+                    {dailyJokes.slice(0, 3).map((joke, index) => (
                         <motion.div
                         key={index}
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 1.6 + index * 0.1, duration: 0.5 }}
-                        className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/10 dark:to-orange-900/10 p-5 rounded-lg border-2 border-yellow-200 dark:border-yellow-800/30"
+                        className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/10 dark:to-orange-900/10 p-4 md:p-5 rounded-lg border-2 border-yellow-200 dark:border-yellow-800/30"
                       >
                         <div className="mb-3">
                           <p className="text-sm font-semibold text-text mb-2 leading-relaxed">
@@ -1641,7 +1680,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
               </div>
 
               {/* Right Column - Horoscopes */}
-              <div className="lg:col-span-3 flex flex-col min-h-[500px]">
+              <div className="lg:col-span-3 flex flex-col min-h-[300px] md:min-h-[500px]">
                 <div className="mb-6 pb-3 border-b border-text/10 dark:border-white/10">
                   <h3 className="text-xl font-bold text-text mb-2 flex items-center gap-2">
                     <span className="px-2 py-1 bg-purple-600 text-white text-xs font-bold uppercase">ASTRO</span>
@@ -1649,8 +1688,8 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                   </h3>
                 </div>
                 {loadingContent ? (
-                  <div className="space-y-4 flex-1">
-                    {[...Array(6)].map((_, i) => (
+                  <div className="space-y-3 md:space-y-4 flex-1">
+                    {[...Array(4)].map((_, i) => (
                       <div key={i} className="border-l-2 border-text/20 dark:border-white/20 pl-3 py-2">
                         <ShimmerBox className="h-4 w-20 mb-2" delay={i * 0.1} />
                         <ShimmerBox className="h-3 w-full" delay={i * 0.1 + 0.05} />
@@ -1659,8 +1698,8 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                     ))}
                   </div>
                 ) : (
-                  <div className="space-y-4 flex-1">
-                    {horoscopes.slice(0, 6).map((horo, index) => (
+                  <div className="space-y-3 md:space-y-4 flex-1">
+                    {horoscopes.slice(0, 4).map((horo, index) => (
                       <motion.div
                         key={horo.sign}
                         initial={{ opacity: 0, x: 10 }}
