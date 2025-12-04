@@ -738,103 +738,48 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
         ref={containerRef}
         className="min-h-screen overflow-x-hidden bg-background relative"
       >
-        {/* Professional Animated Background - Light Mode */}
+        {/* Vintage Newspaper Background - Light Mode */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-          {/* Base Gradient - Warm, Professional Tone */}
+          {/* Vintage Paper Background - Warm Cream/Beige for Light Mode */}
           <div 
             className="absolute inset-0"
             style={{
-              background: 'linear-gradient(135deg, #F8F6F0 0%, #F5F1E8 25%, #FAF8F3 50%, #F0EDE5 75%, #F8F6F0 100%)',
+              background: 'linear-gradient(135deg, #F5F1E8 0%, #F8F6F0 25%, #FAF8F3 50%, #F0EDE5 75%, #F5F1E8 100%)',
               backgroundSize: '400% 400%',
             }}
           />
           
-          {/* Animated Gradient Orbs - Professional Depth */}
-          <motion.div
-            className="absolute top-[-15%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full opacity-40"
+          {/* Subtle Vintage Texture */}
+          <div 
+            className="absolute inset-0 opacity-[0.03] dark:opacity-[0.02]"
             style={{
-              background: 'radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(217, 70, 239, 0.1) 40%, transparent 70%)',
-              filter: 'blur(100px)',
-            }}
-            animate={{
-              x: [0, 50, 0],
-              y: [0, 30, 0],
-              scale: [1, 1.1, 1],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: 'easeInOut',
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              backgroundSize: '200px 200px',
             }}
           />
-          
+
+          {/* Subtle Animated Orbs - Very Light for Vintage Feel */}
           <motion.div
-            className="absolute top-[40%] right-[10%] w-[600px] h-[500px] rounded-full opacity-30"
+            className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full opacity-20"
             style={{
-              background: 'radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(139, 92, 246, 0.08) 50%, transparent 70%)',
-              filter: 'blur(120px)',
+              background: 'radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, rgba(217, 70, 239, 0.05) 40%, transparent 70%)',
+              filter: 'blur(80px)',
             }}
             animate={{
-              x: [0, -40, 0],
-              y: [0, 50, 0],
-              scale: [1, 1.15, 1],
+              x: [0, 30, 0],
+              y: [0, 20, 0],
+              scale: [1, 1.05, 1],
             }}
             transition={{
               duration: 25,
               repeat: Infinity,
               ease: 'easeInOut',
-              delay: 0.5,
             }}
           />
-          
-          <motion.div
-            className="absolute bottom-[20%] left-[15%] w-[500px] h-[400px] rounded-full opacity-25"
-            style={{
-              background: 'radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, rgba(0, 240, 255, 0.08) 40%, transparent 70%)',
-              filter: 'blur(90px)',
-            }}
-            animate={{
-              x: [0, 60, 0],
-              y: [0, -30, 0],
-              scale: [1, 1.2, 1],
-            }}
-            transition={{
-              duration: 18,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: 1,
-            }}
-          />
-
-          {/* Subtle Animated Particles - Professional Touch */}
-          {[...Array(15)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 rounded-full"
-              style={{
-                background: `rgba(${Math.random() > 0.5 ? '139, 92, 246' : '0, 240, 255'}, ${0.15 + Math.random() * 0.15})`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                opacity: [0, 0.6, 0],
-                scale: [0, 1.5, 0],
-                y: [0, Math.random() * 50 - 25],
-                x: [0, Math.random() * 50 - 25],
-              }}
-              transition={{
-                duration: 4 + Math.random() * 3,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-                ease: 'easeInOut',
-              }}
-            />
-          ))}
           </div>
 
-        {/* Professional Animated Background - Dark Mode */}
+        {/* Dark Mode Background */}
         <div className="dark:block hidden absolute inset-0 overflow-hidden pointer-events-none z-0">
-          {/* Base Gradient - Deep, Professional Tone */}
           <div 
             className="absolute inset-0"
             style={{
@@ -843,170 +788,45 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
             }}
           />
           
-          {/* Animated Gradient Orbs - Professional Depth */}
     <motion.div
-            className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[700px] rounded-full opacity-60"
+            className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full opacity-50"
             style={{
-              background: 'radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, rgba(217, 70, 239, 0.2) 40%, transparent 70%)',
-              filter: 'blur(120px)',
+              background: 'radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(217, 70, 239, 0.15) 40%, transparent 70%)',
+              filter: 'blur(100px)',
             }}
             animate={{
-              x: [0, 60, 0],
-              y: [0, 40, 0],
-              scale: [1, 1.15, 1],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-          
-                <motion.div
-            className="absolute top-[35%] right-[8%] w-[700px] h-[600px] rounded-full opacity-50"
-            style={{
-              background: 'radial-gradient(circle, rgba(0, 240, 255, 0.25) 0%, rgba(139, 92, 246, 0.15) 50%, transparent 70%)',
-              filter: 'blur(130px)',
-            }}
-            animate={{
-              x: [0, -50, 0],
-              y: [0, 60, 0],
-              scale: [1, 1.2, 1],
+              x: [0, 40, 0],
+              y: [0, 30, 0],
+              scale: [1, 1.1, 1],
             }}
             transition={{
               duration: 25,
               repeat: Infinity,
               ease: 'easeInOut',
-              delay: 0.5,
             }}
           />
-          
-          <motion.div
-            className="absolute bottom-[15%] left-[12%] w-[600px] h-[500px] rounded-full opacity-40"
-            style={{
-              background: 'radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, rgba(0, 240, 255, 0.15) 40%, transparent 70%)',
-              filter: 'blur(110px)',
-            }}
-            animate={{
-              x: [0, 70, 0],
-              y: [0, -40, 0],
-              scale: [1, 1.25, 1],
-            }}
-            transition={{
-              duration: 18,
-              repeat: Infinity,
-              ease: 'easeInOut',
-              delay: 1,
-            }}
-          />
-
-          {/* Subtle Animated Particles - Professional Touch */}
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1.5 h-1.5 rounded-full"
-              style={{
-                background: `rgba(${Math.random() > 0.5 ? '139, 92, 246' : '0, 240, 255'}, ${0.3 + Math.random() * 0.3})`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                boxShadow: `0 0 ${4 + Math.random() * 4}px rgba(${Math.random() > 0.5 ? '139, 92, 246' : '0, 240, 255'}, 0.5)`,
-              }}
-              animate={{
-                opacity: [0, 0.8, 0],
-                scale: [0, 2, 0],
-                y: [0, Math.random() * 60 - 30],
-                x: [0, Math.random() * 60 - 30],
-              }}
-              transition={{
-                duration: 5 + Math.random() * 4,
-                repeat: Infinity,
-                delay: Math.random() * 3,
-                ease: 'easeInOut',
-              }}
-            />
-          ))}
               </div>
 
-        {/* Subtle Paper Texture Overlay - Professional Detail */}
-        <div 
-          className="fixed inset-0 pointer-events-none z-0 opacity-[0.02] dark:opacity-[0.015]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            backgroundSize: '200px 200px',
-          }}
-        />
-
-        {/* Main Content Container with Paper Corner Fold Effect */}
-        <div className="relative z-10 pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-3 sm:px-4 md:px-6 lg:px-8">
-          {/* Full Width Container */}
-          <div className="w-full mx-auto">
-            {/* 3D Paper Container - Tilted Effect */}
-    <motion.div
+        {/* Main Content Container with Paper Effect */}
+        <div className="relative z-10 pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 md:px-8">
+          {/* Max Width Container */}
+          <div className="w-full max-w-7xl mx-auto">
+            {/* Paper Container */}
+            <motion.div
               style={{ y, opacity }}
-              className="relative w-full perspective-2000"
+              className="relative w-full"
             >
               {/* Main Paper Card - Newspaper Layout */}
-                <motion.div
-                ref={paperCardRef}
-                initial={{ 
-                  opacity: 0, 
-                  y: window.innerWidth < 768 ? 30 : 50
-                }}
-                animate={{ 
-                  opacity: 1, 
-                  y: 0
-                }}
-                transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                onMouseMove={handleMouseMove}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                style={{
-                  transformStyle: 'preserve-3d',
-                  rotateX,
-                  rotateY,
-                  rotateZ,
-                  scale,
-                  boxShadow: isHovered 
-                    ? '0 20px 60px rgba(0, 240, 255, 0.15), 0 0 40px rgba(139, 92, 246, 0.1)' 
-                    : 'none'
-                }}
-                className="relative bg-white dark:bg-[#0F1419] rounded-2xl md:rounded-3xl border border-black/5 dark:border-white/5 overflow-hidden shadow-none transition-shadow duration-500"
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="relative bg-white dark:bg-[#0F1419] border-2 border-black/10 dark:border-white/10 overflow-hidden"
               >
-                {/* Cursor Follow Spotlight Effect */}
-                {isHovered && (
-                  <motion.div
-                    className="absolute pointer-events-none rounded-2xl md:rounded-3xl"
-                    style={{
-                      width: '300px',
-                      height: '300px',
-                      background: 'radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(139, 92, 246, 0.05) 30%, transparent 70%)',
-                      filter: 'blur(60px)',
-                      opacity: 0.6,
-                      x: spotlightXTransformed,
-                      y: spotlightYTransformed,
-                    }}
-                  />
-                )}
-                
-                {/* Additional Glow Layer for Dark Mode */}
-                {isHovered && (
-                <motion.div
-                    className="absolute pointer-events-none rounded-2xl md:rounded-3xl dark:block hidden"
-                    style={{
-                      width: '350px',
-                      height: '350px',
-                      background: 'radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(139, 92, 246, 0.08) 35%, transparent 70%)',
-                      filter: 'blur(80px)',
-                      opacity: 0.5,
-                      x: spotlightXTransformedDark,
-                      y: spotlightYTransformedDark,
-                    }}
-                  />
-                )}
                 {/* Paper Content */}
                 <div className="p-4 sm:p-6 md:p-8 lg:p-12">
                   {/* Header Section - Newspaper Style */}
-                  <motion.div
+                <motion.div
                     initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.6 }}
@@ -1414,7 +1234,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                               <span className="truncate">{post.author || 'John Doe'}</span>
                               <span>•</span>
                               <span className="whitespace-nowrap">{formatDateWithYear(post.date)}</span>
-                  </div>
+                            </div>
                 </motion.div>
                         ))}
           </div>
@@ -1476,8 +1296,8 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                         ) : (
                           <div className="text-text-muted text-sm flex-1 flex items-center">No crypto news available</div>
                         )}
-        </div>
-
+              </div>
+              
                       {/* Politics News Column */}
                       <div className="border-l-4 border-blue-500 dark:border-blue-400 pl-3 md:pl-4 flex flex-col min-h-[300px] md:min-h-[400px]">
                         <div className="mb-4">
@@ -1519,7 +1339,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                             <span className="px-2 py-1 bg-green-500 text-white text-xs font-bold uppercase">WORLD</span>
                             <span>Global Headlines</span>
                           </h3>
-                        </div>
+                          </div>
                         {worldNews.length > 0 ? (
                           <div className="space-y-4 flex-1">
                             {worldNews.slice(0, 5).map((news, index) => (
@@ -1537,17 +1357,17 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                                   <span>{news.source}</span>
                                   <span>•</span>
                                   <span>{news.date}</span>
-                  </div>
+                        </div>
             </motion.div>
                             ))}
-          </div>
+              </div>
                         ) : (
                           <div className="text-text-muted text-sm flex-1 flex items-center">No world news available</div>
             )}
           </div>
                     </div>
                     )}
-                  </motion.div>
+            </motion.div>
 
                   {/* Filter Tabs and Article Grid */}
             <motion.div
@@ -1588,22 +1408,22 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                 {/* Load More Button */}
                 {hasMore && (
                   <div className="flex justify-center mt-8">
-                  <motion.button
+                    <motion.button
                       onClick={handleLoadMore}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                               className="px-8 py-3 rounded-lg bg-gradient-to-r from-primary via-cyan-400 to-primary text-black dark:text-white font-bold text-sm flex items-center gap-2 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300"
-                  >
+                    >
                       Load More <ArrowRight size={16} />
-                  </motion.button>
-                </div>
+                    </motion.button>
+                  </div>
                 )}
-                    </>
-                  )}
+              </>
+            )}
               </motion.div>
 
                   {/* Newspaper Style Section - Daily Content */}
-              <motion.div
+            <motion.div
                     initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.4, duration: 0.6 }}
@@ -1614,7 +1434,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-display font-bold text-text">
                   DAILY SPECIALS
-                </h2>
+              </h2>
                 <span className="text-[10px] sm:text-xs text-text-muted font-mono">
                   {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase()}
                 </span>
@@ -1718,9 +1538,9 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                         <div className="text-xs text-text-muted italic mt-3">
                           — Joke #{index + 1}
                           </div>
-                        </motion.div>
+            </motion.div>
                     ))}
-                  </div>
+          </div>
                 ) : (
                   <div className="text-text-muted text-sm flex-1">Loading jokes...</div>
                 )}
@@ -1747,10 +1567,10 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                 ) : (
                   <div className="space-y-3 md:space-y-4 flex-1">
                     {horoscopes.slice(0, 4).map((horo, index) => (
-                      <motion.div
+              <motion.div
                         key={horo.sign}
                         initial={{ opacity: 0, x: 10 }}
-                        animate={{ opacity: 1, x: 0 }}
+                animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 1.7 + index * 0.1, duration: 0.4 }}
                         className="border-l-2 border-purple-400 dark:border-purple-500 pl-3 py-2 hover:border-purple-600 dark:hover:border-purple-400 transition-colors"
                       >
@@ -1770,7 +1590,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                   </div>
                 )}
               </div>
-            </div>
+                </div>
               </motion.div>
             </div>
               </motion.div>
@@ -1783,7 +1603,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
       <AnimatePresence>
         {subscribeModalOpen && (
           <>
-            <motion.div
+              <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -1794,14 +1614,14 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                 if (e.target === e.currentTarget) setSubscribeModalOpen(false);
               }}
             >
-              <motion.div
+                  <motion.div
                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: 20 }}
                 transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="bg-surface rounded-2xl shadow-2xl border border-text/10 dark:border-white/5 w-full max-w-md p-8 relative z-[130] backdrop-blur-xl mx-4"
-              >
-                <button 
+                  >
+                    <button
                   onClick={() => setSubscribeModalOpen(false)} 
                   className="absolute top-4 right-4 text-text-muted hover:text-text text-2xl font-bold transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-text/5"
                   aria-label="Close modal"
@@ -1853,7 +1673,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
       <AnimatePresence>
         {ratingModalOpen && (
           <>
-            <motion.div
+                      <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -1950,7 +1770,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                   >
                     <Star size={20} className="fill-white" />
                     <span>Submit Rating</span>
-                  </button>
+                    </button>
                 </form>
               </motion.div>
             </motion.div>
@@ -1959,10 +1779,10 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
       </AnimatePresence>
 
       {/* Rating Thank You Modal */}
-      <AnimatePresence>
+                    <AnimatePresence>
         {ratingThankYouModalOpen && (
           <>
-            <motion.div
+                        <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -1995,7 +1815,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                   className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-yellow-500/20 to-orange-500/20 dark:from-yellow-500/15 dark:to-orange-500/15 border border-yellow-500/30 dark:border-yellow-500/20 flex items-center justify-center shadow-lg"
                 >
                   <CheckCircle size={40} className="text-yellow-500 dark:text-yellow-400" />
-                </motion.div>
+                        </motion.div>
                 
                 <h2 className="text-2xl font-display font-bold text-text mb-2">Thank You!</h2>
                 <p className="text-text-muted text-sm mb-6">
@@ -2011,8 +1831,8 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
               </motion.div>
             </motion.div>
           </>
-        )}
-      </AnimatePresence>
+                      )}
+                    </AnimatePresence>
 
       {/* Subscribe Thank You Modal */}
       <AnimatePresence>
@@ -2051,7 +1871,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                   className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-green-500/20 to-emerald-500/20 dark:from-green-500/15 dark:to-emerald-500/15 border border-green-500/30 dark:border-green-500/20 flex items-center justify-center shadow-lg"
                 >
                   <CheckCircle size={40} className="text-green-500 dark:text-green-400" />
-                </motion.div>
+                  </motion.div>
                 
                 <h2 className="text-2xl font-display font-bold text-text mb-2">Thank You!</h2>
                 <p className="text-text-muted text-sm mb-6">
