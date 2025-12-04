@@ -20,7 +20,8 @@ import {
   RotateCw,
   Move3D,
   FileText,
-  BookOpen
+  BookOpen,
+  Star
 } from 'lucide-react';
 import { getAllBlogPosts, BlogPost as BlogPostType, fetchMultipleRealBlogs } from '../../services/blogService';
 import SEO from '../SEO';
@@ -374,6 +375,14 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
   const [worldNews, setWorldNews] = useState<{ title: string; source: string; date: string }[]>([]);
   const [loadingContent, setLoadingContent] = useState(true);
   const [activeTab, setActiveTab] = useState<'trending' | 'latest'>('trending');
+  const [subscribeModalOpen, setSubscribeModalOpen] = useState(false);
+  const [thankYouModalOpen, setThankYouModalOpen] = useState(false);
+  const [subscribeEmail, setSubscribeEmail] = useState('');
+  const [ratingModalOpen, setRatingModalOpen] = useState(false);
+  const [ratingThankYouModalOpen, setRatingThankYouModalOpen] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [hoveredRating, setHoveredRating] = useState(0);
+  const [reviewText, setReviewText] = useState('');
   const isFirstMount = useRef(true);
   const postsPerPage = 6;
   const paperCardRef = useRef<HTMLDivElement>(null);
@@ -672,6 +681,37 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
   const toggleFAQ = useCallback((index: number) => {
     setExpandedFAQ(prev => prev === index ? null : index);
   }, []);
+
+  const handleSubscribe = useCallback((e: React.FormEvent) => {
+    e.preventDefault();
+    if (subscribeEmail.trim()) {
+      // Here you can add email subscription logic
+      logger.log('Subscribed email:', subscribeEmail);
+      setSubscribeModalOpen(false);
+      setTimeout(() => {
+        setThankYouModalOpen(true);
+      }, 300);
+      setSubscribeEmail('');
+    }
+  }, [subscribeEmail]);
+
+  const handleRatingClick = useCallback((value: number) => {
+    setRating(value);
+  }, []);
+
+  const handleRatingSubmit = useCallback((e: React.FormEvent) => {
+    e.preventDefault();
+    if (rating > 0) {
+      // Here you can add rating submission logic
+      logger.log('Rating submitted:', rating, 'Review:', reviewText);
+      setRatingModalOpen(false);
+      setTimeout(() => {
+        setRatingThankYouModalOpen(true);
+      }, 300);
+      setRating(0);
+      setReviewText('');
+    }
+  }, [rating, reviewText]);
 
   return (
     <>
@@ -1027,11 +1067,18 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                       
                       {/* Desktop: Buttons */}
                       <div className="hidden md:flex items-center gap-3">
-                        <button className="px-4 py-2 text-sm font-medium text-text hover:text-primary transition-colors">
-                          LOGIN
-                        </button>
+                        {/* Rate Us Button */}
+                        <motion.button 
+                          onClick={() => setRatingModalOpen(true)}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="px-5 py-2 rounded-full bg-surface border border-text/10 dark:border-white/10 text-text dark:text-text font-bold text-xs uppercase tracking-wider hover:bg-text/5 dark:hover:bg-white/5 hover:border-text/20 dark:hover:border-white/20 transition-all duration-200 flex items-center gap-2"
+                        >
+                          <Star size={16} className="text-yellow-500 dark:text-yellow-400 fill-yellow-500 dark:fill-yellow-400" />
+                          <span>RATE US</span>
+                        </motion.button>
                         <button 
-                          onClick={() => window.dispatchEvent(new CustomEvent('openClientInfoModal'))}
+                          onClick={() => setSubscribeModalOpen(true)}
                           className="px-6 py-2 rounded-full bg-text text-white dark:bg-primary dark:text-black font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity"
                         >
                           SUBSCRIBE
@@ -1049,7 +1096,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                           />
                         </div>
                         <button 
-                          onClick={() => window.dispatchEvent(new CustomEvent('openClientInfoModal'))}
+                          onClick={() => setSubscribeModalOpen(true)}
                           className="px-4 py-2 rounded-full bg-text text-white dark:bg-primary dark:text-black font-bold text-[10px] uppercase tracking-wider hover:opacity-90 transition-opacity"
                         >
                           SUBSCRIBE
@@ -1622,7 +1669,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => window.dispatchEvent(new CustomEvent('openClientInfoModal'))}
-                  className="mt-6 px-4 py-2 rounded-lg bg-text text-white dark:bg-primary dark:text-black font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center gap-2"
+                  className="mt-6 px-4 py-2 rounded-lg bg-text text-white dark:bg-primary dark:text-black font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center justify-center gap-2 w-fit"
                 >
                   Contact Us <ArrowRight size={6} />
                 </motion.button>
@@ -1731,6 +1778,297 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
           </div>
         </div>
       </div>
+
+      {/* Subscribe Modal */}
+      <AnimatePresence>
+        {subscribeModalOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[120] flex items-center justify-center backdrop-blur-sm"
+              style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}
+              onClick={(e) => {
+                if (e.target === e.currentTarget) setSubscribeModalOpen(false);
+              }}
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="bg-surface rounded-2xl shadow-2xl border border-text/10 dark:border-white/5 w-full max-w-md p-8 relative z-[130] backdrop-blur-xl mx-4"
+              >
+                <button 
+                  onClick={() => setSubscribeModalOpen(false)} 
+                  className="absolute top-4 right-4 text-text-muted hover:text-text text-2xl font-bold transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-text/5"
+                  aria-label="Close modal"
+                >
+                  &times;
+                </button>
+                
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-primary/20 to-violet-500/20 dark:from-primary/15 dark:to-violet-500/15 border border-primary/30 dark:border-primary/20 flex items-center justify-center shadow-lg">
+                    <Mail size={28} className="text-primary dark:text-cyan-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-display font-bold text-text mb-1">Subscribe</h2>
+                    <p className="text-text-muted text-sm">Get the latest updates</p>
+                  </div>
+                </div>
+                
+                <form onSubmit={handleSubscribe} className="flex flex-col gap-5">
+                  <div>
+                    <label htmlFor="subscribe-email" className="block text-sm font-medium text-text mb-2">
+                      Email Address <span className="text-red-500 dark:text-red-400">*</span>
+                    </label>
+                    <input
+                      id="subscribe-email"
+                      type="email"
+                      required
+                      placeholder="Enter your email"
+                      value={subscribeEmail}
+                      onChange={(e) => setSubscribeEmail(e.target.value)}
+                      className="w-full rounded-lg px-4 py-3 bg-background border border-text/10 dark:border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-text placeholder:text-text-muted transition-all duration-200"
+                    />
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    className="mt-2 px-6 py-3 rounded-lg bg-gradient-to-r from-primary via-cyan-400 to-primary dark:from-primary dark:via-cyan-400 dark:to-primary text-black dark:text-white font-bold text-lg shadow-lg hover:shadow-xl hover:shadow-primary/30 dark:hover:shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2"
+                  >
+                    <Mail size={20} />
+                    <span>Subscribe</span>
+                  </button>
+                </form>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Rating Modal */}
+      <AnimatePresence>
+        {ratingModalOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[120] flex items-center justify-center backdrop-blur-sm"
+              style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}
+              onClick={(e) => {
+                if (e.target === e.currentTarget) setRatingModalOpen(false);
+              }}
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="bg-surface rounded-2xl shadow-2xl border border-text/10 dark:border-white/5 w-full max-w-md p-8 relative z-[130] backdrop-blur-xl mx-4"
+              >
+                <button 
+                  onClick={() => setRatingModalOpen(false)} 
+                  className="absolute top-4 right-4 text-text-muted hover:text-text text-2xl font-bold transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-text/5"
+                  aria-label="Close modal"
+                >
+                  &times;
+                </button>
+                
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-yellow-500/20 to-orange-500/20 dark:from-yellow-500/15 dark:to-orange-500/15 border border-yellow-500/30 dark:border-yellow-500/20 flex items-center justify-center shadow-lg">
+                    <Star size={28} className="text-yellow-500 dark:text-yellow-400 fill-yellow-500 dark:fill-yellow-400" />
+                  </div>
+                  <div className="flex-1">
+                    <h2 className="text-2xl font-display font-bold text-text mb-1">Rate Us</h2>
+                    <p className="text-text-muted text-sm">Share your feedback</p>
+                  </div>
+                </div>
+                
+                <form onSubmit={handleRatingSubmit} className="flex flex-col gap-5">
+                  {/* Star Rating */}
+                  <div>
+                    <label className="block text-sm font-medium text-text mb-3">
+                      Your Rating <span className="text-red-500 dark:text-red-400">*</span>
+                    </label>
+                    <div className="flex items-center gap-2 justify-center">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <button
+                          key={star}
+                          type="button"
+                          onClick={() => handleRatingClick(star)}
+                          onMouseEnter={() => setHoveredRating(star)}
+                          onMouseLeave={() => setHoveredRating(0)}
+                          className="p-1 transition-all duration-200 hover:scale-110"
+                          aria-label={`Rate ${star} stars`}
+                        >
+                          <Star
+                            size={32}
+                            className={`transition-colors ${
+                              star <= (hoveredRating || rating)
+                                ? 'fill-yellow-400 text-yellow-400'
+                                : 'text-text-muted hover:text-yellow-400'
+                            }`}
+                          />
+                        </button>
+                      ))}
+                    </div>
+                    {rating > 0 && (
+                      <p className="text-center text-sm text-text-muted mt-2">
+                        {rating === 1 && 'Poor'}
+                        {rating === 2 && 'Fair'}
+                        {rating === 3 && 'Good'}
+                        {rating === 4 && 'Very Good'}
+                        {rating === 5 && 'Excellent'}
+                      </p>
+                    )}
+                  </div>
+                  
+                  {/* Review Textarea */}
+                  <div>
+                    <label htmlFor="review-text" className="block text-sm font-medium text-text mb-2">
+                      Your Review (Optional)
+                    </label>
+                    <textarea
+                      id="review-text"
+                      placeholder="Tell us about your experience..."
+                      value={reviewText}
+                      onChange={(e) => setReviewText(e.target.value)}
+                      rows={4}
+                      className="w-full rounded-lg px-4 py-3 bg-background border border-text/10 dark:border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-text placeholder:text-text-muted resize-none transition-all duration-200"
+                    />
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    disabled={rating === 0}
+                    className="mt-2 px-6 py-3 rounded-lg bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 dark:from-yellow-500 dark:via-orange-500 dark:to-yellow-500 text-white font-bold text-lg shadow-lg hover:shadow-xl hover:shadow-yellow-500/30 dark:hover:shadow-yellow-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-lg flex items-center justify-center gap-2"
+                  >
+                    <Star size={20} className="fill-white" />
+                    <span>Submit Rating</span>
+                  </button>
+                </form>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Rating Thank You Modal */}
+      <AnimatePresence>
+        {ratingThankYouModalOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[120] flex items-center justify-center backdrop-blur-sm"
+              style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}
+              onClick={(e) => {
+                if (e.target === e.currentTarget) setRatingThankYouModalOpen(false);
+              }}
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="bg-surface rounded-2xl shadow-2xl border border-text/10 dark:border-white/5 w-full max-w-md p-8 relative z-[130] backdrop-blur-xl mx-4 text-center"
+              >
+                <button 
+                  onClick={() => setRatingThankYouModalOpen(false)} 
+                  className="absolute top-4 right-4 text-text-muted hover:text-text text-2xl font-bold transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-text/5"
+                  aria-label="Close modal"
+                >
+                  &times;
+                </button>
+                
+                <motion.div
+                  initial={{ scale: 0, rotate: -180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ delay: 0.1, type: "spring", stiffness: 200, damping: 15 }}
+                  className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-yellow-500/20 to-orange-500/20 dark:from-yellow-500/15 dark:to-orange-500/15 border border-yellow-500/30 dark:border-yellow-500/20 flex items-center justify-center shadow-lg"
+                >
+                  <CheckCircle size={40} className="text-yellow-500 dark:text-yellow-400" />
+                </motion.div>
+                
+                <h2 className="text-2xl font-display font-bold text-text mb-2">Thank You!</h2>
+                <p className="text-text-muted text-sm mb-6">
+                  Your feedback means a lot to us. We appreciate you taking the time to rate us!
+                </p>
+                
+                <button
+                  onClick={() => setRatingThankYouModalOpen(false)}
+                  className="px-6 py-3 rounded-lg bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 dark:from-yellow-500 dark:via-orange-500 dark:to-yellow-500 text-white font-bold text-sm shadow-lg hover:shadow-xl hover:shadow-yellow-500/30 dark:hover:shadow-yellow-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                >
+                  Close
+                </button>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Subscribe Thank You Modal */}
+      <AnimatePresence>
+        {thankYouModalOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[120] flex items-center justify-center backdrop-blur-sm"
+              style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}
+              onClick={(e) => {
+                if (e.target === e.currentTarget) setThankYouModalOpen(false);
+              }}
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="bg-surface rounded-2xl shadow-2xl border border-text/10 dark:border-white/5 w-full max-w-md p-8 relative z-[130] backdrop-blur-xl mx-4 text-center"
+              >
+                <button 
+                  onClick={() => setThankYouModalOpen(false)} 
+                  className="absolute top-4 right-4 text-text-muted hover:text-text text-2xl font-bold transition-colors w-8 h-8 flex items-center justify-center rounded-full hover:bg-text/5"
+                  aria-label="Close modal"
+                >
+                  &times;
+                </button>
+                
+                <motion.div
+                  initial={{ scale: 0, rotate: -180 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ delay: 0.1, type: "spring", stiffness: 200, damping: 15 }}
+                  className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-green-500/20 to-emerald-500/20 dark:from-green-500/15 dark:to-emerald-500/15 border border-green-500/30 dark:border-green-500/20 flex items-center justify-center shadow-lg"
+                >
+                  <CheckCircle size={40} className="text-green-500 dark:text-green-400" />
+                </motion.div>
+                
+                <h2 className="text-2xl font-display font-bold text-text mb-2">Thank You!</h2>
+                <p className="text-text-muted text-sm mb-6">
+                  You've successfully subscribed to our newsletter. We'll keep you updated with the latest news and updates.
+                </p>
+                
+                <button
+                  onClick={() => setThankYouModalOpen(false)}
+                  className="px-6 py-3 rounded-lg bg-gradient-to-r from-primary via-cyan-400 to-primary dark:from-primary dark:via-cyan-400 dark:to-primary text-black dark:text-white font-bold text-sm shadow-lg hover:shadow-xl hover:shadow-primary/30 dark:hover:shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                >
+                  Close
+                </button>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 };
