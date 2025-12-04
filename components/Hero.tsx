@@ -94,9 +94,8 @@ const Hero: React.FC = () => {
               View Work
             </MagneticButton>
             <div className="flex items-center gap-4 text-sm font-mono text-text-muted">
-                     onClick={() => window.dispatchEvent(new CustomEvent('openClientInfoModal'))}
-               <span className="w-1 h-1 bg-text-muted rounded-full" />
-               <span>to search</span>
+              <span className="w-1 h-1 bg-text-muted rounded-full" />
+              <span>Available for projects</span>
             </div>
           </motion.div>
         </div>

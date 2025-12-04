@@ -168,15 +168,24 @@ const ResumePage: React.FC = () => {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-12 md:mb-16 z-10 w-full max-w-md sm:max-w-none px-4 justify-center"
                 >
-                    <MagneticButton className="h-12 md:h-14 px-6 md:px-8 bg-primary text-black hover:bg-white font-bold text-sm md:text-base flex items-center gap-2 justify-center w-full sm:w-auto" onClick={() => window.dispatchEvent(new CustomEvent('openClientInfoModal'))}>
+                    <MagneticButton 
+                        className="h-12 md:h-14 px-6 md:px-8 bg-primary text-black hover:bg-white font-bold text-sm md:text-base flex items-center gap-2 justify-center w-full sm:w-auto"
+                        onClick={() => {
+                            // Download CV functionality - you can add actual CV download link here
+                            const link = document.createElement('a');
+                            link.href = '/resume.pdf'; // Update with actual CV path
+                            link.download = 'Vishwjeet_Kumar_Resume.pdf';
+                            link.click();
+                        }}
+                    >
                         <Download size={18} className="md:w-5 md:h-5" /> Download CV
                     </MagneticButton>
-                    <a
-                        href="#contact"
+                    <button
+                        onClick={() => window.dispatchEvent(new CustomEvent('openClientInfoModal'))}
                         className="h-12 md:h-14 px-6 md:px-8 rounded-full border border-text/20 text-text hover:bg-text/5 font-medium transition-colors flex items-center gap-2 justify-center text-sm md:text-base w-full sm:w-auto"
                     >
                         Hire Me <ArrowRight size={16} className="md:w-[18px] md:h-[18px]" />
-                    </a>
+                    </button>
                 </motion.div>
 
                 {/* 3D Resume Preview with Annotations - Paper on Desk Effect */}
@@ -736,12 +745,12 @@ const ResumePage: React.FC = () => {
                         <MagneticButton className="h-14 md:h-16 px-8 md:px-10 bg-primary text-black hover:bg-white font-bold text-base md:text-lg flex items-center gap-2 justify-center w-full sm:w-auto" onClick={() => window.dispatchEvent(new CustomEvent('openClientInfoModal'))}>
                             <Mail size={18} className="md:w-[22px] md:h-[22px]" /> Start a Project
                         </MagneticButton>
-                        <a
-                            href="mailto:info.vishwjeetkumar@gmail.com"
+                        <button
+                            onClick={() => window.dispatchEvent(new CustomEvent('openWhatsAppModal'))}
                             className="h-14 md:h-16 px-8 md:px-10 rounded-full border border-text/20 text-text hover:bg-text/5 font-medium transition-colors text-base md:text-lg flex items-center gap-2 justify-center w-full sm:w-auto"
                         >
                             <Phone size={18} className="md:w-[22px] md:h-[22px]" /> Schedule Call
-                        </a>
+                        </button>
                     </div>
 
                     {/* Contact Details */}

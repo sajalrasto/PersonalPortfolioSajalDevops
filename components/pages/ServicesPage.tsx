@@ -33,7 +33,6 @@ import {
     Box
 } from 'lucide-react';
 import MagneticButton from '../ui/MagneticButton';
-import ClientInfoModal from '../ui/ClientInfoModal';
 import SpotlightCard from '../ui/SpotlightCard';
 
 // Optimized Service Card Component with React.memo
@@ -127,13 +126,6 @@ const ServicesPage: React.FC = () => {
         const containerRef = useRef<HTMLDivElement>(null);
         const servicesSectionRef = useRef<HTMLDivElement>(null);
         const [selectedDate, setSelectedDate] = useState<number | null>(null);
-        // Modal state and global event listener (only declare once at the top-level of the component)
-        const [modalOpen, setModalOpen] = useState(false);
-        React.useEffect(() => {
-            const handler = () => setModalOpen(true);
-            window.addEventListener('openClientInfoModal', handler);
-            return () => window.removeEventListener('openClientInfoModal', handler);
-        }, []);
 
     // Scroll-based animations for Services section
     const { scrollYProgress: servicesScrollYProgress } = useScroll({
@@ -484,8 +476,6 @@ const ServicesPage: React.FC = () => {
                             Explore Services <ArrowRight size={18} />
                         </button>
                     </motion.div>
-                            {/* Modal for client info (CTA) */}
-                            <ClientInfoModal open={modalOpen} onClose={() => setModalOpen(false)} />
                 </div>
 
                 {/* Scroll Indicator */}
@@ -1201,11 +1191,17 @@ const ServicesPage: React.FC = () => {
                                 </div>
                                 
                                     <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 w-full sm:w-auto lg:w-auto flex-shrink-0">
-                                        <button className="px-6 md:px-8 py-3 md:py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-300 text-white font-bold text-sm md:text-base hover:shadow-[0_0_30px_rgba(6,182,212,0.5),0_0_50px_rgba(56,189,248,0.3)] transition-all duration-300 shadow-lg hover:scale-105 whitespace-nowrap flex items-center justify-center gap-2">
+                                        <button 
+                                            onClick={() => window.dispatchEvent(new CustomEvent('openClientInfoModal'))}
+                                            className="px-6 md:px-8 py-3 md:py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-300 text-white font-bold text-sm md:text-base hover:shadow-[0_0_30px_rgba(6,182,212,0.5),0_0_50px_rgba(56,189,248,0.3)] transition-all duration-300 shadow-lg hover:scale-105 whitespace-nowrap flex items-center justify-center gap-2"
+                                        >
                                             <Mail size={18} className="md:w-5 md:h-5" />
                                         Get Started
                                     </button>
-                                        <button className="px-6 md:px-8 py-3 md:py-3.5 rounded-xl border-2 border-cyan-400/50 text-text hover:bg-gradient-to-r hover:from-cyan-500/10 hover:via-sky-400/10 hover:to-cyan-300/10 font-semibold text-sm md:text-base transition-all duration-300 whitespace-nowrap flex items-center justify-center gap-2 hover:border-sky-400/50 hover:scale-105">
+                                        <button 
+                                            onClick={() => window.dispatchEvent(new CustomEvent('openWhatsAppModal'))}
+                                            className="px-6 md:px-8 py-3 md:py-3.5 rounded-xl border-2 border-cyan-400/50 text-text hover:bg-gradient-to-r hover:from-cyan-500/10 hover:via-sky-400/10 hover:to-cyan-300/10 font-semibold text-sm md:text-base transition-all duration-300 whitespace-nowrap flex items-center justify-center gap-2 hover:border-sky-400/50 hover:scale-105"
+                                        >
                                             <Phone size={18} className="md:w-5 md:h-5" />
                                         Schedule Call
                                     </button>

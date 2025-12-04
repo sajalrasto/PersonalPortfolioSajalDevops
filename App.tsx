@@ -3,6 +3,8 @@ import { BrowserRouter, useLocation, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import ThemeToggle from './components/ui/ThemeToggle';
 import ErrorBoundary from './components/ErrorBoundary';
+import ClientInfoModal from './components/ui/ClientInfoModal';
+import WhatsAppModal from './components/ui/WhatsAppModal';
 import { AppRoutes } from './routes';
 import { Menu, X, FileText, Briefcase, User } from 'lucide-react';
 
@@ -195,6 +197,8 @@ const AppContent: React.FC = () => {
   const [cursorXY, setCursorXY] = useState({ x: -100, y: -100 });
   const [isDark, setIsDark] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [whatsappModalOpen, setWhatsappModalOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -221,6 +225,20 @@ const AppContent: React.FC = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [location.pathname]);
+
+  // Global modal event listeners
+  useEffect(() => {
+    const contactHandler = () => setModalOpen(true);
+    const whatsappHandler = () => setWhatsappModalOpen(true);
+    
+    window.addEventListener('openClientInfoModal', contactHandler);
+    window.addEventListener('openWhatsAppModal', whatsappHandler);
+    
+    return () => {
+      window.removeEventListener('openClientInfoModal', contactHandler);
+      window.removeEventListener('openWhatsAppModal', whatsappHandler);
+    };
+  }, []);
 
   const toggleTheme = useCallback(() => setIsDark(!isDark), [isDark]);
 
@@ -266,6 +284,12 @@ const AppContent: React.FC = () => {
         setIsMenuOpen={setIsMenuOpen}
         navigate={handleNavigate}
       />
+
+      {/* Global Contact Modal */}
+      <ClientInfoModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      
+      {/* Global WhatsApp Modal */}
+      <WhatsAppModal open={whatsappModalOpen} onClose={() => setWhatsappModalOpen(false)} />
     </div>
   );
 };

@@ -126,7 +126,10 @@ const CaseStudyPage: React.FC<CaseStudyPageProps> = ({ onBack, project }) => {
                   ))}
                 </div>
                 <div className="mt-8">
-                  <MagneticButton className="w-full bg-primary text-black font-bold py-4 rounded-xl">
+                  <MagneticButton 
+                    className="w-full bg-primary text-black font-bold py-4 rounded-xl"
+                    onClick={() => window.dispatchEvent(new CustomEvent('openClientInfoModal'))}
+                  >
                     Start Your Project
                   </MagneticButton>
                 </div>
