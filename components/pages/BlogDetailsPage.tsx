@@ -194,15 +194,34 @@ const BlogDetailsPage: React.FC = () => {
   return (
     <>
       <SEO
-        title={`${post.title} | Engineering Journal`}
-        description={post.excerpt}
-        image={post.image}
+        title={`${post.title} | Full Stack Developer Blog | Engineering Journal`}
+        description={post.excerpt || `${post.title} - Expert insights on ${post.category} by Full Stack Developer Vishwjeet Kumar. Learn modern web development techniques and best practices.`}
+        image={post.image || '/og-image.jpg'}
         url={seoUrl}
         type="article"
-        author={post.author}
+        author={post.author || 'Vishwjeet Kumar'}
         publishedTime={post.publishedDate}
         modifiedTime={post.publishedDate}
-        keywords={[post.category, 'Tech Blog', 'Software Engineering', 'Web Development']}
+        keywords={[
+          post.category,
+          'Full Stack Developer',
+          'Tech Blog',
+          'Software Engineering',
+          'Web Development',
+          'React',
+          'Next.js',
+          'TypeScript',
+          'Programming',
+          'Developer Blog',
+          post.title
+        ]}
+        articleSection={post.category}
+        tags={post.tags || [post.category, 'Web Development', 'Full Stack Development']}
+        breadcrumbs={[
+          { name: 'Home', url: 'https://vishwjeetkumar.me/' },
+          { name: 'Engineering Journal', url: 'https://vishwjeetkumar.me/blog' },
+          { name: post.title, url: seoUrl }
+        ]}
       />
       <div 
         ref={containerRef}

@@ -716,10 +716,65 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
   return (
     <>
       <SEO
-        title="Engineering Journal | Tech Blog & Insights"
-        description="Deep dives into software architecture, design patterns, AI breakthroughs, and the future of web development."
+        title="Engineering Journal | Full Stack Developer Blog | Tech Insights & Tutorials"
+        description="Expert Full Stack Developer's blog featuring in-depth tutorials, tech insights, AI breakthroughs, software architecture patterns, and modern web development best practices. Learn React, Next.js, TypeScript, and more."
         url={window.location.href}
-        keywords={['Tech Blog', 'Software Engineering', 'AI', 'Web Development', 'Programming']}
+        keywords={[
+          'Full Stack Developer Blog',
+          'Tech Blog',
+          'Software Engineering Blog',
+          'React Tutorials',
+          'Next.js Tutorials',
+          'TypeScript Tutorials',
+          'Web Development Blog',
+          'Programming Blog',
+          'AI Development',
+          'Software Architecture',
+          'Frontend Development',
+          'Backend Development',
+          'Modern Web Development',
+          'Full Stack Engineer Blog',
+          'Web Developer Resources',
+          'Coding Tutorials',
+          'Tech Insights',
+          'Developer Blog',
+          'Software Engineer Freelance',
+          'Freelance Software Engineer',
+          'Hire Full Stack Developer',
+          'Experienced Developer vs AI',
+          'Why Hire Developer',
+          'Freelance Web Developer'
+        ]}
+        breadcrumbs={[
+          { name: 'Home', url: 'https://vishwjeetkumar.me/' },
+          { name: 'Engineering Journal', url: 'https://vishwjeetkumar.me/blog' }
+        ]}
+        faq={[
+          {
+            question: 'What topics does the Engineering Journal cover?',
+            answer: 'The Engineering Journal covers Full Stack Development, React, Next.js, TypeScript, AI development, software architecture, web development best practices, and modern programming techniques.'
+          },
+          {
+            question: 'Who writes the Engineering Journal blog?',
+            answer: 'The Engineering Journal is written by Vishwjeet Kumar, an expert Full Stack Developer specializing in React, Next.js, TypeScript, and modern web development.'
+          },
+          {
+            question: 'How often are new articles published?',
+            answer: 'New articles are published regularly covering the latest trends in web development, software engineering, and full stack development practices.'
+          },
+          {
+            question: 'Why should you hire an experienced Full Stack Developer?',
+            answer: 'Hiring an experienced Full Stack Developer like Vishwjeet Kumar ensures you get proven expertise in React, Next.js, TypeScript, and modern web technologies. Experienced developers bring real-world problem-solving skills, best practices, code quality, performance optimization, and the ability to deliver scalable, maintainable solutions that meet your business needs.'
+          },
+          {
+            question: 'Why is an experienced developer better than AI for software development?',
+            answer: 'While AI tools are helpful, experienced developers provide critical thinking, creative problem-solving, understanding of business context, code architecture decisions, debugging complex issues, security best practices, and human communication. Experienced developers can adapt to unique requirements, make strategic technical decisions, and ensure your project aligns with long-term business goals - something AI cannot replicate.'
+          },
+          {
+            question: 'What makes an experienced software engineer freelance better than AI development tools?',
+            answer: 'An experienced freelance software engineer offers personalized solutions, understands your specific business needs, provides ongoing support, makes strategic technical decisions, ensures code quality and maintainability, handles edge cases, and delivers human-centered design. Unlike AI tools that generate generic code, experienced developers create custom solutions tailored to your unique requirements with proper architecture, security, and scalability.'
+          }
+        ]}
       />
       <style>{`
         @keyframes shimmer {
@@ -808,7 +863,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
               </div>
 
         {/* Main Content Container with Paper Effect */}
-        <div className="relative z-10 pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 md:px-8">
+        <div className="relative z-10 pt-28 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 md:px-8">
           {/* Max Width Container */}
           <div className="w-full max-w-7xl mx-auto">
             {/* Paper Container */}
@@ -819,12 +874,12 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
               {/* Main Paper Card - Newspaper Layout */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+                  animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="relative bg-white dark:bg-[#0F1419] border-2 border-black/10 dark:border-white/10 overflow-hidden"
               >
                 {/* Paper Content */}
-                <div className="p-4 sm:p-6 md:p-8 lg:p-12">
+                <div className="px-4 sm:px-6 md:px-8 lg:px-12 pt-8 sm:pt-8 md:pt-8 pb-4 sm:pb-6 md:pb-8 lg:pb-12">
                   {/* Header Section - Newspaper Style */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}

@@ -1,175 +1,217 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Full-stack engineering meets premium design. Building scalable applications and immersive interfaces." />
-    <meta name="keywords" content="Full Stack Developer, React, Next.js, TypeScript, Web Development, Software Engineer" />
-    <meta name="author" content="Vishwjeet Kumar" />
-    <link rel="canonical" href="https://vishwjeetkumar.dev/" />
-    <title>Vishwjeet Kumar | Full-Stack Engineer</title>
-    
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://api.rss2json.com">
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              display: ['Space Grotesk', 'sans-serif'],
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Enhanced SEO Meta Tags -->
+  <meta name="description"
+    content="Expert Full Stack Developer & Software Engineer Freelance specializing in React, Next.js, TypeScript, and modern web development. Hire experienced developer for scalable applications with premium UI/UX design. Why choose experienced developer over AI? Get professional, tailored solutions." />
+  <meta name="keywords"
+    content="Full Stack Developer, Software Engineer Freelance, Freelance Software Engineer, Hire Full Stack Developer, Hire Software Engineer, React Developer, Next.js Developer, TypeScript Developer, Web Developer, Frontend Developer, Backend Developer, Software Engineer, UI/UX Developer, JavaScript Developer, Node.js Developer, Full Stack Engineer, React Expert, Next.js Expert, TypeScript Expert, Web Development Services, Custom Web Development, Responsive Web Design, Modern Web Applications, Scalable Web Solutions, Experienced Developer, Professional Developer, Why Hire Developer, Developer vs AI" />
+  <meta name="author" content="Vishwjeet Kumar" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+
+  <!-- Geo Tags -->
+  <meta name="geo.region" content="IN" />
+  <meta name="geo.placename" content="India" />
+
+  <!-- Open Graph Enhanced -->
+  <meta property="og:site_name" content="Vishwjeet Kumar - Full Stack Developer" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="hi_IN" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@vishwjeetkumar" />
+  <meta name="twitter:creator" content="@vishwjeetkumar" />
+
+  <link rel="canonical" href="https://vishwjeetkumar.me/" />
+
+  <!-- Sitemap and Robots -->
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+  <!-- Theme Color for Browser Tab -->
+  <meta name="theme-color" content="#020408" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#020408" />
+
+  <!-- Favicon with cache-busting -->
+  <link rel="icon" type="image/png" href="/v-logo.png?v=2.0" />
+  <link rel="shortcut icon" type="image/png" href="/v-logo.png?v=2.0" />
+  <link rel="apple-touch-icon" href="/v-logo.png?v=2.0" />
+
+  <title>Vishwjeet Kumar | Full-Stack Engineer</title>
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://api.rss2json.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            // Semantic Colors for Theming
+            background: 'var(--background)',
+            surface: 'var(--surface)',
+            'surface-highlight': 'var(--surface-highlight)',
+            text: 'var(--text)',
+            'text-muted': 'var(--text-muted)',
+
+            primary: '#00F0FF', /* Electric Cyan */
+            violet: '#8b5cf6',
+            fuchsia: '#d946ef',
+            secondary: '#3B82F6',
+            accent: '#7000FF',
+          },
+          backgroundImage: {
+            'hero-glow': 'radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.15) 0%, transparent 60%)',
+            'glass-gradient': 'linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)',
+          },
+          animation: {
+            'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'shimmer': 'shimmer 2s linear infinite',
+            'marquee': 'marquee 40s linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
             },
-            colors: {
-              // Semantic Colors for Theming
-              background: 'var(--background)',
-              surface: 'var(--surface)',
-              'surface-highlight': 'var(--surface-highlight)',
-              text: 'var(--text)',
-              'text-muted': 'var(--text-muted)',
-              
-              primary: '#00F0FF', /* Electric Cyan */
-              violet: '#8b5cf6',
-              fuchsia: '#d946ef',
-              secondary: '#3B82F6',
-              accent: '#7000FF',
+            shimmer: {
+              from: { backgroundPosition: '0 0' },
+              to: { backgroundPosition: '-200% 0' },
             },
-            backgroundImage: {
-              'hero-glow': 'radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.15) 0%, transparent 60%)',
-              'glass-gradient': 'linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)',
-            },
-            animation: {
-              'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'float': 'float 6s ease-in-out infinite',
-              'shimmer': 'shimmer 2s linear infinite',
-              'marquee': 'marquee 40s linear infinite',
-            },
-            keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-20px)' },
-              },
-              shimmer: {
-                from: { backgroundPosition: '0 0' },
-                to: { backgroundPosition: '-200% 0' },
-              },
-              marquee: {
-                '0%': { transform: 'translateX(0)' },
-                '100%': { transform: 'translateX(-50%)' },
-              }
+            marquee: {
+              '0%': { transform: 'translateX(0)' },
+              '100%': { transform: 'translateX(-50%)' },
             }
           }
         }
       }
-    </script>
-    <style>
-      :root {
-        /* Light Mode Defaults (Ceramic) */
-        --background: #F8FAFC;
-        --surface: #FFFFFF;
-        --surface-highlight: #F1F5F9;
-        --text: #0F172A;
-        --text-muted: #64748B;
-      }
+    }
+  </script>
+  <style>
+    :root {
+      /* Light Mode Defaults (Ceramic) */
+      --background: #F8FAFC;
+      --surface: #FFFFFF;
+      --surface-highlight: #F1F5F9;
+      --text: #0F172A;
+      --text-muted: #64748B;
+    }
 
-      .dark {
-        /* Dark Mode Defaults (Void) */
-        --background: #020408;
-        --surface: #0B0F17;
-        --surface-highlight: #131B29;
-        --text: #E2E8F0;
-        --text-muted: #94A3B8;
-      }
+    .dark {
+      /* Dark Mode Defaults (Void) */
+      --background: #020408;
+      --surface: #0B0F17;
+      --surface-highlight: #131B29;
+      --text: #E2E8F0;
+      --text-muted: #94A3B8;
+    }
 
-      body {
-        background-color: var(--background);
-        color: var(--text);
-        overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-      
-      /* Noise Texture Overlay */
-      .bg-noise {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 50;
-      }
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
 
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: var(--background);
-      }
-      ::-webkit-scrollbar-thumb {
-        background: var(--surface-highlight);
-        border-radius: 4px;
-        border: 2px solid var(--background);
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: var(--text-muted);
-      }
-      
-      .text-glow {
-        text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
-      }
+    /* Noise Texture Overlay */
+    .bg-noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 50;
+    }
 
-      /* 3D Perspective */
-      .perspective-1000 {
-        perspective: 1000px;
-      }
-      
-      .perspective-2000 {
-        perspective: 2000px;
-      }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
 
-      /* Paper on desk effect - smooth transforms */
-      .paper-transform {
-        transform-style: preserve-3d;
-        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      }
+    ::-webkit-scrollbar-track {
+      background: var(--background);
+    }
 
-      /* Swiper Custom Styles */
-      .swiper {
-        width: 100%;
-        padding-top: 50px;
-        padding-bottom: 50px;
-      }
-      
-      .swiper-slide {
-        background-position: center;
-        background-size: cover;
-      }
+    ::-webkit-scrollbar-thumb {
+      background: var(--surface-highlight);
+      border-radius: 4px;
+      border: 2px solid var(--background);
+    }
 
-      /* Custom Pagination Dots */
-      .swiper-pagination-bullet {
-        background: var(--text-muted);
-        opacity: 0.5;
-      }
-      .swiper-pagination-bullet-active {
-        background: #00F0FF;
-        opacity: 1;
-        box-shadow: 0 0 10px #00F0FF;
-      }
-    </style>
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-muted);
+    }
+
+    .text-glow {
+      text-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+    }
+
+    /* 3D Perspective */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+
+    .perspective-2000 {
+      perspective: 2000px;
+    }
+
+    /* Paper on desk effect - smooth transforms */
+    .paper-transform {
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Swiper Custom Styles */
+    .swiper {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+    }
+
+    /* Custom Pagination Dots */
+    .swiper-pagination-bullet {
+      background: var(--text-muted);
+      opacity: 0.5;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #00F0FF;
+      opacity: 1;
+      box-shadow: 0 0 10px #00F0FF;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -181,12 +223,38 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
-  <body>
-    <div id="root"></div>
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<body>
+  <div id="root"></div>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script type="module" src="/index.tsx"></script>
+
+  <!-- Dynamic Theme Color Update -->
+  <script>
+    // Update theme-color meta tag based on current theme
+    function updateThemeColor() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeColorMeta) {
+        themeColorMeta.setAttribute('content', isDark ? '#020408' : '#F8FAFC');
+      }
+    }
+
+    // Initial theme color
+    updateThemeColor();
+
+    // Watch for theme changes
+    const observer = new MutationObserver(() => {
+      updateThemeColor();
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+  </script>
 </body>
+
 </html>

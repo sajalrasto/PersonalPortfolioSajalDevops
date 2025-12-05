@@ -1,25 +1,37 @@
 # robots.txt for vishwjeetkumar.dev
+# Optimized for Full Stack Developer SEO
 
+# Allow all search engines
 User-agent: *
 Allow: /
 
-# Disallow admin or private areas (if any)
-Disallow: /admin/
-Disallow: /api/
-Disallow: /_next/
-Disallow: /private/
-
-# Allow all important pages
-Allow: /
+# Allow specific important pages for better indexing
 Allow: /services
 Allow: /resume
 Allow: /blog
 Allow: /blog/*
 Allow: /case-study/*
 
-# Sitemap location
-Sitemap: https://vishwjeetkumar.dev/sitemap.xml
+# Disallow admin or private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /dist/
 
-# Crawl delay (optional, adjust as needed)
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
 Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://vishwjeetkumar.me/sitemap.xml
+
+# Host information
+Host: https://vishwjeetkumar.me
 

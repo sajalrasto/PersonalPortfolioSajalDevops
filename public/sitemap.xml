@@ -6,69 +6,80 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   
-  <!-- Home Page -->
+  <!-- Home Page - Highest Priority for Full Stack Developer -->
   <url>
-    <loc>https://vishwjeetkumar.dev/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://vishwjeetkumar.me/</loc>
+    <lastmod>2025-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://vishwjeetkumar.me/v-logo.png</image:loc>
+      <image:title>Vishwjeet Kumar - Full Stack Developer</image:title>
+    </image:image>
   </url>
   
-  <!-- Services Page -->
+  <!-- Services Page - High Priority -->
   <url>
-    <loc>https://vishwjeetkumar.dev/services</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://vishwjeetkumar.me/services</loc>
+    <lastmod>2025-12-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- Resume Page -->
+  <!-- Resume Page - High Priority for Full Stack Developer Profile -->
   <url>
-    <loc>https://vishwjeetkumar.dev/resume</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://vishwjeetkumar.me/resume</loc>
+    <lastmod>2025-12-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   
-  <!-- Blog Page -->
+  <!-- Blog Page - High Priority for Content -->
   <url>
-    <loc>https://vishwjeetkumar.dev/blog</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://vishwjeetkumar.me/blog</loc>
+    <lastmod>2025-12-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- Case Studies -->
+  <!-- Case Studies - Medium Priority -->
   <url>
-    <loc>https://vishwjeetkumar.dev/case-study/angelmonkey</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://vishwjeetkumar.me/case-study/angelmonkey</loc>
+    <lastmod>2025-12-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://vishwjeetkumar.dev/case-study/plationathome</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://vishwjeetkumar.me/case-study/plationathome</loc>
+    <lastmod>2025-12-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://vishwjeetkumar.dev/case-study/cms</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://vishwjeetkumar.me/case-study/cms</loc>
+    <lastmod>2025-12-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://vishwjeetkumar.dev/case-study/tripatakaland</loc>
-    <lastmod>2025-01-01</lastmod>
+    <loc>https://vishwjeetkumar.me/case-study/tripatakaland</loc>
+    <lastmod>2025-12-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Note: Blog post URLs should be dynamically generated -->
+  <!-- For production, generate these from getAllBlogPosts() service -->
+  <!-- Example format:
+  <url>
+    <loc>https://vishwjeetkumar.me/blog/[slug]</loc>
+    <lastmod>YYYY-MM-DD</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
-  <!-- Note: Blog post URLs will be dynamically generated based on available posts -->
-  <!-- For production, generate these dynamically from getAllBlogPosts() -->
+  -->
   
 </urlset>
-

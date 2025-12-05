@@ -1,5 +1,6 @@
 import React, { useState, useRef, useMemo } from 'react';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
+import SEO from '../SEO';
 import {
     Code2,
     ShoppingCart,
@@ -366,7 +367,57 @@ const ServicesPage: React.FC = () => {
 
 
     return (
-        <div ref={containerRef} className="bg-background min-h-screen text-text selection:bg-primary/30">
+        <>
+            <SEO
+                title="Full Stack Development Services | Software Engineer Freelance | Hire Expert Developer"
+                description="Hire an experienced Full Stack Developer and Software Engineer Freelance. Expert in React, Next.js, TypeScript, Node.js. Custom web applications, e-commerce solutions, and scalable software development. Why choose experienced developer over AI? Get professional, tailored solutions."
+                url={typeof window !== 'undefined' ? window.location.href : 'https://vishwjeetkumar.me/services'}
+                keywords={[
+                    'Software Engineer Freelance',
+                    'Freelance Software Engineer',
+                    'Hire Full Stack Developer',
+                    'Hire Software Engineer',
+                    'Freelance Full Stack Developer',
+                    'Full Stack Development Services',
+                    'React Developer',
+                    'Next.js Developer',
+                    'TypeScript Developer',
+                    'Web Development Services',
+                    'Custom Web Development',
+                    'E-commerce Development',
+                    'API Development',
+                    'Backend Development',
+                    'Frontend Development',
+                    'Experienced Developer',
+                    'Professional Developer',
+                    'Why Hire Developer',
+                    'Developer vs AI',
+                    'Expert Developer'
+                ]}
+                breadcrumbs={[
+                    { name: 'Home', url: 'https://vishwjeetkumar.me/' },
+                    { name: 'Services', url: 'https://vishwjeetkumar.me/services' }
+                ]}
+                faq={[
+                    {
+                        question: 'Why should you hire an experienced Full Stack Developer?',
+                        answer: 'Hiring an experienced Full Stack Developer ensures you get proven expertise in React, Next.js, TypeScript, Node.js, and modern web technologies. Experienced developers bring real-world problem-solving skills, best practices, code quality, performance optimization, security expertise, and the ability to deliver scalable, maintainable solutions that meet your specific business needs and deadlines.'
+                    },
+                    {
+                        question: 'Why is an experienced software engineer freelance better than AI for development?',
+                        answer: 'While AI tools are helpful assistants, experienced freelance software engineers provide critical thinking, creative problem-solving, understanding of business context, strategic technical decisions, debugging complex issues, security best practices, code architecture, and human communication. Experienced developers adapt to unique requirements, make strategic decisions, ensure long-term maintainability, and align projects with business goals - capabilities AI cannot replicate.'
+                    },
+                    {
+                        question: 'What makes a freelance software engineer better than AI development tools?',
+                        answer: 'A freelance software engineer offers personalized solutions tailored to your business, understands specific requirements, provides ongoing support and maintenance, makes strategic technical decisions, ensures code quality and maintainability, handles edge cases and complex scenarios, delivers human-centered design, and provides direct communication. Unlike AI tools that generate generic code, experienced developers create custom solutions with proper architecture, security, scalability, and business alignment.'
+                    },
+                    {
+                        question: 'Should I hire a software engineer freelance or use AI development tools?',
+                        answer: 'For production-ready, scalable, and maintainable software, hiring an experienced freelance software engineer is essential. AI tools are great for learning and prototyping, but experienced developers provide strategic thinking, business understanding, code quality, security, performance optimization, and long-term support. For critical business applications, an experienced developer ensures your project succeeds and scales with your business needs.'
+                    }
+                ]}
+            />
+            <div ref={containerRef} className="bg-background min-h-screen text-text selection:bg-primary/30">
             
             {/* Hero Section */}
             <section className="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-6 py-32 overflow-hidden">
@@ -1384,6 +1435,7 @@ const ServicesPage: React.FC = () => {
             </section>
 
         </div>
+        </>
     );
 };
 

@@ -1,0 +1,5 @@
+# Netlify Configuration for React Router (SPA)
+# This file should be in the public folder so it gets copied to dist during build
+
+/*    /index.html   200
+

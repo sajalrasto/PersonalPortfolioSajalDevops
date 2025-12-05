@@ -333,7 +333,7 @@ const ResumePage: React.FC = () => {
                                     <ExperienceItem
                                         title="Software Engineer"
                                         company="National E-Governance Division (DIC), MeITY, New delhi"
-                                        period="Jun 2024 - Present"
+                                        period="Jun 2025 - Present"
                                         description="Spearheaded the development of web applications using microservices architecture. Managed frontend and backend systems, focusing on performance optimization. Collaborated in an Agile environment, designing RESTful APIs."
                                         highlights={["Angualr","Ionic","Microservices Architecture", "Performance Optimization", "RESTful APIs"]}
                                     />
