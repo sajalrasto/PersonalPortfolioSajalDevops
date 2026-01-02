@@ -224,7 +224,7 @@ const SEO: React.FC<SEOProps> = ({
       '@id': url,
       headline: optimizedTitle,
       description: optimizedDescription,
-      image: image.startsWith('http') ? image : `https://vishwjeetkumar.me${image}`,
+      image: image.startsWith('http') ? image : `https://vishwjeetkumar.me${image.startsWith('/') ? image : '/' + image}`,
       url: url,
       inLanguage: 'en-US',
       isAccessibleForFree: true,

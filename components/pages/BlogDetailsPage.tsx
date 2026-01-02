@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { BlogPost, getAllBlogPosts, getBlogPostBySlug } from '../../services/blogService';
 import SEO from '../SEO';
+import BlogSEO from '../BlogSEO';
 import { logger } from '../../utils/logger';
 
 const BlogDetailsPage: React.FC = () => {
@@ -33,6 +34,7 @@ const BlogDetailsPage: React.FC = () => {
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
   const [isShareMenuOpen, setIsShareMenuOpen] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isDark, setIsDark] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -96,6 +98,20 @@ const BlogDetailsPage: React.FC = () => {
       setReadingTime(estimatedTime);
     }
   }, [post?.fullContent]);
+
+  // Theme detection
+  useEffect(() => {
+    const checkTheme = () => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    };
+    checkTheme();
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+    return () => observer.disconnect();
+  }, []);
 
   const handleCopyLink = async () => {
     try {
@@ -172,57 +188,141 @@ const BlogDetailsPage: React.FC = () => {
     );
   };
 
+  // Generate SEO URL with proper canonical format
+  const seoUrl = React.useMemo(() => {
+    if (!post) return typeof window !== 'undefined' ? window.location.href : 'https://vishwjeetkumar.me/blog';
+    
+    if (post.slug) {
+      return `https://vishwjeetkumar.me/blog/${post.slug}`;
+    }
+    
+    // Fallback: generate slug from title
+    const slug = post.title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+    return `https://vishwjeetkumar.me/blog/${slug}`;
+  }, [post]);
+
+  // Format dates for SEO (ISO 8601 format)
+  const formatDateForSEO = (dateString?: string): string | undefined => {
+    if (!dateString) return undefined;
+    try {
+      const date = new Date(dateString);
+      if (isNaN(date.getTime())) return undefined;
+      return date.toISOString();
+    } catch {
+      return undefined;
+    }
+  };
+
+  // Generate absolute image URL
+  const getAbsoluteImageUrl = (imageUrl?: string): string => {
+    if (!imageUrl || imageUrl === '#') {
+      return 'https://vishwjeetkumar.me/og-image.jpg';
+    }
+    if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+      return imageUrl;
+    }
+    if (imageUrl.startsWith('/')) {
+      return `https://vishwjeetkumar.me${imageUrl}`;
+    }
+    return `https://vishwjeetkumar.me/${imageUrl}`;
+  };
+
+  // Generate optimized description
+  const getOptimizedDescription = (): string => {
+    if (!post) return 'Expert Full Stack Developer blog post with insights on modern web development from Gaya, Bihar.';
+    
+    if (post.excerpt && post.excerpt.length > 0) {
+      // Clean excerpt and ensure it's within 160 characters
+      const cleanExcerpt = post.excerpt
+        .replace(/<[^>]*>/g, '') // Remove HTML tags
+        .replace(/\s+/g, ' ') // Normalize whitespace
+        .trim();
+      
+      if (cleanExcerpt.length <= 160) {
+        return cleanExcerpt;
+      }
+      return cleanExcerpt.substring(0, 157) + '...';
+    }
+    
+    // Fallback description with local SEO
+    return `${post.title} - Expert insights on ${post.category} by Full Stack Developer Vishwjeet Kumar from Gaya, Bihar. Learn modern web development techniques, best practices, and industry trends.`;
+  };
+
+  // Generate local SEO keywords
+  const getLocalSEOKeywords = (): string[] => {
+    const baseKeywords = [
+      post?.category || 'Web Development',
+      'Full Stack Developer Blog',
+      'Tech Blog Bihar',
+      'Web Developer Gaya',
+      'Software Engineer Bihar',
+      'Programming Tutorial Bihar',
+      'React Developer Gaya',
+      'Next.js Developer Bihar',
+      'TypeScript Tutorial Bihar',
+      'Web Development Bihar',
+      'Software Engineering Bihar',
+      'Tech Tutorial Gaya',
+      'Developer Blog Bihar',
+      'Programming Blog Gaya',
+      post?.title || 'Tech Article'
+    ];
+    
+    if (post?.tags) {
+      baseKeywords.push(...post.tags);
+    }
+    
+    return baseKeywords;
+  };
+
+  const handleBack = () => {
+    navigate('/blog');
+  };
+
+  // Show loading state with basic SEO
   if (loading || !post) {
     return (
+      <>
+        <SEO
+          title="Loading Article | Engineering Journal"
+          description="Loading blog article..."
+          url={typeof window !== 'undefined' ? window.location.href : 'https://vishwjeetkumar.me/blog'}
+          noindex={true}
+        />
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-text-muted">Loading article...</p>
         </div>
       </div>
+      </>
     );
   }
-
-  const seoUrl = post.slug 
-    ? `${window.location.origin}/blog/${post.slug}`
-    : window.location.href;
-
-  const handleBack = () => {
-    navigate('/blog');
-  };
 
   return (
     <>
       <SEO
-        title={`${post.title} | Full Stack Developer Blog | Engineering Journal`}
-        description={post.excerpt || `${post.title} - Expert insights on ${post.category} by Full Stack Developer Vishwjeet Kumar. Learn modern web development techniques and best practices.`}
-        image={post.image || '/og-image.jpg'}
+        title={`${post.title} | Full Stack Developer Blog Gaya Bihar | Engineering Journal`}
+        description={getOptimizedDescription()}
+        image={getAbsoluteImageUrl(post.image)}
         url={seoUrl}
         type="article"
         author={post.author || 'Vishwjeet Kumar'}
-        publishedTime={post.publishedDate}
-        modifiedTime={post.publishedDate}
-        keywords={[
-          post.category,
-          'Full Stack Developer',
-          'Tech Blog',
-          'Software Engineering',
-          'Web Development',
-          'React',
-          'Next.js',
-          'TypeScript',
-          'Programming',
-          'Developer Blog',
-          post.title
-        ]}
+        publishedTime={formatDateForSEO(post.publishedDate)}
+        modifiedTime={formatDateForSEO(post.publishedDate)}
+        keywords={getLocalSEOKeywords()}
         articleSection={post.category}
-        tags={post.tags || [post.category, 'Web Development', 'Full Stack Development']}
+        tags={post.tags || [post.category, 'Web Development', 'Full Stack Development', 'Bihar Tech', 'Gaya Developer']}
         breadcrumbs={[
           { name: 'Home', url: 'https://vishwjeetkumar.me/' },
           { name: 'Engineering Journal', url: 'https://vishwjeetkumar.me/blog' },
           { name: post.title, url: seoUrl }
         ]}
       />
+      <BlogSEO post={post} />
       <div 
         ref={containerRef}
         className="min-h-screen overflow-x-hidden bg-background relative"
@@ -628,7 +728,7 @@ const BlogDetailsPage: React.FC = () => {
         </div>
 
         {/* Share Menu - Floating */}
-        <div className="fixed bottom-24 right-6 z-[45]">
+        <div className="fixed right-6 bottom-36 md:bottom-24 z-[45]">
           <AnimatePresence>
             {isShareMenuOpen && (
               <>
@@ -636,76 +736,114 @@ const BlogDetailsPage: React.FC = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 0.15 }}
+                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                   onClick={() => setIsShareMenuOpen(false)}
                   className="fixed inset-0 bg-black/20 backdrop-blur-sm -z-10"
                 />
                 
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95, y: 5 }}
+                  initial={{ opacity: 0, scale: 0.9, y: 10 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: 5 }}
-                  transition={{ type: "spring", stiffness: 500, damping: 35, mass: 0.6 }}
+                  exit={{ opacity: 0, scale: 0.9, y: 10 }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 300, 
+                    damping: 30, 
+                    mass: 0.6,
+                    ease: [0.16, 1, 0.3, 1]
+                  }}
                   className="absolute bottom-14 right-0 flex flex-col gap-3 mb-2"
                 >
                   <motion.button
-                    initial={{ opacity: 0, x: 15, scale: 0.9 }}
+                    initial={{ opacity: 0, x: 20, scale: 0.9 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
-                    exit={{ opacity: 0, x: 15, scale: 0.9 }}
-                    transition={{ delay: 0.02, type: "spring", stiffness: 500, damping: 30, mass: 0.5 }}
+                    exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                    transition={{ delay: 0.03, type: "spring", stiffness: 400, damping: 28, mass: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     onClick={() => {
                       handleShare('twitter');
                       setIsShareMenuOpen(false);
                     }}
-                    className="w-12 h-12 rounded-full bg-blue-500/20 hover:bg-blue-500/30 border border-blue-500/30 flex items-center justify-center text-blue-400 shadow-lg backdrop-blur-md transition-all active:scale-95"
+                    className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all active:scale-95 relative overflow-hidden ${
+                      isDark 
+                        ? 'bg-blue-600/25 hover:bg-blue-600/35 backdrop-blur-2xl border border-blue-400/50 text-blue-300 shadow-[0_8px_32px_rgba(59,130,246,0.4),0_0_15px_rgba(96,165,250,0.3)]' 
+                        : 'bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-blue-500/30 text-blue-600 shadow-[0_8px_32px_rgba(59,130,246,0.25)]'
+                    }`}
+                    style={{
+                      backdropFilter: 'blur(20px) saturate(180%)',
+                      WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                    }}
                     title="Share on Twitter"
                   >
                     <Twitter size={20} />
                   </motion.button>
                   
                   <motion.button
-                    initial={{ opacity: 0, x: 15, scale: 0.9 }}
+                    initial={{ opacity: 0, x: 20, scale: 0.9 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
-                    exit={{ opacity: 0, x: 15, scale: 0.9 }}
-                    transition={{ delay: 0.04, type: "spring", stiffness: 500, damping: 30, mass: 0.5 }}
+                    exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                    transition={{ delay: 0.06, type: "spring", stiffness: 400, damping: 28, mass: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     onClick={() => {
                       handleShare('linkedin');
                       setIsShareMenuOpen(false);
                     }}
-                    className="w-12 h-12 rounded-full bg-blue-600/20 hover:bg-blue-600/30 border border-blue-600/30 flex items-center justify-center text-blue-500 shadow-lg backdrop-blur-md transition-all active:scale-95"
+                    className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all active:scale-95 relative overflow-hidden ${
+                      isDark 
+                        ? 'bg-blue-700/25 hover:bg-blue-700/35 backdrop-blur-2xl border border-blue-500/50 text-blue-300 shadow-[0_8px_32px_rgba(37,99,235,0.4),0_0_15px_rgba(59,130,246,0.3)]' 
+                        : 'bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-blue-600/30 text-blue-700 shadow-[0_8px_32px_rgba(37,99,235,0.25)]'
+                    }`}
+                    style={{
+                      backdropFilter: 'blur(20px) saturate(180%)',
+                      WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                    }}
                     title="Share on LinkedIn"
                   >
                     <Linkedin size={20} />
                   </motion.button>
                   
                   <motion.button
-                    initial={{ opacity: 0, x: 15, scale: 0.9 }}
+                    initial={{ opacity: 0, x: 20, scale: 0.9 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
-                    exit={{ opacity: 0, x: 15, scale: 0.9 }}
-                    transition={{ delay: 0.06, type: "spring", stiffness: 500, damping: 30, mass: 0.5 }}
+                    exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                    transition={{ delay: 0.09, type: "spring", stiffness: 400, damping: 28, mass: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     onClick={() => {
                       handleShare('facebook');
                       setIsShareMenuOpen(false);
                     }}
-                    className="w-12 h-12 rounded-full bg-blue-700/20 hover:bg-blue-700/30 border border-blue-700/30 flex items-center justify-center text-blue-600 shadow-lg backdrop-blur-md transition-all active:scale-95"
+                    className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all active:scale-95 relative overflow-hidden ${
+                      isDark 
+                        ? 'bg-blue-800/25 hover:bg-blue-800/35 backdrop-blur-2xl border border-blue-600/50 text-blue-300 shadow-[0_8px_32px_rgba(29,78,216,0.4),0_0_15px_rgba(37,99,235,0.3)]' 
+                        : 'bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-blue-700/30 text-blue-800 shadow-[0_8px_32px_rgba(29,78,216,0.25)]'
+                    }`}
+                    style={{
+                      backdropFilter: 'blur(20px) saturate(180%)',
+                      WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                    }}
                     title="Share on Facebook"
                   >
                     <Facebook size={20} />
                   </motion.button>
                   
                   <motion.button
-                    initial={{ opacity: 0, x: 15, scale: 0.9 }}
+                    initial={{ opacity: 0, x: 20, scale: 0.9 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
-                    exit={{ opacity: 0, x: 15, scale: 0.9 }}
-                    transition={{ delay: 0.08, type: "spring", stiffness: 500, damping: 30, mass: 0.5 }}
+                    exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                    transition={{ delay: 0.12, type: "spring", stiffness: 400, damping: 28, mass: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     onClick={() => {
                       handleCopyLink();
                       setIsShareMenuOpen(false);
                     }}
-                    className="w-12 h-12 rounded-full bg-surface/80 hover:bg-surface border border-text/20 flex items-center justify-center text-text-muted hover:text-primary shadow-lg backdrop-blur-md transition-all active:scale-95"
+                    className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all active:scale-95 relative overflow-hidden ${
+                      isDark 
+                        ? 'bg-slate-800/40 hover:bg-slate-800/50 backdrop-blur-2xl border border-slate-500/50 text-slate-300 hover:text-violet-300 shadow-[0_8px_32px_rgba(71,85,105,0.4),0_0_15px_rgba(148,163,184,0.2)]' 
+                        : 'bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-text/20 text-text shadow-[0_8px_32px_rgba(0,0,0,0.15)]'
+                    }`}
+                    style={{
+                      backdropFilter: 'blur(20px) saturate(180%)',
+                      WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                    }}
                     title="Copy Link"
                   >
-                    {copied ? <CheckCircle size={20} className="text-green-400" /> : <Copy size={20} />}
+                    {copied ? <CheckCircle size={20} className={isDark ? 'text-green-400' : 'text-green-600'} /> : <Copy size={20} />}
                   </motion.button>
                 </motion.div>
               </>
@@ -713,35 +851,78 @@ const BlogDetailsPage: React.FC = () => {
           </AnimatePresence>
 
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsShareMenuOpen(!isShareMenuOpen)}
-            className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 via-cyan-400/20 to-violet-500/20 hover:from-primary/30 hover:via-cyan-400/30 hover:to-violet-500/30 border border-primary/30 flex items-center justify-center text-primary shadow-2xl backdrop-blur-xl transition-all"
+            className={`w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 relative z-10 overflow-hidden ${
+              isDark 
+                ? 'bg-gradient-to-br from-violet-600/20 via-purple-600/20 to-fuchsia-600/20 backdrop-blur-2xl border border-violet-500/40 text-violet-300 shadow-[0_8px_32px_rgba(139,92,246,0.4),0_0_20px_rgba(168,85,247,0.3)]' 
+                : 'bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-cyan-500/30 text-cyan-700 shadow-[0_8px_32px_rgba(6,182,212,0.25)]'
+            }`}
+            style={{
+              backdropFilter: 'blur(20px) saturate(180%)',
+              WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+            }}
             title="Share"
           >
-            <AnimatePresence mode="wait">
-              {isShareMenuOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
-                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                  exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
-                  transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.4 }}
-                >
-                  <X size={22} />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="share"
-                  initial={{ rotate: 90, opacity: 0, scale: 0.8 }}
-                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                  exit={{ rotate: -90, opacity: 0, scale: 0.8 }}
-                  transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.4 }}
-                >
-                  <Share2 size={22} />
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {isDark && (
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-purple-500/20 to-fuchsia-500/20"
+                animate={{
+                  rotate: [0, 360],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                style={{
+                  background: 'conic-gradient(from 0deg, rgba(139,92,246,0.1), rgba(168,85,247,0.1), rgba(217,70,239,0.1), rgba(139,92,246,0.1))',
+                }}
+              />
+            )}
+            <div className="relative z-10">
+              <AnimatePresence mode="wait">
+                {isShareMenuOpen ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.4 }}
+                  >
+                    <X size={22} />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="share"
+                    initial={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.4 }}
+                  >
+                    <Share2 size={22} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            
+            {!isShareMenuOpen && (
+              <motion.div
+                className={`absolute inset-0 rounded-full border-2 ${
+                  isDark ? 'border-violet-400/40' : 'border-cyan-500/30'
+                }`}
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.5, 0, 0.5],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            )}
           </motion.button>
         </div>
 

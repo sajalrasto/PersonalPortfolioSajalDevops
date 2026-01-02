@@ -5,6 +5,7 @@ import ThemeToggle from './components/ui/ThemeToggle';
 import ErrorBoundary from './components/ErrorBoundary';
 import ClientInfoModal from './components/ui/ClientInfoModal';
 import WhatsAppModal from './components/ui/WhatsAppModal';
+import LocalBusinessSchema from './components/LocalBusinessSchema';
 import { AppRoutes } from './routes';
 import { Menu, X, FileText, Briefcase, User, Moon, Sun } from 'lucide-react';
 
@@ -35,6 +36,12 @@ const Header: React.FC<{ isDark: boolean; toggleTheme: () => void }> = ({ isDark
             className="hover:text-text transition-colors"
           >
             Services
+          </button>
+          <button 
+            onClick={() => handleNavigation('/project-portfolio')} 
+            className="hover:text-text transition-colors"
+          >
+            Portfolio
           </button>
           <button 
             onClick={() => handleNavigation('/blog')} 
@@ -90,45 +97,99 @@ const MobileMenu: React.FC<{
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
               onClick={() => setIsMenuOpen(false)}
               className="fixed inset-0 bg-black/20 backdrop-blur-sm -z-10"
             />
             
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              initial={{ opacity: 0, scale: 0.9, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, y: 20 }}
-              transition={{ duration: 0.2 }}
+              exit={{ opacity: 0, scale: 0.9, y: 10 }}
+              transition={{ 
+                type: "spring", 
+                stiffness: 300, 
+                damping: 30, 
+                mass: 0.6,
+                ease: [0.16, 1, 0.3, 1]
+              }}
               className="flex flex-col gap-3 mb-2"
             >
               <motion.button
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 }}
+                initial={{ opacity: 0, x: 20, scale: 0.9 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                transition={{ delay: 0.03, type: "spring", stiffness: 400, damping: 28, mass: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => handleNav('/blog')}
-                className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-cyan-500/90 via-sky-400/90 to-cyan-300/90 backdrop-blur-xl border border-white/20 text-white font-semibold text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className={`flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 relative overflow-hidden ${
+                  isDark 
+                    ? 'bg-gradient-to-r from-emerald-600/30 via-teal-600/30 to-cyan-600/30 backdrop-blur-2xl border border-emerald-400/50 text-emerald-200 shadow-[0_8px_32px_rgba(16,185,129,0.4),0_0_20px_rgba(20,184,166,0.3)]' 
+                    : 'bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-cyan-500/30 text-cyan-700 shadow-[0_8px_32px_rgba(6,182,212,0.25)]'
+                }`}
+                style={{
+                  backdropFilter: 'blur(20px) saturate(180%)',
+                  WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                }}
               >
                 <FileText size={22} />
                 <span>Journal</span>
               </motion.button>
               
               <motion.button
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.15 }}
+                initial={{ opacity: 0, x: 20, scale: 0.9 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                transition={{ delay: 0.06, type: "spring", stiffness: 400, damping: 28, mass: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => handleNav('/services')}
-                className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-cyan-500/90 via-sky-400/90 to-cyan-300/90 backdrop-blur-xl border border-white/20 text-white font-semibold text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className={`flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 relative overflow-hidden ${
+                  isDark 
+                    ? 'bg-gradient-to-r from-emerald-600/30 via-teal-600/30 to-cyan-600/30 backdrop-blur-2xl border border-emerald-400/50 text-emerald-200 shadow-[0_8px_32px_rgba(16,185,129,0.4),0_0_20px_rgba(20,184,166,0.3)]' 
+                    : 'bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-cyan-500/30 text-cyan-700 shadow-[0_8px_32px_rgba(6,182,212,0.25)]'
+                }`}
+                style={{
+                  backdropFilter: 'blur(20px) saturate(180%)',
+                  WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                }}
               >
                 <Briefcase size={22} />
                 <span>Services</span>
               </motion.button>
               
               <motion.button
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
+                initial={{ opacity: 0, x: 20, scale: 0.9 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                transition={{ delay: 0.09, type: "spring", stiffness: 400, damping: 28, mass: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                onClick={() => handleNav('/project-portfolio')}
+                className={`flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 relative overflow-hidden ${
+                  isDark 
+                    ? 'bg-gradient-to-r from-emerald-600/30 via-teal-600/30 to-cyan-600/30 backdrop-blur-2xl border border-emerald-400/50 text-emerald-200 shadow-[0_8px_32px_rgba(16,185,129,0.4),0_0_20px_rgba(20,184,166,0.3)]' 
+                    : 'bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-cyan-500/30 text-cyan-700 shadow-[0_8px_32px_rgba(6,182,212,0.25)]'
+                }`}
+                style={{
+                  backdropFilter: 'blur(20px) saturate(180%)',
+                  WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                }}
+              >
+                <Briefcase size={22} />
+                <span>Portfolio</span>
+              </motion.button>
+              
+              <motion.button
+                initial={{ opacity: 0, x: 20, scale: 0.9 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: 20, scale: 0.9 }}
+                transition={{ delay: 0.12, type: "spring", stiffness: 400, damping: 28, mass: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => handleNav('/resume')}
-                className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-gradient-to-r from-cyan-500/90 via-sky-400/90 to-cyan-300/90 backdrop-blur-xl border border-white/20 text-white font-semibold text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className={`flex items-center gap-3 px-4 py-3 rounded-2xl font-semibold text-sm shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 relative overflow-hidden ${
+                  isDark 
+                    ? 'bg-gradient-to-r from-emerald-600/30 via-teal-600/30 to-cyan-600/30 backdrop-blur-2xl border border-emerald-400/50 text-emerald-200 shadow-[0_8px_32px_rgba(16,185,129,0.4),0_0_20px_rgba(20,184,166,0.3)]' 
+                    : 'bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-cyan-500/30 text-cyan-700 shadow-[0_8px_32px_rgba(6,182,212,0.25)]'
+                }`}
+                style={{
+                  backdropFilter: 'blur(20px) saturate(180%)',
+                  WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                }}
               >
                 <User size={22} />
                 <span>Resume</span>
@@ -140,37 +201,65 @@ const MobileMenu: React.FC<{
       
       <motion.button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 via-sky-400 to-cyan-300 shadow-lg hover:shadow-xl flex items-center justify-center text-white transition-all duration-300 relative z-10"
+        className={`w-12 h-12 rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 relative z-10 overflow-hidden ${
+          isDark 
+            ? 'bg-gradient-to-br from-emerald-600/20 via-teal-600/20 to-cyan-600/20 backdrop-blur-2xl border border-emerald-500/40 text-emerald-300 shadow-[0_8px_32px_rgba(16,185,129,0.4),0_0_20px_rgba(20,184,166,0.3)]' 
+            : 'bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-cyan-500/30 text-cyan-700 shadow-[0_8px_32px_rgba(6,182,212,0.25)]'
+        }`}
+        style={{
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+        }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
-        <AnimatePresence mode="wait">
-          {isMenuOpen ? (
-            <motion.div
-              key="close"
-              initial={{ rotate: -90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <X size={22} />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="menu"
-              initial={{ rotate: 90, opacity: 0 }}
-              animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: -90, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Menu size={22} />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {isDark && (
+          <motion.div
+            className="absolute inset-0"
+            animate={{
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            style={{
+              background: 'conic-gradient(from 0deg, rgba(16,185,129,0.1), rgba(20,184,166,0.1), rgba(6,182,212,0.1), rgba(16,185,129,0.1))',
+            }}
+          />
+        )}
+        <div className="relative z-10">
+          <AnimatePresence mode="wait">
+            {isMenuOpen ? (
+              <motion.div
+                key="close"
+                initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.4 }}
+              >
+                <X size={22} />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="menu"
+                initial={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                exit={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.4 }}
+              >
+                <Menu size={22} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
         
         {!isMenuOpen && (
           <motion.div
-            className="absolute inset-0 rounded-full border-2 border-white/30"
+            className={`absolute inset-0 rounded-full border-2 ${
+              isDark ? 'border-emerald-400/40' : 'border-cyan-500/30'
+            }`}
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.5, 0, 0.5],
@@ -187,12 +276,75 @@ const MobileMenu: React.FC<{
       {/* Theme Toggle Button - Below Floating Menu */}
       <motion.button
         onClick={toggleTheme}
-        className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 via-sky-400 to-cyan-300 shadow-lg hover:shadow-xl flex items-center justify-center text-white transition-all duration-300 relative z-10"
+        className={`w-12 h-12 rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-300 relative z-10 overflow-hidden ${
+          isDark 
+            ? 'bg-gradient-to-br from-amber-600/20 via-orange-600/20 to-yellow-600/20 backdrop-blur-2xl border border-amber-500/40 text-amber-300 shadow-[0_8px_32px_rgba(217,119,6,0.4),0_0_20px_rgba(251,146,60,0.3)]' 
+            : 'bg-white/40 hover:bg-white/50 backdrop-blur-2xl border border-cyan-500/30 text-cyan-700 shadow-[0_8px_32px_rgba(6,182,212,0.25)]'
+        }`}
+        style={{
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+        }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         aria-label="Toggle Theme"
       >
-        {isDark ? <Moon size={22} /> : <Sun size={22} />}
+        {isDark && (
+          <motion.div
+            className="absolute inset-0"
+            animate={{
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            style={{
+              background: 'conic-gradient(from 0deg, rgba(217,119,6,0.1), rgba(251,146,60,0.1), rgba(234,179,8,0.1), rgba(217,119,6,0.1))',
+            }}
+          />
+        )}
+        <div className="relative z-10">
+          <AnimatePresence mode="wait">
+            {isDark ? (
+              <motion.div
+                key="moon"
+                initial={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                exit={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.4 }}
+              >
+                <Moon size={22} />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="sun"
+                initial={{ rotate: 90, opacity: 0, scale: 0.8 }}
+                animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                exit={{ rotate: -90, opacity: 0, scale: 0.8 }}
+                transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.4 }}
+              >
+                <Sun size={22} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+        
+        <motion.div
+          className={`absolute inset-0 rounded-full border-2 ${
+            isDark ? 'border-amber-400/40' : 'border-cyan-500/30'
+          }`}
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.5, 0, 0.5],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
       </motion.button>
     </div>
   );
@@ -263,6 +415,9 @@ const AppContent: React.FC = () => {
   return (
     <div className="bg-background min-h-screen text-text selection:bg-primary/30 selection:text-white relative transition-colors duration-500">
       <div className="bg-noise" />
+      
+      {/* Local Business Schema */}
+      <LocalBusinessSchema />
       
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-violet to-fuchsia origin-left z-50 shadow-[0_0_15px_rgba(139,92,246,0.5)]"

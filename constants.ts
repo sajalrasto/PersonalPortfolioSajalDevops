@@ -22,44 +22,44 @@ import { Project, Service, Skill, Stat } from "./types";
 export const SERVICES: Service[] = [
   {
     id: "1",
-    title: "Full-stack Website Development",
+    title: "Web Development Gaya Bihar",
     description:
-      "End-to-end web solutions using Next.js, React, and robust backend architectures.",
+      "Professional website development services in Gaya, Bodhgaya, and across Bihar. Custom React, Next.js solutions for local businesses.",
     icon: Sparkles,
   },
   {
     id: "2",
-    title: "E-commerce Systems",
+    title: "E-commerce Development Bihar",
     description:
-      "Scalable online stores with secure payment gateways and inventory management.",
+      "Complete e-commerce solutions for businesses in Bihar. Secure payment gateways, inventory management, and mobile-responsive design.",
     icon: ShoppingCart,
   },
   {
     id: "3",
-    title: "Custom Web Applications",
+    title: "Custom Software Bodhgaya",
     description:
-      "Tailored SaaS products and internal tools designed for specific business needs.",
+      "Tailored software solutions for businesses in Bodhgaya and Gaya. CRM, ERP, and business management systems.",
     icon: Code,
   },
   {
     id: "4",
-    title: "API & Backend Development",
+    title: "API Development Bihar",
     description:
-      "High-performance REST & GraphQL APIs built with Node.js, Laravel, or Spring Boot.",
+      "High-performance REST & GraphQL APIs for businesses across Bihar. Scalable backend solutions with modern technology.",
     icon: ChartNetwork,
   },
   {
     id: "5",
     title: "Mobile App Development",
     description:
-      "Cross-platform mobile applications using React Native for iOS and Android.",
+      "Cross-platform mobile applications for businesses in Gaya, Bodhgaya. React Native solutions for iOS and Android.",
     icon: Smartphone,
   },
   {
     id: "6",
-    title: "Personal Portfolio Websites",
+    title: "Digital Marketing Bihar",
     description:
-      "Showcasing individual skills, projects, and experiences through custom-designed websites.",
+      "Complete digital presence for businesses in Bihar. SEO, social media marketing, and online brand building.",
     icon: UserCircle,
   },
 ];

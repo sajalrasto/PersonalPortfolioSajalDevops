@@ -1,4 +1,4 @@
-# robots.txt for vishwjeetkumar.dev
+# robots.txt for vishwjeetkumar.me
 # Optimized for Full Stack Developer SEO
 
 # Allow all search engines

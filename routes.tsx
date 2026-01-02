@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 // Lazy load heavy components for code splitting
 const ResumePage = lazy(() => import('./components/pages/ResumePage'));
 const ServicesPage = lazy(() => import('./components/pages/ServicesPage'));
+const LocalServicesPage = lazy(() => import('./components/pages/LocalServicesPage'));
 const BlogPage = lazy(() => import('./components/pages/BlogPage'));
 const BlogDetailsPage = lazy(() => import('./components/pages/BlogDetailsPage'));
 const CaseStudyPage = lazy(() => import('./components/pages/CaseStudyPage'));
@@ -19,6 +20,7 @@ const AngelMonkeyCaseStudy = lazy(() => import('./components/pages/AngelMonkeyCa
 const PlationAtHomeCaseStudy = lazy(() => import('./components/pages/PlationAtHomeCaseStudy'));
 const CMSCaseStudy = lazy(() => import('./components/pages/CMSCaseStudy'));
 const TripatakalandCaseStudy = lazy(() => import('./components/pages/TripatakalandCaseStudy'));
+const PortfolioPage = lazy(() => import('./components/pages/PortfolioPage'));
 
 // Loading component
 const LoadingFallback: React.FC = () => (
@@ -67,6 +69,37 @@ export const AppRoutes: React.FC = () => {
         }
       />
 
+      {/* Local Services Route - Bihar Specific */}
+      <Route
+        path="/services/local-bihar"
+        element={
+          <SuspenseWrapper>
+            <LocalServicesPage />
+            <Footer />
+          </SuspenseWrapper>
+        }
+      />
+
+      <Route
+        path="/web-developer-gaya"
+        element={
+          <SuspenseWrapper>
+            <LocalServicesPage />
+            <Footer />
+          </SuspenseWrapper>
+        }
+      />
+
+      <Route
+        path="/software-engineer-bodhgaya"
+        element={
+          <SuspenseWrapper>
+            <LocalServicesPage />
+            <Footer />
+          </SuspenseWrapper>
+        }
+      />
+
       {/* Resume Route */}
       <Route
         path="/resume"
@@ -74,6 +107,16 @@ export const AppRoutes: React.FC = () => {
           <SuspenseWrapper>
             <ResumePage />
             <Footer />
+          </SuspenseWrapper>
+        }
+      />
+
+      {/* Project Portfolio Route */}
+      <Route
+        path="/project-portfolio"
+        element={
+          <SuspenseWrapper>
+            <PortfolioPage />
           </SuspenseWrapper>
         }
       />

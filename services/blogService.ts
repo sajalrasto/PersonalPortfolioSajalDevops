@@ -465,7 +465,21 @@ export function getAllBlogPosts(): BlogPost[] {
 // Get blog post by slug
 export function getBlogPostBySlug(slug: string): BlogPost | null {
   const allPosts = getAllBlogPosts();
-  return allPosts.find((post) => post.slug === slug) || null;
+  // Try to find by slug first, then by ID as fallback
+  const post = allPosts.find((post) => {
+    if (post.slug === slug) return true;
+    if (post.id === slug) return true;
+    // Generate slug from title and compare
+    const generatedSlug = post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    return generatedSlug === slug;
+  });
+  
+  // If found, ensure it has a slug for future use
+  if (post && !post.slug) {
+    post.slug = post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  }
+  
+  return post || null;
 }
 
 // Get blog post by ID
@@ -844,6 +858,7 @@ export async function fetchMultipleRealBlogs(
                 .toLowerCase()
                 .replace(/[^a-z0-9]+/g, "-")
                 .replace(/(^-|-$)/g, "")
+                .substring(0, 60) // Limit slug length
             : `post-${Date.now()}`;
 
           const postId = `rss-${Date.now()}-${Math.random()

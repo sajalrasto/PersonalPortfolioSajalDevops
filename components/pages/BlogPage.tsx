@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import { getAllBlogPosts, BlogPost as BlogPostType, fetchMultipleRealBlogs } from '../../services/blogService';
 import SEO from '../SEO';
+import BlogSEO from '../BlogSEO';
 import { logger } from '../../utils/logger';
 
 interface BlogPageProps {
@@ -716,34 +717,35 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
   return (
     <>
       <SEO
-        title="Engineering Journal | Full Stack Developer Blog | Tech Insights & Tutorials"
-        description="Expert Full Stack Developer's blog featuring in-depth tutorials, tech insights, AI breakthroughs, software architecture patterns, and modern web development best practices. Learn React, Next.js, TypeScript, and more."
-        url={window.location.href}
+        title="Engineering Journal | Full Stack Developer Blog Gaya Bihar | Tech Insights & Tutorials"
+        description="Expert Full Stack Developer's blog from Gaya, Bihar featuring in-depth tutorials, tech insights, AI breakthroughs, software architecture patterns, and modern web development best practices. Learn React, Next.js, TypeScript from experienced developer in Bihar."
+        url="https://vishwjeetkumar.me/blog"
         keywords={[
           'Full Stack Developer Blog',
-          'Tech Blog',
-          'Software Engineering Blog',
-          'React Tutorials',
-          'Next.js Tutorials',
-          'TypeScript Tutorials',
-          'Web Development Blog',
-          'Programming Blog',
-          'AI Development',
-          'Software Architecture',
-          'Frontend Development',
-          'Backend Development',
-          'Modern Web Development',
-          'Full Stack Engineer Blog',
-          'Web Developer Resources',
-          'Coding Tutorials',
-          'Tech Insights',
-          'Developer Blog',
-          'Software Engineer Freelance',
-          'Freelance Software Engineer',
-          'Hire Full Stack Developer',
-          'Experienced Developer vs AI',
-          'Why Hire Developer',
-          'Freelance Web Developer'
+          'Tech Blog Bihar',
+          'Web Developer Gaya Blog',
+          'Software Engineer Bihar Blog',
+          'React Tutorials Bihar',
+          'Next.js Tutorials Gaya',
+          'TypeScript Tutorials Bihar',
+          'Web Development Blog India',
+          'Programming Blog Bihar',
+          'AI Development Bihar',
+          'Software Architecture Bihar',
+          'Frontend Development Gaya',
+          'Backend Development Bihar',
+          'Modern Web Development Bihar',
+          'Full Stack Engineer Blog Bihar',
+          'Web Developer Resources Bihar',
+          'Coding Tutorials Bihar',
+          'Tech Insights Bihar',
+          'Developer Blog Gaya',
+          'Software Engineer Freelance Bihar',
+          'Freelance Software Engineer Gaya',
+          'Hire Full Stack Developer Bihar',
+          'Experienced Developer vs AI Bihar',
+          'Why Hire Developer Bihar',
+          'Freelance Web Developer Gaya'
         ]}
         breadcrumbs={[
           { name: 'Home', url: 'https://vishwjeetkumar.me/' },
@@ -752,30 +754,31 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
         faq={[
           {
             question: 'What topics does the Engineering Journal cover?',
-            answer: 'The Engineering Journal covers Full Stack Development, React, Next.js, TypeScript, AI development, software architecture, web development best practices, and modern programming techniques.'
+            answer: 'The Engineering Journal covers Full Stack Development, React, Next.js, TypeScript, AI development, software architecture, web development best practices, and modern programming techniques with focus on Bihar tech community.'
           },
           {
             question: 'Who writes the Engineering Journal blog?',
-            answer: 'The Engineering Journal is written by Vishwjeet Kumar, an expert Full Stack Developer specializing in React, Next.js, TypeScript, and modern web development.'
+            answer: 'The Engineering Journal is written by Vishwjeet Kumar, an expert Full Stack Developer from Gaya, Bihar specializing in React, Next.js, TypeScript, and modern web development serving businesses across Bihar.'
           },
           {
             question: 'How often are new articles published?',
-            answer: 'New articles are published regularly covering the latest trends in web development, software engineering, and full stack development practices.'
+            answer: 'New articles are published regularly covering the latest trends in web development, software engineering, and full stack development practices relevant to developers and businesses in Bihar.'
           },
           {
-            question: 'Why should you hire an experienced Full Stack Developer?',
-            answer: 'Hiring an experienced Full Stack Developer like Vishwjeet Kumar ensures you get proven expertise in React, Next.js, TypeScript, and modern web technologies. Experienced developers bring real-world problem-solving skills, best practices, code quality, performance optimization, and the ability to deliver scalable, maintainable solutions that meet your business needs.'
+            question: 'Why should you hire an experienced Full Stack Developer in Bihar?',
+            answer: 'Hiring an experienced Full Stack Developer like Vishwjeet Kumar in Gaya, Bihar ensures you get proven expertise in React, Next.js, TypeScript, and modern web technologies. Local developers understand Bihar market needs, provide on-site support, and deliver cost-effective solutions with cultural understanding.'
           },
           {
-            question: 'Why is an experienced developer better than AI for software development?',
-            answer: 'While AI tools are helpful, experienced developers provide critical thinking, creative problem-solving, understanding of business context, code architecture decisions, debugging complex issues, security best practices, and human communication. Experienced developers can adapt to unique requirements, make strategic technical decisions, and ensure your project aligns with long-term business goals - something AI cannot replicate.'
+            question: 'Why is an experienced developer better than AI for software development in Bihar?',
+            answer: 'While AI tools are helpful, experienced developers in Bihar provide critical thinking, creative problem-solving, understanding of local business context, code architecture decisions, debugging complex issues, security best practices, and human communication. Local developers can adapt to unique Bihar market requirements and ensure projects align with regional business goals.'
           },
           {
-            question: 'What makes an experienced software engineer freelance better than AI development tools?',
-            answer: 'An experienced freelance software engineer offers personalized solutions, understands your specific business needs, provides ongoing support, makes strategic technical decisions, ensures code quality and maintainability, handles edge cases, and delivers human-centered design. Unlike AI tools that generate generic code, experienced developers create custom solutions tailored to your unique requirements with proper architecture, security, and scalability.'
+            question: 'What makes an experienced software engineer freelance in Gaya better than AI development tools?',
+            answer: 'An experienced freelance software engineer in Gaya offers personalized solutions, understands local Bihar business needs, provides ongoing support, makes strategic technical decisions, ensures code quality and maintainability, handles edge cases, and delivers human-centered design. Unlike AI tools that generate generic code, local developers create custom solutions tailored to Bihar market requirements.'
           }
         ]}
       />
+      <BlogSEO posts={allPosts} isListPage={true} />
       <style>{`
         @keyframes shimmer {
           0% {
