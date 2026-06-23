@@ -471,8 +471,10 @@ const ServicesPage: React.FC = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold text-text leading-[1.1] tracking-tighter mb-6"
                     >
-                        Transform Your Ideas<br />
-                        Into <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-300 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Digital Reality</span>
+                        Build Reliable<br />
+                        <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-300 bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                        Cloud Platforms
+                        </span>
                     </motion.h1>
 
                     <motion.p
@@ -481,10 +483,8 @@ const ServicesPage: React.FC = () => {
                         transition={{ duration: 0.8, delay: 0.4 }}
                         className="text-base md:text-xl text-text-muted max-w-3xl mx-auto mb-10 px-4"
                     >
-                        Full-stack development services for businesses of all sizes. From e-commerce platforms to 
-                        enterprise solutions, I bring your vision to life with <span className="text-primary font-semibold">cutting-edge technology</span>.
+                        Designing, automating, and operating secure cloud infrastructure on AWS. From Kubernetes platforms to CI/CD pipelines and Infrastructure as Code, I help organizations deliver reliable and scalable systems through <span className="text-primary font-semibold">modern DevOps practices</span>.
                     </motion.p>
-
                     {/* Stats */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -493,9 +493,9 @@ const ServicesPage: React.FC = () => {
                         className="flex flex-wrap justify-center gap-6 md:gap-8 mb-12"
                     >
                         {[
-                            { value: "20+", label: "Projects Delivered" },
-                            { value: "90%", label: "Client Satisfaction" },
-                            { value: "5+", label: "Years Experience" }
+                            { value: "4+", label: "Years Experience" },
+                            { value: "50+", label: "Production Deployments" },
+                            { value: "AWS", label: "Cloud Expertise" }
                         ].map((stat, i) => (
                             <motion.div
                                 key={i}
@@ -518,13 +518,13 @@ const ServicesPage: React.FC = () => {
                         className="flex flex-col sm:flex-row gap-4 justify-center items-center"
                     >
                         <MagneticButton className="h-14 px-8 bg-primary text-black hover:bg-white font-bold text-base flex items-center gap-2" onClick={() => window.dispatchEvent(new CustomEvent('openClientInfoModal'))}>
-                            <Mail size={20} /> Start Your Project
+                            <Mail size={20} /> Let's Connect
                         </MagneticButton>
                         <button 
                             onClick={() => document.getElementById('services-grid')?.scrollIntoView({ behavior: 'smooth' })}
                             className="h-14 px-8 rounded-full border border-text/20 text-text hover:bg-text/5 font-medium transition-colors flex items-center gap-2"
                         >
-                            Explore Services <ArrowRight size={18} />
+                            Explore Expertise <ArrowRight size={18} />
                         </button>
                     </motion.div>
                 </div>

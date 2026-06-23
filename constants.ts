@@ -19,50 +19,7 @@ import {
 } from "lucide-react";
 import { Project, Service, Skill, Stat } from "./types";
 
-export const SERVICES: Service[] = [
-  {
-    id: "1",
-    title: "Web Development Gaya Bihar",
-    description:
-      "Professional website development services in Gaya, Bodhgaya, and across Bihar. Custom React, Next.js solutions for local businesses.",
-    icon: Sparkles,
-  },
-  {
-    id: "2",
-    title: "E-commerce Development Bihar",
-    description:
-      "Complete e-commerce solutions for businesses in Bihar. Secure payment gateways, inventory management, and mobile-responsive design.",
-    icon: ShoppingCart,
-  },
-  {
-    id: "3",
-    title: "Custom Software Bodhgaya",
-    description:
-      "Tailored software solutions for businesses in Bodhgaya and Gaya. CRM, ERP, and business management systems.",
-    icon: Code,
-  },
-  {
-    id: "4",
-    title: "API Development Bihar",
-    description:
-      "High-performance REST & GraphQL APIs for businesses across Bihar. Scalable backend solutions with modern technology.",
-    icon: ChartNetwork,
-  },
-  {
-    id: "5",
-    title: "Mobile App Development",
-    description:
-      "Cross-platform mobile applications for businesses in Gaya, Bodhgaya. React Native solutions for iOS and Android.",
-    icon: Smartphone,
-  },
-  {
-    id: "6",
-    title: "Digital Marketing Bihar",
-    description:
-      "Complete digital presence for businesses in Bihar. SEO, social media marketing, and online brand building.",
-    icon: UserCircle,
-  },
-];
+export const SERVICES: Service[] = [ { id: "1", title: "AWS Cloud Architecture", description: "Designing secure, scalable, and highly available cloud platforms using AWS services including VPC, ECS, EKS, CloudFront, Route53, RDS, and S3.", icon: Cloud, }, { id: "2", title: "DevOps Engineering", description: "Automating infrastructure provisioning, deployments, and operational workflows using Terraform, CloudFormation, Jenkins, and Infrastructure as Code principles.", icon: Settings, }, { id: "3", title: "Kubernetes & Containers", description: "Deploying and managing containerized workloads using Docker, Kubernetes, Helm, ECS, and EKS for scalable production environments.", icon: Cpu, }, { id: "4", title: "CI/CD Automation", description: "Building reliable CI/CD pipelines with Jenkins and Azure DevOps to accelerate software delivery and improve deployment consistency.", icon: GitBranch, }, { id: "5", title: "Observability & Reliability", description: "Implementing monitoring, logging, alerting, and troubleshooting practices using CloudWatch and Datadog to improve system reliability.", icon: ChartNetwork, }, { id: "6", title: "Infrastructure as Code", description: "Managing cloud infrastructure through reusable, version-controlled code using Terraform, AWS CDK, and CloudFormation.", icon: Terminal, }, ];
 
 export const SKILLS: Skill[] = [
   { name: "React", icon: Code, category: "frontend" },
@@ -80,55 +37,19 @@ export const SKILLS: Skill[] = [
   { name: "Git", icon: GitBranch, category: "devops" },
 ];
 
-export const PROJECTS: Project[] = [
-  {
-    id: "1",
-    title: "Angel Monkey Ecommerce",
-    category: "E-commerce",
-    description:
-      "A high-performance fashion marketplace built with Next.js and Laravel API. Features real-time inventory and AI recommendations.",
-    image: "https://picsum.photos/800/600?random=1",
-    tech: ["Next.js", "Laravel", "MySQL", "Stripe"],
-  },
-  {
-    id: "2",
-    title: "Plantation At Home",
-    category: "Food Delivery",
-    description:
-      "Plantation At Home is a modern web platform for discovering and learning about indoor and outdoor plants. Users can browse a dynamic catalog, request air quality tests, and access plant care guides. The admin panel enables dynamic management of plant data and content.",
-    image: "https://picsum.photos/800/600?random=2",
-    tech: ["Angular", "Node.js", "Socket.io", "MongoDB"],
-  },
-  {
-    id: "3",
-    title: "University Management System",
-    category: "EdTech",
-    description:
-      "Comprehensive ERP for universities handling admissions, grading, and scheduling for over 10,000 students.",
-    image: "https://picsum.photos/800/600?random=3",
-    tech: ["Angular", "Laravel", "MySQL", "AWS"],
-  },
-  {
-    id: "4",
-    title: "Tripataka Land Travel",
-    category: "Travel Agency",
-    description:
-      "Tripatakaland Travels is a modern travel agency platform for creating, managing, and booking dynamic travel packages. The admin panel enables real-time content updates and role-based access for admins, agents, and customers.",
-    image: "https://picsum.photos/800/600?random=4",
-    tech: ["Angular", "Laravel", "Tailwind"],
-  },
-];
+export const PROJECTS: Project[] = [ { id: "1", title: "National Scale Government Digital Platform", category: "Cloud Infrastructure", description: "Designed and managed AWS infrastructure supporting a large-scale government platform using ECS, Aurora PostgreSQL, Redis, CloudFront, S3, and secure networking.", image: "https://picsum.photos/800/600?random=1", tech: ["AWS", "ECS", "Aurora PostgreSQL", "Redis", "CloudFront"], }, { id: "2", title: "Enterprise Digital Document Platform", category: "Platform Engineering", description: "Built deployment automation, cloud infrastructure, monitoring, and operational workflows for a document management platform serving enterprise users.", image: "https://picsum.photos/800/600?random=2", tech: ["AWS", "Terraform", "Jenkins", "Docker"], }, { id: "3", title: "Disaster Recovery Platform", category: "Business Continuity", description: "Provisioned and automated disaster recovery infrastructure for a leading insurance organization, ensuring high availability and rapid recovery.", image: "https://picsum.photos/800/600?random=3", tech: ["AWS", "Terraform", "RDS", "Route53"], }, { id: "4", title: "CCaaS Reliability Engineering", category: "Site Reliability", description: "Improved platform stability, deployment reliability, and operational observability for a large customer experience platform.", image: "https://picsum.photos/800/600?random=4", tech: ["Kubernetes", "Docker", "AWS", "Jenkins"], }, ];
 
 export const STATS: Stat[] = [
-  { value: "20+", label: "Completed Projects" },
-  { value: "90%", label: "Client Satisfaction" },
-  { value: "10+", label: "Tech Stack Mastery" },
+  { value: "4+", label: "Years Experience" },
+  { value: "50+", label: "Production Deployments" },
+  { value: "AWS", label: "Cloud Expertise" },
+  { value: "24x7", label: "Platform Reliability" },
 ];
 
 export const INDUSTRIES = [
-  "E-commerce",
-  "Healthcare",
-  "Fintech",
-  "Education",
-  "Automation / SaaS",
+  "Government",
+  "Cloud Platforms",
+  "Enterprise Software",
+  "Insurance",
+  "Customer Experience",
 ];

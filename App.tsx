@@ -27,7 +27,7 @@ const Header: React.FC<{ isDark: boolean; toggleTheme: () => void }> = ({ isDark
           className="font-display font-bold text-xl tracking-tight text-text flex items-center gap-2 hover:opacity-80 transition-opacity"
         >
           <div className="w-2 h-2 bg-gradient-to-r from-primary to-fuchsia rounded-full animate-pulse" />
-          Vishwjeet
+          Sajal Rastogi
         </button>
         
         <div className="hidden md:flex gap-8 text-sm font-medium text-text-muted">

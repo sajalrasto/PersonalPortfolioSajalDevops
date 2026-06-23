@@ -39,9 +39,8 @@ const PortfolioPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Project Portfolio | Full Stack Developer Gaya Bihar | Web Development Projects"
-        description="Explore professional web development projects by Vishwjeet Kumar, Full Stack Developer from Gaya, Bihar. E-commerce platforms, business websites, and custom software solutions for clients across Bihar and India."
-        url="https://vishwjeetkumar.me/project-portfolio"
+        title="Project Portfolio | Senior DevOps Engineer | AWS Cloud Infrastructure"
+        description="Explore cloud infrastructure, DevOps automation, platform engineering, and AWS projects delivered by Sajal Rastogi."        url="https://vishwjeetkumar.me/project-portfolio"
         keywords={[
           'project portfolio',
           'web development projects bihar',
@@ -75,22 +74,21 @@ const PortfolioPage: React.FC = () => {
               Project <span className="text-primary">Portfolio</span>
             </h1>
             <p className="text-xl text-text-muted max-w-3xl mx-auto mb-8">
-              Showcasing professional web development projects built for clients across Bihar and India. 
-              From e-commerce platforms to custom business solutions, each project demonstrates expertise in modern technologies.
+              Showcasing cloud infrastructure, DevOps automation, platform engineering, and reliability initiatives delivered across enterprise and government environments. Each project demonstrates expertise in AWS, Kubernetes, Infrastructure as Code, and modern DevOps practices.
             </p>
             
             <div className="flex flex-wrap justify-center gap-4 text-sm text-text-muted">
               <div className="flex items-center gap-2">
                 <Code size={16} className="text-primary" />
-                <span>20+ Projects Completed</span>
+                <span>50+ Production Deployments</span>
               </div>
               <div className="flex items-center gap-2">
                 <Globe size={16} className="text-primary" />
-                <span>Serving Bihar & Beyond</span>
+                <span>AWS Cloud Platforms</span>
               </div>
               <div className="flex items-center gap-2">
                 <Database size={16} className="text-primary" />
-                <span>Full Stack Solutions</span>
+                <span>DevOps & Platform Engineering</span>
               </div>
             </div>
           </motion.div>
@@ -195,18 +193,18 @@ const PortfolioPage: React.FC = () => {
             
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
               {[
-                { name: 'React', icon: Code, color: 'text-blue-500' },
-                { name: 'Next.js', icon: Code, color: 'text-gray-800 dark:text-white' },
-                { name: 'TypeScript', icon: Code, color: 'text-blue-600' },
-                { name: 'Node.js', icon: Database, color: 'text-green-600' },
-                { name: 'Laravel', icon: Database, color: 'text-red-500' },
-                { name: 'MySQL', icon: Database, color: 'text-orange-500' },
-                { name: 'MongoDB', icon: Database, color: 'text-green-500' },
                 { name: 'AWS', icon: Globe, color: 'text-orange-400' },
+                { name: 'Terraform', icon: Code, color: 'text-purple-500' },
                 { name: 'Docker', icon: Globe, color: 'text-blue-400' },
-                { name: 'Git', icon: Code, color: 'text-orange-600' },
-                { name: 'Tailwind', icon: Code, color: 'text-cyan-500' },
-                { name: 'React Native', icon: Smartphone, color: 'text-blue-500' }
+                { name: 'Kubernetes', icon: Globe, color: 'text-blue-500' },
+                { name: 'Jenkins', icon: Code, color: 'text-red-500' },
+                { name: 'ECS', icon: Globe, color: 'text-orange-500' },
+                { name: 'EKS', icon: Globe, color: 'text-cyan-500' },
+                { name: 'CloudFront', icon: Globe, color: 'text-indigo-500' },
+                { name: 'Aurora PostgreSQL', icon: Database, color: 'text-green-500' },
+                { name: 'Redis', icon: Database, color: 'text-red-500' },
+                { name: 'Linux', icon: Code, color: 'text-yellow-500' },
+                { name: 'Git', icon: Code, color: 'text-orange-600' }
               ].map((tech, index) => (
                 <motion.div
                   key={tech.name}

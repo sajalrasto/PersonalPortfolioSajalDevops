@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
-            <span>Available for hire</span>
+            <span>Open to Remote & International Opportunities</span>
           </motion.div>
 
           <motion.h1 
@@ -65,21 +65,40 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-6xl md:text-8xl font-display font-bold text-text leading-[1.0] tracking-tighter mb-8"
           >
-            Crafting Digital <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-text via-text to-text-muted">
-              Experiences.
-            </span>
+            Scale up your <br/>
+               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-violet to-fuchsia">
+                  expectations
+               </span>
           </motion.h1>
 
-          <motion.p 
+          {/* <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="text-text-muted text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10"
           >
-            Full-stack engineering meets premium design. I build scalable applications 
-            and immersive interfaces that define the next generation of the web.
-          </motion.p>
+            Senior DevOps Engineer | AWS Cloud Architect
+
+            Building scalable cloud platforms, automating infrastructure, and delivering reliable systems through AWS, Kubernetes, Infrastructure as Code, and modern
+            DevOps practices.
+          </motion.p> */}
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-3xl mx-auto mb-10"
+            >
+            <div className="text-primary font-semibold text-lg md:text-xl mb-3">
+               Senior DevOps Engineer | AWS Cloud Architect
+            </div>
+
+            <p className="text-text-muted text-lg md:text-xl leading-relaxed">
+               Building scalable cloud platforms, automating infrastructure, and delivering
+               reliable systems through AWS, Kubernetes, Infrastructure as Code, CI/CD
+               automation, and modern DevOps practices.
+            </p>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -95,7 +114,7 @@ const Hero: React.FC = () => {
             </MagneticButton>
             <div className="flex items-center gap-4 text-sm font-mono text-text-muted">
               <span className="w-1 h-1 bg-text-muted rounded-full" />
-              <span>Available for projects</span>
+              <span>4+ Years • AWS • Kubernetes • Terraform</span>
             </div>
           </motion.div>
         </div>
@@ -123,7 +142,7 @@ const Hero: React.FC = () => {
                
                <div className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/5 text-xs font-mono text-text-muted">
                   <Lock size={10} className="text-text-muted" />
-                  <span>vishwjeet.me/dashboard</span>
+                  <span>sajalrastogi.com/platform</span>
                </div>
                
                <div className="flex gap-4">
@@ -138,26 +157,26 @@ const Hero: React.FC = () => {
                <div className="hidden md:flex w-64 border-r border-white/5 bg-surface flex-col p-4 justify-between">
                   <div className="space-y-6">
                      <div className="px-2">
-                        <div className="text-xs font-mono uppercase text-text-muted mb-4 tracking-wider">Vishwjeet Workspace</div>
+                        <div className="text-xs font-mono uppercase text-text-muted mb-4 tracking-wider">Sajal Cloud Platform</div>
                         <div className="space-y-1">
-                           <SidebarItem active icon={Layout} label="Overview" />
-                           <SidebarItem icon={Globe} label="Deployments" />
-                           <SidebarItem icon={Activity} label="Analytics" />
-                           <SidebarItem icon={GitBranch} label="Git Integration" />
+                           <SidebarItem active icon={Layout} label="AWS Infrastructure" />
+                           <SidebarItem icon={Globe} label="Cloud Architecture" />
+                           <SidebarItem icon={Activity} label="Observability" />
+                           <SidebarItem icon={GitBranch} label="CI/CD Pipelines" />
                         </div>
                      </div>
                      <div className="px-2">
                         <div className="text-xs font-mono uppercase text-text-muted mb-4 tracking-wider">Projects</div>
                         <div className="space-y-1">
-                           <SidebarItem icon={Code2} label="E-commerce API" />
-                           <SidebarItem icon={Zap} label="SaaS Dashboard" />
-                           <SidebarItem icon={Terminal} label="Dev Tools" />
+                           <SidebarItem icon={Code2} label="ECS Services" />
+                           <SidebarItem icon={Zap} label="Cloud Platforms" />
+                           <SidebarItem icon={Terminal} label="Automation" />
                         </div>
                      </div>
                   </div>
                   
                   <div className="p-4 rounded-xl bg-gradient-to-br from-primary/10 to-violet/10 border border-white/5">
-                     <div className="text-xs font-bold text-text mb-1">System Status</div>
+                     <div className="text-xs font-bold text-text mb-1">Platform Health</div>
                      <div className="flex items-center gap-2 text-[10px] text-green-400 font-mono">
                         <span className="relative flex h-1.5 w-1.5">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -178,48 +197,54 @@ const Hero: React.FC = () => {
                   <div className="relative z-10 max-w-4xl mx-auto">
                      <div className="flex justify-between items-end mb-8">
                         <div>
-                           <h3 className="text-2xl font-bold text-text mb-1">Active Deployments</h3>
-                           <p className="text-sm text-text-muted">Manage your latest builds and integrations</p>
+                           <h3 className="text-2xl font-bold text-text mb-1">Infrastructure Portfolio</h3>
+                           <p className="text-sm text-text-muted">
+                           Enterprise cloud platforms, automation and reliability engineering initiatives
+                           </p>
                         </div>
                         <button className="px-4 py-2 bg-text text-background rounded-lg text-sm font-bold flex items-center gap-2 hover:opacity-90 transition-opacity">
-                           <Zap size={14} /> New Project
+                           <Zap size={14} /> View Architecture
                         </button>
                      </div>
 
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <ProjectCard 
-                           title="Angel Monkey Store" 
-                           status="Live" 
-                           branch="main" 
-                           framework="Next.js" 
+                        <ProjectCard
+                           title="National Scale Government Platform"
+                           status="Live"
+                           branch="production"
+                           framework="AWS ECS"
                            color="bg-primary"
                         />
-                        <ProjectCard 
-                           title="Plantation At Home App" 
-                           status="Building" 
-                           branch="feat/auth" 
-                           framework="Angular" 
+
+                           <ProjectCard
+                           title="Enterprise Digital Document Platform"
+                           status="Live"
+                           branch="main"
+                           framework="AWS"
                            color="bg-fuchsia-500"
                         />
-                        <ProjectCard 
-                           title="College Management System" 
-                           status="Deployed" 
-                           branch="production" 
-                           framework="Angular" 
+
+                           <ProjectCard
+                           title="Disaster Recovery Platform"
+                           status="Deployed"
+                           branch="production"
+                           framework="EKS"
                            color="bg-violet-500"
                         />
-                        <ProjectCard 
-                           title="Tripataka Land Travel" 
-                           status="Live" 
-                           branch="main" 
-                           framework="Angular" 
+
+                           <ProjectCard
+                           title="CCaaS Reliability Engineering"
+                           status="Live"
+                           branch="main"
+                           framework="AWS"
                            color="bg-green-500"
                         />
-                        <ProjectCard 
-                           title="Let's Do It" 
-                           status="Waiting for Approval" 
-                           branch="main" 
-                           framework="Customer Choice" 
+
+                           <ProjectCard
+                           title="Centralized Malware Scanning Service"
+                           status="Running"
+                           branch="main"
+                           framework="ECS Fargate"
                            color="bg-purple-500"
                         />
                      </div>
