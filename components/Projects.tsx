@@ -13,23 +13,26 @@ const Projects: React.FC<ProjectsProps> = ({ onCaseStudy }) => {
   const navigate = useNavigate();
   const swiperRef = useRef<any>(null);
 
-  const handleCaseStudy = (id: string) => {
-    const routes: Record<string, string> = {
-      '1': '/case-study/angelmonkey',
-      '2': '/case-study/plationathome',
-      '3': '/case-study/cms',
-      '4': '/case-study/tripatakaland',
-    };
+  // const handleCaseStudy = (id: string) => {
+  //   const routes: Record<string, string> = {
+  //     '1': '/case-study/angelmonkey',
+  //     '2': '/case-study/plationathome',
+  //     '3': '/case-study/cms',
+  //     '4': '/case-study/tripatakaland',
+  //   };
     
-    if (routes[id]) {
-      if (onCaseStudy) {
-        onCaseStudy(id);
-      } else {
-        navigate(routes[id]);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }
-  };
+  //   if (routes[id]) {
+  //     if (onCaseStudy) {
+  //       onCaseStudy(id);
+  //     } else {
+  //       navigate(routes[id]);
+  //       window.scrollTo({ top: 0, behavior: 'smooth' });
+  //     }
+  //   }
+  // };
+  const handleCaseStudy = (id: string) => {
+  alert(`${PROJECTS.find(p => p.id === id)?.title}\n\nDetailed case study coming soon.`);
+    };
 
   useEffect(() => {
     if (window.Swiper) {
@@ -87,7 +90,7 @@ const Projects: React.FC<ProjectsProps> = ({ onCaseStudy }) => {
           >
              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
              <span className="text-primary font-mono text-xs tracking-widest uppercase">
-                Interactive Showcase
+                Cloud Architecture & DevOps
              </span>
           </motion.div>
           
@@ -98,7 +101,7 @@ const Projects: React.FC<ProjectsProps> = ({ onCaseStudy }) => {
              transition={{ delay: 0.1 }}
              className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-text mb-6"
           >
-             Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-violet-400 to-fuchsia-400">Works.</span>
+             Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-violet-400 to-fuchsia-400">Projects</span>
           </motion.h2>
         </div>
 

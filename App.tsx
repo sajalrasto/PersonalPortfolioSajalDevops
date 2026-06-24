@@ -5,7 +5,7 @@ import ThemeToggle from './components/ui/ThemeToggle';
 import ErrorBoundary from './components/ErrorBoundary';
 import ClientInfoModal from './components/ui/ClientInfoModal';
 import WhatsAppModal from './components/ui/WhatsAppModal';
-import LocalBusinessSchema from './components/LocalBusinessSchema';
+// import LocalBusinessSchema from './components/LocalBusinessSchema';
 import { AppRoutes } from './routes';
 import { Menu, X, FileText, Briefcase, User, Moon, Sun } from 'lucide-react';
 
@@ -417,7 +417,7 @@ const AppContent: React.FC = () => {
       <div className="bg-noise" />
       
       {/* Local Business Schema */}
-      <LocalBusinessSchema />
+      {/* <LocalBusinessSchema /> */}
       
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-violet to-fuchsia origin-left z-50 shadow-[0_0_15px_rgba(139,92,246,0.5)]"

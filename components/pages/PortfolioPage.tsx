@@ -8,18 +8,21 @@ import { PROJECTS } from '../../constants';
 const PortfolioPage: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleCaseStudyClick = (projectId: string) => {
-    const caseStudyRoutes: Record<string, string> = {
-      '1': '/case-study/angelmonkey',
-      '2': '/case-study/plationathome', 
-      '3': '/case-study/cms',
-      '4': '/case-study/tripatakaland'
-    };
+  // const handleCaseStudyClick = (projectId: string) => {
+  //   const caseStudyRoutes: Record<string, string> = {
+  //     '1': '/case-study/angelmonkey',
+  //     '2': '/case-study/plationathome', 
+  //     '3': '/case-study/cms',
+  //     '4': '/case-study/tripatakaland'
+  //   };
     
-    const route = caseStudyRoutes[projectId];
-    if (route) {
-      navigate(route);
-    }
+  //   const route = caseStudyRoutes[projectId];
+  //   if (route) {
+  //     navigate(route);
+  //   }
+  // };
+  const handleCaseStudyClick = () => {
+  alert('Detailed case study coming soon.');
   };
 
   const techIcons: Record<string, React.ElementType> = {
@@ -40,7 +43,7 @@ const PortfolioPage: React.FC = () => {
     <>
       <SEO
         title="Project Portfolio | Senior DevOps Engineer | AWS Cloud Infrastructure"
-        description="Explore cloud infrastructure, DevOps automation, platform engineering, and AWS projects delivered by Sajal Rastogi."        url="https://vishwjeetkumar.me/project-portfolio"
+        description="Explore cloud infrastructure, DevOps automation, platform engineering, and AWS projects delivered by Sajal Rastogi."        url="https://sajalrastogi.com/project-portfolio"
         keywords={[
           'project portfolio',
           'web development projects bihar',
@@ -56,8 +59,8 @@ const PortfolioPage: React.FC = () => {
           'bihar developer projects'
         ]}
         breadcrumbs={[
-          { name: 'Home', url: 'https://vishwjeetkumar.me/' },
-          { name: 'Project Portfolio', url: 'https://vishwjeetkumar.me/project-portfolio' }
+          { name: 'Home', url: 'https://sajalrastogi.com/' },
+          { name: 'Project Portfolio', url: 'https://sajalrastogi.com/project-portfolio' }
         ]}
       />
 

@@ -18,13 +18,13 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
       const blogSchema = {
         "@context": "https://schema.org",
         "@type": "Blog",
-        "@id": "https://vishwjeetkumar.me/blog#blog",
+        "@id": "https://sajalrastogi.com/blog#blog",
         "name": "Engineering Journal - Full Stack Developer Blog",
         "description": "Expert Full Stack Developer's blog featuring tech insights, tutorials, and modern web development best practices. Learn React, Next.js, TypeScript, and more from Vishwjeet Kumar in Gaya, Bihar.",
-        "url": "https://vishwjeetkumar.me/blog",
+        "url": "https://sajalrastogi.com/blog",
         "author": {
           "@type": "Person",
-          "@id": "https://vishwjeetkumar.me/#person",
+          "@id": "https://sajalrastogi.com/#person",
           "name": "Vishwjeet Kumar",
           "jobTitle": "Full Stack Developer",
           "address": {
@@ -36,11 +36,11 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
         },
         "publisher": {
           "@type": "Person",
-          "@id": "https://vishwjeetkumar.me/#person",
+          "@id": "https://sajalrastogi.com/#person",
           "name": "Vishwjeet Kumar",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://vishwjeetkumar.me/v-logo.png"
+            "url": "https://sajalrastogi.com/v-logo.png"
           }
         },
         "inLanguage": "en-US",
@@ -56,7 +56,7 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
         ],
         "blogPost": posts.slice(0, 10).map(blogPost => ({
           "@type": "BlogPosting",
-          "@id": `https://vishwjeetkumar.me/blog/${blogPost.slug || blogPost.id}`,
+          "@id": `https://sajalrastogi.com/blog/${blogPost.slug || blogPost.id}`,
           "headline": blogPost.title,
           "description": blogPost.excerpt,
           "datePublished": blogPost.publishedDate,
@@ -65,8 +65,8 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
             "@type": "Person",
             "name": blogPost.author || "Vishwjeet Kumar"
           },
-          "image": blogPost.image && blogPost.image !== '#' ? blogPost.image : "https://vishwjeetkumar.me/v-logo.png",
-          "url": `https://vishwjeetkumar.me/blog/${blogPost.slug || blogPost.id}`
+          "image": blogPost.image && blogPost.image !== '#' ? blogPost.image : "https://sajalrastogi.com/v-logo.png",
+          "url": `https://sajalrastogi.com/blog/${blogPost.slug || blogPost.id}`
         }))
       };
 
@@ -76,23 +76,23 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
         "@type": "ItemList",
         "name": "Latest Blog Posts - Full Stack Developer",
         "description": "Latest articles and tutorials from Vishwjeet Kumar, Full Stack Developer in Gaya, Bihar",
-        "url": "https://vishwjeetkumar.me/blog",
+        "url": "https://sajalrastogi.com/blog",
         "numberOfItems": posts.length,
         "itemListElement": posts.slice(0, 20).map((blogPost, index) => ({
           "@type": "ListItem",
           "position": index + 1,
           "item": {
             "@type": "BlogPosting",
-            "@id": `https://vishwjeetkumar.me/blog/${blogPost.slug || blogPost.id}`,
+            "@id": `https://sajalrastogi.com/blog/${blogPost.slug || blogPost.id}`,
             "name": blogPost.title,
             "description": blogPost.excerpt,
-            "url": `https://vishwjeetkumar.me/blog/${blogPost.slug || blogPost.id}`,
+            "url": `https://sajalrastogi.com/blog/${blogPost.slug || blogPost.id}`,
             "datePublished": blogPost.publishedDate,
             "author": {
               "@type": "Person",
               "name": blogPost.author || "Vishwjeet Kumar"
             },
-            "image": blogPost.image && blogPost.image !== '#' ? blogPost.image : "https://vishwjeetkumar.me/v-logo.png"
+            "image": blogPost.image && blogPost.image !== '#' ? blogPost.image : "https://sajalrastogi.com/v-logo.png"
           }
         }))
       };
@@ -115,15 +115,15 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
       const articleSchema = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "@id": `https://vishwjeetkumar.me/blog/${post.slug || post.id}`,
+        "@id": `https://sajalrastogi.com/blog/${post.slug || post.id}`,
         "headline": post.title,
         "description": post.excerpt,
-        "image": post.image && post.image !== '#' ? post.image : "https://vishwjeetkumar.me/v-logo.png",
+        "image": post.image && post.image !== '#' ? post.image : "https://sajalrastogi.com/v-logo.png",
         "datePublished": post.publishedDate,
         "dateModified": post.publishedDate,
         "author": {
           "@type": "Person",
-          "@id": "https://vishwjeetkumar.me/#person",
+          "@id": "https://sajalrastogi.com/#person",
           "name": post.author || "Vishwjeet Kumar",
           "jobTitle": "Full Stack Developer",
           "address": {
@@ -133,26 +133,26 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
             "addressCountry": "IN"
           },
           "sameAs": [
-            "https://github.com/Vishwjeet9097",
-            "https://linkedin.com/in/vishwjeet-kumar-5848711b9"
+            "https://github.com/sajalrasto9097",
+            "https://linkedin.com/in/sajal-rastogi-5b474b6a"
           ]
         },
         "publisher": {
           "@type": "Person",
-          "@id": "https://vishwjeetkumar.me/#person",
+          "@id": "https://sajalrastogi.com/#person",
           "name": "Vishwjeet Kumar",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://vishwjeetkumar.me/v-logo.png",
+            "url": "https://sajalrastogi.com/v-logo.png",
             "width": 200,
             "height": 200
           }
         },
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": `https://vishwjeetkumar.me/blog/${post.slug || post.id}`
+          "@id": `https://sajalrastogi.com/blog/${post.slug || post.id}`
         },
-        "url": `https://vishwjeetkumar.me/blog/${post.slug || post.id}`,
+        "url": `https://sajalrastogi.com/blog/${post.slug || post.id}`,
         "wordCount": post.fullContent ? post.fullContent.replace(/<[^>]*>/g, '').split(/\s+/).length : 500,
         "timeRequired": post.readTime,
         "inLanguage": "en-US",
@@ -213,19 +213,19 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
             "@type": "ListItem",
             "position": 1,
             "name": "Home",
-            "item": "https://vishwjeetkumar.me/"
+            "item": "https://sajalrastogi.com/"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "name": "Engineering Journal",
-            "item": "https://vishwjeetkumar.me/blog"
+            "item": "https://sajalrastogi.com/blog"
           },
           {
             "@type": "ListItem",
             "position": 3,
             "name": post.title,
-            "item": `https://vishwjeetkumar.me/blog/${post.slug || post.id}`
+            "item": `https://sajalrastogi.com/blog/${post.slug || post.id}`
           }
         ]
       };

@@ -39,7 +39,7 @@ const Contact: React.FC = () => {
            </MagneticButton>
            
            <button className="h-16 px-10 text-lg border border-text/20 rounded-full text-text hover:bg-text/5 font-medium flex items-center gap-3 transition-colors">
-             <Mail size={20} /> hello@vishwjeet.dev
+             <Mail size={20} /> sajalrastogi20@gmail.com
            </button>
         </motion.div>
         

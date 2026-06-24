@@ -256,7 +256,7 @@ MIT License - feel free to use this project for your own portfolio!
 **Vishwjeet Kumar**
 - Email: hello@vishwjeet.dev
 - Portfolio: [vishwjeet.dev](https://vishwjeet.dev)
-- GitHub: [@vishwjeet](https://github.com/vishwjeet)
+- GitHub: [@vishwjeet](https://github.com/sajalrasto)
 - LinkedIn: [Vishwjeet Kumar](https://linkedin.com/in/vishwjeet)
 
 ## 🙏 Acknowledgments

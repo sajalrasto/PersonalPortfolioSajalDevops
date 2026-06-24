@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 // Lazy load heavy components for code splitting
 const ResumePage = lazy(() => import('./components/pages/ResumePage'));
 const ServicesPage = lazy(() => import('./components/pages/ServicesPage'));
-const LocalServicesPage = lazy(() => import('./components/pages/LocalServicesPage'));
+// const LocalServicesPage = lazy(() => import('./components/pages/LocalServicesPage'));
 const BlogPage = lazy(() => import('./components/pages/BlogPage'));
 const BlogDetailsPage = lazy(() => import('./components/pages/BlogDetailsPage'));
 const CaseStudyPage = lazy(() => import('./components/pages/CaseStudyPage'));
@@ -70,7 +70,7 @@ export const AppRoutes: React.FC = () => {
       />
 
       {/* Local Services Route - Bihar Specific */}
-      <Route
+      {/* <Route
         path="/services/local-bihar"
         element={
           <SuspenseWrapper>
@@ -98,7 +98,7 @@ export const AppRoutes: React.FC = () => {
             <Footer />
           </SuspenseWrapper>
         }
-      />
+      /> */}
 
       {/* Resume Route */}
       <Route

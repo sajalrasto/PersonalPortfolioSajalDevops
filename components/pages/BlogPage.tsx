@@ -719,7 +719,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
       <SEO
         title="Engineering Journal | Full Stack Developer Blog Gaya Bihar | Tech Insights & Tutorials"
         description="Expert Full Stack Developer's blog from Gaya, Bihar featuring in-depth tutorials, tech insights, AI breakthroughs, software architecture patterns, and modern web development best practices. Learn React, Next.js, TypeScript from experienced developer in Bihar."
-        url="https://vishwjeetkumar.me/blog"
+        url="https://sajalrastogi.com/blog"
         keywords={[
           'Full Stack Developer Blog',
           'Tech Blog Bihar',
@@ -748,8 +748,8 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
           'Freelance Web Developer Gaya'
         ]}
         breadcrumbs={[
-          { name: 'Home', url: 'https://vishwjeetkumar.me/' },
-          { name: 'Engineering Journal', url: 'https://vishwjeetkumar.me/blog' }
+          { name: 'Home', url: 'https://sajalrastogi.com/' },
+          { name: 'Engineering Journal', url: 'https://sajalrastogi.com/blog' }
         ]}
         faq={[
           {

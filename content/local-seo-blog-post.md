@@ -124,7 +124,7 @@ Professional web development is not an expense—it's an investment that pays di
 If you're a business owner in Gaya, Bodhgaya, or anywhere in Bihar, let's discuss how professional web development can accelerate your growth.
 
 **Contact Vishwjeet Kumar - Your Local Web Development Expert:**
-- 📧 Email: info.vishwjeetkumar@gmail.com
+- 📧 Email: sajalrastogi20@gmail.com
 - 📱 Phone: +91 XXXXX XXXXX
 - 🌐 Website: vishwjeetkumar.me
 - 📍 Serving: Gaya, Bodhgaya, Patna, and entire Bihar

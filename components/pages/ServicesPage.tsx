@@ -371,7 +371,7 @@ const ServicesPage: React.FC = () => {
             <SEO
                 title="Full Stack Development Services | Software Engineer Freelance | Hire Expert Developer"
                 description="Hire an experienced Full Stack Developer and Software Engineer Freelance. Expert in React, Next.js, TypeScript, Node.js. Custom web applications, e-commerce solutions, and scalable software development. Why choose experienced developer over AI? Get professional, tailored solutions."
-                url={typeof window !== 'undefined' ? window.location.href : 'https://vishwjeetkumar.me/services'}
+                url={typeof window !== 'undefined' ? window.location.href : 'https://sajalrastogi.com/services'}
                 keywords={[
                     'Software Engineer Freelance',
                     'Freelance Software Engineer',
@@ -395,8 +395,8 @@ const ServicesPage: React.FC = () => {
                     'Expert Developer'
                 ]}
                 breadcrumbs={[
-                    { name: 'Home', url: 'https://vishwjeetkumar.me/' },
-                    { name: 'Services', url: 'https://vishwjeetkumar.me/services' }
+                    { name: 'Home', url: 'https://sajalrastogi.com/' },
+                    { name: 'Services', url: 'https://sajalrastogi.com/services' }
                 ]}
                 faq={[
                     {
@@ -1138,7 +1138,7 @@ const ServicesPage: React.FC = () => {
                                     {/* Footer Logos */}
                                     <div className="mt-auto pt-4 border-t border-text/20 dark:border-white/10 flex items-center justify-between">
                                         <span className="text-xs text-text-muted">#Development</span>
-                                        <span className="text-xs text-text-muted font-semibold">Vishwjeet Workspace</span>
+                                        <span className="text-xs text-text-muted font-semibold">DevOps Workspace</span>
                                     </div>
                                 </div>
                             </motion.div>
@@ -1418,15 +1418,15 @@ const ServicesPage: React.FC = () => {
 
                     {/* Contact Info */}
                     <div className="mt-12 pt-8 border-t border-text/10 flex flex-wrap justify-center gap-x-8 gap-y-4">
-                        <a href="mailto:info.vishwjeetkumar@gmail.com" className="flex items-center gap-2 text-text-muted hover:text-primary transition-colors">
+                        <a href="mailto:sajalrastogi20@gmail.com" className="flex items-center gap-2 text-text-muted hover:text-primary transition-colors">
                             <Mail size={16} />
-                            <span className="text-sm">info.vishwjeetkumar@gmail.com</span>
+                            <span className="text-sm">sajalrastogi20@gmail.com</span>
                         </a>
                         <a href="tel:+919097490427" className="flex items-center gap-2 text-text-muted hover:text-primary transition-colors">
                             <Phone size={16} />
                             <span className="text-sm">+91 9097490427</span>
                         </a>
-                        <a href="https://linkedin.com/in/vishwjeet-kumar-5848711b9" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text-muted hover:text-primary transition-colors">
+                        <a href="https://linkedin.com/in/sajal-rastogi-5b474b6a" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-text-muted hover:text-primary transition-colors">
                             <Linkedin size={16} />
                             <span className="text-sm">LinkedIn</span>
                         </a>

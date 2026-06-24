@@ -19,12 +19,12 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'Vishwjeet Kumar | Expert Full Stack Developer | React, Next.js, TypeScript Specialist',
+  title = 'Sajal Rastogi | Senior DevOps Engineer | AWS Cloud Architect',
   description = 'Expert Full Stack Developer specializing in React, Next.js, TypeScript, and modern web development. Building scalable applications with premium UI/UX design. Available for projects.',
   image = '/og-image.jpg',
-  url = typeof window !== 'undefined' ? window.location.href : 'https://vishwjeetkumar.me',
+  url = typeof window !== 'undefined' ? window.location.href : 'https://sajalrastogi.com',
   type = 'website',
-  author = 'Vishwjeet Kumar',
+  author = 'Sajal Rastogi',
   publishedTime,
   modifiedTime,
   keywords = [
@@ -94,10 +94,10 @@ const SEO: React.FC<SEOProps> = ({
     // Open Graph tags (Enhanced for better social sharing)
     updateMetaTag('og:title', optimizedTitle, 'property');
     updateMetaTag('og:description', optimizedDescription, 'property');
-    updateMetaTag('og:image', image.startsWith('http') ? image : `https://vishwjeetkumar.me${image}`, 'property');
+    updateMetaTag('og:image', image.startsWith('http') ? image : `https://sajalrastogi.com${image}`, 'property');
     updateMetaTag('og:url', url, 'property');
     updateMetaTag('og:type', type, 'property');
-    updateMetaTag('og:site_name', 'Vishwjeet Kumar - Full Stack Developer', 'property');
+    updateMetaTag('og:site_name', 'Sajal Rastogi - Senior DevOps Engineer', 'property');
     updateMetaTag('og:locale', 'en_US', 'property');
     if (author) {
       updateMetaTag('og:author', author, 'property');
@@ -123,7 +123,7 @@ const SEO: React.FC<SEOProps> = ({
     updateMetaTag('twitter:card', 'summary_large_image');
     updateMetaTag('twitter:title', optimizedTitle);
     updateMetaTag('twitter:description', optimizedDescription);
-    updateMetaTag('twitter:image', image.startsWith('http') ? image : `https://vishwjeetkumar.me${image}`);
+    updateMetaTag('twitter:image', image.startsWith('http') ? image : `https://sajalrastogi.com${image}`);
     updateMetaTag('twitter:site', '@vishwjeetkumar', 'name');
     updateMetaTag('twitter:creator', '@vishwjeetkumar', 'name');
 
@@ -144,19 +144,19 @@ const SEO: React.FC<SEOProps> = ({
     const personSchema = {
       '@context': 'https://schema.org',
       '@type': 'Person',
-      '@id': 'https://vishwjeetkumar.me/#person',
-      name: 'Vishwjeet Kumar',
-      alternateName: 'Vishwjeet',
+      '@id': 'https://sajalrastogi.com/#person',
+      name: 'Sajal Rastogi',
+      alternateName: 'Sajal',
       jobTitle: 'Full Stack Developer',
       description: 'Expert Full Stack Developer specializing in React, Next.js, TypeScript, and modern web development. Building scalable applications with premium UI/UX design.',
-      url: 'https://vishwjeetkumar.me',
-      image: 'https://vishwjeetkumar.me/v-logo.png',
+      url: 'https://sajalrastogi.com',
+      image: 'https://sajalrastogi.com/v-logo.png',
       sameAs: [
-        'https://github.com/Vishwjeet9097',
-        'https://linkedin.com/in/vishwjeet-kumar-5848711b9',
-        'https://vishwjeetkumar.me'
+        'https://github.com/sajalrasto9097',
+        'https://linkedin.com/in/sajal-rastogi-5b474b6a',
+        'https://sajalrastogi.com'
       ],
-      email: 'info.vishwjeetkumar@gmail.com',
+      email: 'sajalrastogi20@gmail.com',
       knowsAbout: [
         'Full Stack Development',
         'React',
@@ -179,7 +179,7 @@ const SEO: React.FC<SEOProps> = ({
       worksFor: {
         '@type': 'Organization',
         name: 'Freelance Full Stack Developer',
-        url: 'https://vishwjeetkumar.me'
+        url: 'https://sajalrastogi.com'
       },
       hasOccupation: {
         '@type': 'Occupation',
@@ -195,25 +195,25 @@ const SEO: React.FC<SEOProps> = ({
     const organizationSchema = {
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      '@id': 'https://vishwjeetkumar.me/#organization',
-      name: 'Vishwjeet Kumar - Full Stack Developer',
-      url: 'https://vishwjeetkumar.me',
-      logo: 'https://vishwjeetkumar.me/v-logo.png',
+      '@id': 'https://sajalrastogi.com/#organization',
+      name: 'Sajal Rastogi - Senior DevOps Engineer',
+      url: 'https://sajalrastogi.com',
+      logo: 'https://sajalrastogi.com/v-logo.png',
       description: 'Expert Full Stack Development Services - React, Next.js, TypeScript, and Modern Web Applications',
       founder: {
         '@type': 'Person',
-        name: 'Vishwjeet Kumar'
+        name: 'Sajal Rastogi'
       },
       contactPoint: {
         '@type': 'ContactPoint',
-        email: 'info.vishwjeetkumar@gmail.com',
+        email: 'sajalrastogi20@gmail.com',
         contactType: 'Customer Service',
         areaServed: 'Worldwide',
         availableLanguage: ['English', 'Hindi']
       },
       sameAs: [
-        'https://github.com/Vishwjeet9097',
-        'https://linkedin.com/in/vishwjeet-kumar-5848711b9'
+        'https://github.com/sajalrasto9097',
+        'https://linkedin.com/in/sajal-rastogi-5b474b6a'
       ]
     };
 
@@ -224,25 +224,25 @@ const SEO: React.FC<SEOProps> = ({
       '@id': url,
       headline: optimizedTitle,
       description: optimizedDescription,
-      image: image.startsWith('http') ? image : `https://vishwjeetkumar.me${image.startsWith('/') ? image : '/' + image}`,
+      image: image.startsWith('http') ? image : `https://sajalrastogi.com${image.startsWith('/') ? image : '/' + image}`,
       url: url,
       inLanguage: 'en-US',
       isAccessibleForFree: true,
       ...(type === 'article' && {
         author: {
           '@type': 'Person',
-          '@id': 'https://vishwjeetkumar.me/#person',
+          '@id': 'https://sajalrastogi.com/#person',
           name: author,
-          url: 'https://vishwjeetkumar.me'
+          url: 'https://sajalrastogi.com'
         },
         publisher: {
           '@type': 'Person',
-          '@id': 'https://vishwjeetkumar.me/#person',
-          name: 'Vishwjeet Kumar',
-          url: 'https://vishwjeetkumar.me',
+          '@id': 'https://sajalrastogi.com/#person',
+          name: 'Sajal Rastogi',
+          url: 'https://sajalrastogi.com',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://vishwjeetkumar.me/v-logo.png'
+            url: 'https://sajalrastogi.com/v-logo.png'
           }
         },
         datePublished: publishedTime,

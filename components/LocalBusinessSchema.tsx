@@ -4,13 +4,13 @@ const LocalBusinessSchema: React.FC = () => {
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://vishwjeetkumar.me/#localbusiness",
+    "@id": "https://sajalrastogi.com/#localbusiness",
     "name": "Vishwjeet Kumar - Web Developer Gaya Bihar",
     "alternateName": "Top Web Agency Gaya",
     "description": "Professional web development and software engineering services in Gaya, Bodhgaya, Bihar. Expert full-stack developer providing custom web solutions, mobile apps, and IT services for local businesses.",
     "url": "https://vishwjeetkumar.me",
     "telephone": "+91-XXXXXXXXXX",
-    "email": "info.vishwjeetkumar@gmail.com",
+    "email": "sajalrastogi20@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Professional Services",
@@ -99,8 +99,8 @@ const LocalBusinessSchema: React.FC = () => {
       "alumniOf": "Software Engineering"
     },
     "sameAs": [
-      "https://github.com/Vishwjeet9097",
-      "https://linkedin.com/in/vishwjeet-kumar-5848711b9"
+      "https://github.com/sajalrasto9097",
+      "https://linkedin.com/in/sajal-rastogi-5b474b6a"
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -142,7 +142,7 @@ const LocalBusinessSchema: React.FC = () => {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "@id": "https://vishwjeetkumar.me/#service",
+    "@id": "https://sajalrastogi.com/#service",
     "name": "Web Development Services Gaya Bihar",
     "description": "Professional web development, software engineering, and IT services for businesses in Gaya, Bodhgaya, and Bihar",
     "provider": {

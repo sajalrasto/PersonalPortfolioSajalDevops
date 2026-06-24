@@ -173,8 +173,8 @@ const ResumePage: React.FC = () => {
                         onClick={() => {
                             // Download CV functionality
                             const link = document.createElement('a');
-                            link.href = '/Vishwjeet_resume.pdf';
-                            link.download = 'Vishwjeet_resume.pdf';
+                            link.href = '/Sajal_Rastogi_Resume.pdf';
+                            link.download = 'Sajal_Rastogi_Resume.pdf';
                             document.body.appendChild(link);
                             link.click();
                             document.body.removeChild(link);
@@ -238,10 +238,10 @@ const ResumePage: React.FC = () => {
                                     <a href="https://vishwjeet.dev" target="_blank" rel="noopener noreferrer" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-text/5 flex items-center justify-center text-text-muted hover:text-primary transition-colors">
                                         <Globe size={16} className="md:w-[18px] md:h-[18px]" />
                                     </a>
-                                    <a href="https://github.com/vishwjeet" target="_blank" rel="noopener noreferrer" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-text/5 flex items-center justify-center text-text-muted hover:text-primary transition-colors">
+                                    <a href="https://github.com/sajalrasto" target="_blank" rel="noopener noreferrer" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-text/5 flex items-center justify-center text-text-muted hover:text-primary transition-colors">
                                         <Github size={16} className="md:w-[18px] md:h-[18px]" />
                                     </a>
-                                    <a href="https://linkedin.com/in/vishwjeet-kumar-5848711b9" target="_blank" rel="noopener noreferrer" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-text/5 flex items-center justify-center text-text-muted hover:text-primary transition-colors">
+                                    <a href="https://linkedin.com/in/sajal-rastogi-5b474b6a" target="_blank" rel="noopener noreferrer" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-text/5 flex items-center justify-center text-text-muted hover:text-primary transition-colors">
                                         <Linkedin size={16} className="md:w-[18px] md:h-[18px]" />
                                     </a>
                                 </div>
@@ -251,7 +251,7 @@ const ResumePage: React.FC = () => {
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 mb-6 md:mb-8">
                                 <div className="flex items-center gap-2 text-xs md:text-sm text-text-muted">
                                     <Mail size={14} className="text-primary flex-shrink-0 md:w-4 md:h-4" />
-                                    <span className="truncate">info.vishwjeetkumar@gmail.com</span>
+                                    <span className="truncate">sajalrastogi20@gmail.com</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-xs md:text-sm text-text-muted">
                                     <Phone size={14} className="text-primary flex-shrink-0 md:w-4 md:h-4" />
@@ -757,15 +757,15 @@ const ResumePage: React.FC = () => {
 
                     {/* Contact Details */}
                     <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-text/10 flex flex-col sm:flex-row flex-wrap justify-center gap-4 md:gap-x-8 md:gap-y-4 px-4">
-                        <a href="mailto:info.vishwjeetkumar@gmail.com" className="flex items-center justify-center sm:justify-start gap-2 text-text-muted hover:text-primary transition-colors">
+                        <a href="mailto:sajalrastogi20@gmail.com" className="flex items-center justify-center sm:justify-start gap-2 text-text-muted hover:text-primary transition-colors">
                             <Mail size={14} className="md:w-4 md:h-4 flex-shrink-0" />
-                            <span className="text-xs md:text-sm truncate">info.vishwjeetkumar@gmail.com</span>
+                            <span className="text-xs md:text-sm truncate">sajalrastogi20@gmail.com</span>
                         </a>
                         <a href="tel:+919097490427" className="flex items-center justify-center sm:justify-start gap-2 text-text-muted hover:text-primary transition-colors">
                             <Phone size={14} className="md:w-4 md:h-4 flex-shrink-0" />
                             <span className="text-xs md:text-sm">+91 9097490427</span>
                         </a>
-                        <a href="https://linkedin.com/in/vishwjeet-kumar-5848711b9" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-2 text-text-muted hover:text-primary transition-colors">
+                        <a href="https://linkedin.com/in/sajal-rastogi-5b474b6a" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-2 text-text-muted hover:text-primary transition-colors">
                             <Linkedin size={14} className="md:w-4 md:h-4 flex-shrink-0" />
                             <span className="text-xs md:text-sm">LinkedIn Profile</span>
                         </a>

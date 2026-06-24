@@ -190,10 +190,10 @@ const BlogDetailsPage: React.FC = () => {
 
   // Generate SEO URL with proper canonical format
   const seoUrl = React.useMemo(() => {
-    if (!post) return typeof window !== 'undefined' ? window.location.href : 'https://vishwjeetkumar.me/blog';
+    if (!post) return typeof window !== 'undefined' ? window.location.href : 'https://sajalrastogi.com/blog';
     
     if (post.slug) {
-      return `https://vishwjeetkumar.me/blog/${post.slug}`;
+      return `https://sajalrastogi.com/blog/${post.slug}`;
     }
     
     // Fallback: generate slug from title
@@ -201,7 +201,7 @@ const BlogDetailsPage: React.FC = () => {
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-+|-+$/g, '');
-    return `https://vishwjeetkumar.me/blog/${slug}`;
+    return `https://sajalrastogi.com/blog/${slug}`;
   }, [post]);
 
   // Format dates for SEO (ISO 8601 format)
@@ -219,7 +219,7 @@ const BlogDetailsPage: React.FC = () => {
   // Generate absolute image URL
   const getAbsoluteImageUrl = (imageUrl?: string): string => {
     if (!imageUrl || imageUrl === '#') {
-      return 'https://vishwjeetkumar.me/og-image.jpg';
+      return 'https://sajalrastogi.com/og-image.jpg';
     }
     if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
       return imageUrl;
@@ -227,7 +227,7 @@ const BlogDetailsPage: React.FC = () => {
     if (imageUrl.startsWith('/')) {
       return `https://vishwjeetkumar.me${imageUrl}`;
     }
-    return `https://vishwjeetkumar.me/${imageUrl}`;
+    return `https://sajalrastogi.com/${imageUrl}`;
   };
 
   // Generate optimized description
@@ -289,7 +289,7 @@ const BlogDetailsPage: React.FC = () => {
         <SEO
           title="Loading Article | Engineering Journal"
           description="Loading blog article..."
-          url={typeof window !== 'undefined' ? window.location.href : 'https://vishwjeetkumar.me/blog'}
+          url={typeof window !== 'undefined' ? window.location.href : 'https://sajalrastogi.com/blog'}
           noindex={true}
         />
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -317,8 +317,8 @@ const BlogDetailsPage: React.FC = () => {
         articleSection={post.category}
         tags={post.tags || [post.category, 'Web Development', 'Full Stack Development', 'Bihar Tech', 'Gaya Developer']}
         breadcrumbs={[
-          { name: 'Home', url: 'https://vishwjeetkumar.me/' },
-          { name: 'Engineering Journal', url: 'https://vishwjeetkumar.me/blog' },
+          { name: 'Home', url: 'https://sajalrastogi.com/' },
+          { name: 'Engineering Journal', url: 'https://sajalrastogi.com/blog' },
           { name: post.title, url: seoUrl }
         ]}
       />

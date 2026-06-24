@@ -30,7 +30,7 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://vishwjeetkumar.me/sitemap.xml
+Sitemap: https://sajalrastogi.com/sitemap.xml
 
 # Host information
 Host: https://vishwjeetkumar.me

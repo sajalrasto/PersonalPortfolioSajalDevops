@@ -79,7 +79,7 @@ const LocalServicesPage: React.FC = () => {
           'custom software gaya',
           'digital marketing bihar'
         ]}
-        url="https://vishwjeetkumar.me/services/local-bihar"
+        url="https://sajalrastogi.com/services/local-bihar"
         type="website"
       />
 
@@ -112,7 +112,7 @@ const LocalServicesPage: React.FC = () => {
               </div>
               <div className="flex items-center gap-2 text-text-muted">
                 <Mail size={20} className="text-primary" />
-                <span>info.vishwjeetkumar@gmail.com</span>
+                <span>sajalrastogi20@gmail.com</span>
               </div>
             </div>
           </motion.div>
