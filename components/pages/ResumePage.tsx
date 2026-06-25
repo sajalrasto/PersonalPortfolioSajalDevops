@@ -117,7 +117,7 @@ const ResumePage: React.FC = () => {
                                 </div>
                             ))}
                         </div>
-                        <span className="text-xs md:text-sm text-text-muted">Trusted by <span className="text-text font-semibold">20+</span> clients globally</span>
+                        <span className="text-xs md:text-sm text-text-muted">Experienced in <span className="text-text font-semibold">Enterprise & Government</span> cloud platforms</span>
                     </div>
 
                     <div className="flex items-center gap-2 flex-wrap justify-center">
@@ -138,26 +138,30 @@ const ResumePage: React.FC = () => {
                     className="text-center mb-6 md:mb-8 max-w-5xl px-2"
                 >
                     <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold text-text leading-[1.1] md:leading-[1.0] tracking-tighter mb-4 md:mb-6">
-                        Hire a <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-violet to-fuchsia">Trusted</span><br />
-                        Full-Stack Developer
+                    Build with an <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-violet to-fuchsia">Experienced</span><br />
+                    DevOps Engineer
                     </h1>
                     <p className="text-base md:text-lg lg:text-xl text-text-muted max-w-3xl mx-auto leading-relaxed mb-4 px-4">
-                        <span className="text-text font-semibold">5+ years</span> of experience delivering scalable web applications.<br className="hidden md:block" />
-                        <span className="md:inline block mt-1 md:mt-0"> Specialized in <span className="text-primary">Next.js, Tailwind CSS, Laravel and More...</span></span>
+                    <span className="text-text font-semibold">5 years</span> of experience designing, automating, and operating secure cloud platforms.<br className="hidden md:block" />
+                    <span className="md:inline block mt-1 md:mt-0">
+                        Specialized in <span className="text-primary">AWS, Kubernetes, Terraform, Docker, Jenkins & CI/CD</span>
+                    </span>
                     </p>
                     <div className="flex flex-wrap justify-center gap-3 md:gap-4 text-xs md:text-sm text-text-muted px-4">
-                        <span className="flex items-center gap-1.5 md:gap-2">
-                            <CheckCircle size={14} className="text-green-400 flex-shrink-0" />
-                            <span className="whitespace-nowrap">20+ Projects</span>
-                        </span>
-                        <span className="flex items-center gap-1.5 md:gap-2">
-                            <CheckCircle size={14} className="text-green-400 flex-shrink-0" />
-                            <span className="whitespace-nowrap">99% Satisfaction</span>
-                        </span>
-                        <span className="flex items-center gap-1.5 md:gap-2">
-                            <CheckCircle size={14} className="text-green-400 flex-shrink-0" />
-                            <span className="whitespace-nowrap">Available Now</span>
-                        </span>
+                    <span className="flex items-center gap-1.5 md:gap-2">
+                        <CheckCircle size={14} className="text-green-400 flex-shrink-0" />
+                        <span className="whitespace-nowrap">Production Infrastructure</span>
+                    </span>
+
+                    <span className="flex items-center gap-1.5 md:gap-2">
+                        <CheckCircle size={14} className="text-green-400 flex-shrink-0" />
+                        <span className="whitespace-nowrap">Infrastructure as Code</span>
+                    </span>
+
+                    <span className="flex items-center gap-1.5 md:gap-2">
+                        <CheckCircle size={14} className="text-green-400 flex-shrink-0" />
+                        <span className="whitespace-nowrap">Open to Opportunities</span>
+                    </span>
                     </div>
                 </motion.div>
 
