@@ -47,10 +47,26 @@ const ResumePage: React.FC = () => {
 
     // Floating annotations data - Real achievements
     const annotations = [
-        { text: "Managed 20+ projects", position: { top: '15%', left: '10%' }, delay: 0.3 },
-        { text: "90% client satisfaction", position: { top: '35%', right: '8%' }, delay: 0.5 },
-        { text: "Expert in Development", position: { top: '48%', left: '12%' }, delay: 0.7 },
-        { text: "Microservices Architecture", position: { top: '70%', right: '10%' }, delay: 0.9 }
+        {
+            text: "54% RDS Cost Reduction",
+            position: { top: '15%', left: '10%' },
+            delay: 0.3
+        },
+        {
+            text: "National Digital Platform",
+            position: { top: '35%', right: '8%' },
+            delay: 0.5
+        },
+        {
+            text: "Infrastructure as Code",
+            position: { top: '50%', left: '12%' },
+            delay: 0.7
+        },
+        {
+            text: "Disaster Recovery Automation",
+            position: { top: '73%', right: '10%' },
+            delay: 0.9
+        }
     ];
 
     // Freelance trust indicators
@@ -175,13 +191,14 @@ const ResumePage: React.FC = () => {
                     <MagneticButton 
                         className="h-12 md:h-14 px-6 md:px-8 bg-primary text-black hover:bg-white font-bold text-sm md:text-base flex items-center gap-2 justify-center w-full sm:w-auto"
                         onClick={() => {
-                            // Download CV functionality
+                            //Download CV functionality
                             const link = document.createElement('a');
                             link.href = '/Sajal_Rastogi_Resume.pdf';
                             link.download = 'Sajal_Rastogi_Resume.pdf';
                             document.body.appendChild(link);
                             link.click();
                             document.body.removeChild(link);
+                            // window.open('/Sajal_Rastogi_Resume.pdf', '_blank');
                         }}
                     >
                         <Download size={18} className="md:w-5 md:h-5" /> Download CV
@@ -231,15 +248,15 @@ const ResumePage: React.FC = () => {
                             {/* Header */}
                             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 md:mb-8 pb-4 md:pb-6 border-b border-text/10">
                                 <div className="w-full md:w-auto">
-                                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-text mb-1 md:mb-2">VISHWJEET KUMAR</h2>
-                                    <p className="text-base md:text-lg text-primary font-medium">SOFTWARE ENGINEER</p>
+                                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-text mb-1 md:mb-2">SAJAL RASTOGI</h2>
+                                    <p className="text-base md:text-lg text-primary font-medium">SENIOR DEVOPS ENGINEER</p>
                                     <div className="flex items-center gap-2 mt-2">
                                         <Sparkles size={12} className="text-primary md:w-[14px] md:h-[14px]" />
-                                        <span className="text-[10px] md:text-xs text-primary font-mono uppercase tracking-wider">Managed 20+ projects</span>
+                                        <span className="text-[10px] md:text-xs text-primary font-mono uppercase tracking-wider">5 YEARS EXPERIENCE</span>
                                     </div>
                                 </div>
                                 <div className="flex gap-2 md:gap-3 mt-3 md:mt-0">
-                                    <a href="https://vishwjeet.dev" target="_blank" rel="noopener noreferrer" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-text/5 flex items-center justify-center text-text-muted hover:text-primary transition-colors">
+                                    <a href="https://sajalrastogi.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-text/5 flex items-center justify-center text-text-muted hover:text-primary transition-colors">
                                         <Globe size={16} className="md:w-[18px] md:h-[18px]" />
                                     </a>
                                     <a href="https://github.com/sajalrasto" target="_blank" rel="noopener noreferrer" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-text/5 flex items-center justify-center text-text-muted hover:text-primary transition-colors">
@@ -259,7 +276,7 @@ const ResumePage: React.FC = () => {
                                 </div>
                                 <div className="flex items-center gap-2 text-xs md:text-sm text-text-muted">
                                     <Phone size={14} className="text-primary flex-shrink-0 md:w-4 md:h-4" />
-                                    <span>+91 9097490427</span>
+                                    <span>+91 8400840123</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-xs md:text-sm text-text-muted">
                                     <MapPin size={14} className="text-primary flex-shrink-0 md:w-4 md:h-4" />
@@ -271,10 +288,10 @@ const ResumePage: React.FC = () => {
                             <div className="mb-6 md:mb-8">
                                 <h3 className="text-lg md:text-xl font-display font-bold text-text mb-2 md:mb-3 flex items-center gap-2">
                                     <Sparkles size={16} className="text-primary md:w-5 md:h-5" />
-                                    SUMMARY
+                                    PROFESSIONAL SUMMARY
                                 </h3>
                                 <p className="text-sm md:text-base text-text-muted leading-relaxed">
-                                    Dedicated software engineer with a solid background in developing reliable, high-performance systems.
+                                    Results-driven Senior Software Engineer with 5 years of experience designing, automating, and managing secure cloud infrastructure. Experienced in AWS, Kubernetes, Terraform, Docker, Jenkins, CI/CD, and Infrastructure as Code, delivering scalable solutions for enterprise and government projects.
                                     Skilled at solving complex technical problems and creating innovative solutions that drive business growth.
                                 </p>
                                 <div className="mt-3 md:mt-4 inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
@@ -287,40 +304,89 @@ const ResumePage: React.FC = () => {
                             <div className="mb-6 md:mb-8">
                                 <h3 className="text-lg md:text-xl font-display font-bold text-text mb-3 md:mb-4 flex items-center gap-2">
                                     <Code2 size={16} className="text-primary md:w-5 md:h-5" />
-                                    SKILLS
+                                    TECHNICAL EXPERTISE
                                 </h3>
                                 <div className="space-y-2 md:space-y-3">
-                                    <div>
-                                        <p className="text-[10px] md:text-xs font-mono text-text-muted mb-1.5 md:mb-2 uppercase tracking-wider">Frontend Technologies</p>
-                                        <div className="flex flex-wrap gap-1.5 md:gap-2">
-                                            {['React', 'Angular', 'Next.js', 'Bootstrap', 'Tailwind', 'TypeScript', 'JavaScript'].map((skill) => (
-                                                <span key={skill} className="px-2 md:px-3 py-1 md:py-1.5 bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 rounded-full text-[10px] md:text-sm font-medium">
-                                                    {skill}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p className="text-[10px] md:text-xs font-mono text-text-muted mb-1.5 md:mb-2 uppercase tracking-wider">Backend Technologies</p>
-                                        <div className="flex flex-wrap gap-1.5 md:gap-2">
-                                            {['PHP', 'Laravel', 'Java', 'Spring Boot', 'MySQL', 'REST APIs'].map((skill) => (
-                                                <span key={skill} className="px-2 md:px-3 py-1 md:py-1.5 bg-violet-500/10 text-violet-400 border border-violet-500/20 rounded-full text-[10px] md:text-sm font-medium">
-                                                    {skill}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p className="text-[10px] md:text-xs font-mono text-text-muted mb-1.5 md:mb-2 uppercase tracking-wider">DevOps & Tools</p>
-                                        <div className="flex flex-wrap gap-1.5 md:gap-2">
-                                            {['Docker', 'AWS', 'GIT', 'Bitbucket', 'Agile', 'CI/CD'].map((skill) => (
-                                                <span key={skill} className="px-2 md:px-3 py-1 md:py-1.5 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] md:text-sm font-medium">
-                                                    {skill}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
+                            <div>
+                                <p className="text-[10px] md:text-xs font-mono text-text-muted mb-1.5 md:mb-2 uppercase tracking-wider">
+                                    Cloud Platforms
+                                </p>
+                                <div className="flex flex-wrap gap-1.5 md:gap-2">
+                                    {[
+                                        'AWS',
+                                        'ECS',
+                                        'EKS',
+                                        'CloudFormation',
+                                        'AWS CDK',
+                                        'Route 53',
+                                        'CloudFront'
+                                    ].map((skill) => (
+                                        <span
+                                            key={skill}
+                                            className="px-2 md:px-3 py-1 md:py-1.5 bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 rounded-full text-[10px] md:text-sm font-medium"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
                                 </div>
+                            </div>
+
+                            <div>
+                                <p className="text-[10px] md:text-xs font-mono text-text-muted mb-1.5 md:mb-2 uppercase tracking-wider">
+                                    Containers & Infrastructure
+                                </p>
+                                <div className="flex flex-wrap gap-1.5 md:gap-2">
+                                    {[
+                                        'Docker',
+                                        'Kubernetes',
+                                        'Terraform',
+                                        'EFS',
+                                        'RDS',
+                                        'Redis',
+                                        'RabbitMQ'
+                                    ].map((skill) => (
+                                        <span
+                                            key={skill}
+                                            className="px-2 md:px-3 py-1 md:py-1.5 bg-violet-500/10 text-violet-400 border border-violet-500/20 rounded-full text-[10px] md:text-sm font-medium"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div>
+                                <p className="text-[10px] md:text-xs font-mono text-text-muted mb-1.5 md:mb-2 uppercase tracking-wider">
+                                    Automation & DevOps
+                                </p>
+                                <div className="flex flex-wrap gap-1.5 md:gap-2">
+                                    {[
+                                        'Jenkins',
+                                        'Azure DevOps',
+                                        'Git',
+                                        'Linux',
+                                        'Python',
+                                        'Bash',
+                                        'CloudWatch',
+                                        'Datadog'
+                                    ].map((skill) => (
+                                        <span
+                                            key={skill}
+                                            className="px-2 md:px-3 py-1 md:py-1.5 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] md:text-sm font-medium"
+                                        >
+                                            {skill}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="mt-3 md:mt-4 inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
+                            <Sparkles size={12} className="text-primary md:w-[14px] md:h-[14px]" />
+                            <span className="text-[10px] md:text-xs text-primary font-semibold">
+                                AWS • Kubernetes • Terraform
+                            </span>
+                        </div>
                                 <div className="mt-3 md:mt-4 inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
                                     <Sparkles size={12} className="text-primary md:w-[14px] md:h-[14px]" />
                                     <span className="text-[10px] md:text-xs text-primary font-semibold">Expert in React & Node.js</span>
@@ -331,37 +397,56 @@ const ResumePage: React.FC = () => {
                             <div className="mb-6 md:mb-8">
                                 <h3 className="text-lg md:text-xl font-display font-bold text-text mb-3 md:mb-4 flex items-center gap-2">
                                     <Briefcase size={16} className="text-primary md:w-5 md:h-5" />
-                                    WORK EXPERIENCE
+                                    PROFESSIONAL EXPERIENCE
                                 </h3>
                                 <div className="space-y-4 md:space-y-6">
                                     <ExperienceItem
+                                        title="Senior Software Engineer"
+                                        company="Trigyn Technologies"
+                                        period="Mar 2025 – Present"
+                                        description="Designing, automating, and managing AWS cloud infrastructure for enterprise and government platforms. Building CI/CD pipelines, provisioning infrastructure using Terraform and CloudFormation, managing ECS workloads, and improving platform reliability, scalability, and security."
+                                        highlights={[
+                                            "AWS",
+                                            "Terraform",
+                                            "CloudFormation",
+                                            "Docker",
+                                            "ECS",
+                                            "Redis",
+                                            "CI/CD",
+                                            "DevOps"
+                                        ]}
+                                    />
+
+                                    <ExperienceItem
                                         title="Software Engineer"
-                                        company="National E-Governance Division (DIC), MeITY, New delhi"
-                                        period="Jun 2025 - Present"
-                                        description="Spearheaded the development of web applications using microservices architecture. Managed frontend and backend systems, focusing on performance optimization. Collaborated in an Agile environment, designing RESTful APIs."
-                                        highlights={["Angualr","Ionic","Microservices Architecture", "Performance Optimization", "RESTful APIs"]}
+                                        company="GlobalLogic India Pvt. Ltd."
+                                        period="Jun 2022 – Mar 2025"
+                                        description="Implemented cloud infrastructure, deployment automation, and containerized application delivery for enterprise applications. Worked extensively with Docker, Kubernetes, Jenkins, AWS services, monitoring solutions, and Infrastructure as Code."
+                                        highlights={[
+                                            "AWS",
+                                            "Kubernetes",
+                                            "Docker",
+                                            "Jenkins",
+                                            "Azure DevOps",
+                                            "Linux",
+                                            "Datadog",
+                                            "CloudWatch"
+                                        ]}
                                     />
+
                                     <ExperienceItem
-                                        title="Full-Stack Developer"
-                                        company="Simpliaxis Pvt. Ltd"
-                                        period="Feb 2024 - Jan 2025"
-                                        description="Engineered university management systems covering registration, exams, and course management. Implemented role-based access controls for enhanced security."
-                                        highlights={["University Management System", "Role-based Access", "Agile Methodologies"]}
-                                    />
-                                    <ExperienceItem
-                                        title="Full-Stack Developer"
-                                        company="Volmint Technology"
-                                        period="Dec 2022 - Jan 2024"
-                                        description="Engineered university management systems covering registration, exams, and course management. Implemented role-based access controls for enhanced security."
-                                        highlights={["University Management System", "Role-based Access", "Agile Methodologies"]}
-                                    />
-                                    <ExperienceItem
-                                        title="Software Developer"
-                                        company="Globussoft Pvt. Ltd"
-                                        period="Sep 2021 - Oct 2022"
-                                        description="Contributed to client-facing applications with responsive design. Built REST APIs and supported Docker-based deployments with CI/CD configurations."
-                                        highlights={["REST APIs", "Docker", "CI/CD"]}
-                                    />
+                                        title="Project Engineer"
+                                        company="Wipro Limited"
+                                        period="Jan 2022 – Jun 2022"
+                                        description="Worked on enterprise application support and software development while collaborating in Agile teams. Gained hands-on experience with Java, SQL, Git, Linux, and software delivery best practices."
+                                        highlights={[
+                                            "Java",
+                                            "SQL",
+                                            "Linux",
+                                            "Git",
+                                            "Agile"
+                                        ]}
+                                    />    
                                 </div>
                             </div>
 
@@ -373,14 +458,15 @@ const ResumePage: React.FC = () => {
                                 </h3>
                                 <div className="space-y-3 md:space-y-4">
                                     <EducationItem
-                                        degree="Master of Computer Application"
-                                        institution="Gaya College, Gaya (Magadh University)"
-                                        year="2020-2022"
+                                        degree="Post Graduate Diploma in Artificial Intelligence & Machine Learning"
+                                        institution="National Institute of Technology (NIT), Warangal"
+                                        year="Jul 2022 – Jun 2023"
                                     />
+
                                     <EducationItem
-                                        degree="Bachelor of Computer Application"
-                                        institution="Gaya College, Gaya (Magadh University)"
-                                        year="2016-2019"
+                                        degree="Bachelor of Technology (Computer Science) – First Class"
+                                        institution="Galgotias University"
+                                        year="Sep 2015 – May 2019"
                                     />
                                 </div>
                             </div>
@@ -765,9 +851,9 @@ const ResumePage: React.FC = () => {
                             <Mail size={14} className="md:w-4 md:h-4 flex-shrink-0" />
                             <span className="text-xs md:text-sm truncate">sajalrastogi20@gmail.com</span>
                         </a>
-                        <a href="tel:+919097490427" className="flex items-center justify-center sm:justify-start gap-2 text-text-muted hover:text-primary transition-colors">
+                        <a href="tel:+918400840123" className="flex items-center justify-center sm:justify-start gap-2 text-text-muted hover:text-primary transition-colors">
                             <Phone size={14} className="md:w-4 md:h-4 flex-shrink-0" />
-                            <span className="text-xs md:text-sm">+91 9097490427</span>
+                            <span className="text-xs md:text-sm">+91 8400840123</span>
                         </a>
                         <a href="https://linkedin.com/in/sajal-rastogi-5b474b6a" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center sm:justify-start gap-2 text-text-muted hover:text-primary transition-colors">
                             <Linkedin size={14} className="md:w-4 md:h-4 flex-shrink-0" />
