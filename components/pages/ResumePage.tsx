@@ -119,11 +119,11 @@ const ResumePage: React.FC = () => {
                     <div className="flex items-center gap-2 md:gap-3 px-3 md:px-4 py-2 rounded-full bg-surface/50 backdrop-blur-md border border-white/10">
                         <div className="flex -space-x-3">
                             {[
-                                { bg: 'bg-gradient-to-br from-blue-500 to-cyan-500', text: 'V', ring: 'ring-blue-400/30' },
-                                { bg: 'bg-gradient-to-br from-blue-500 to-purple-500', text: 'I', ring: 'ring-violet-400/30' },
-                                { bg: 'bg-gradient-to-br from-pink-500 to-rose-500', text: 'S', ring: 'ring-pink-400/30' },
-                                { bg: 'bg-gradient-to-br from-orange-500 to-amber-500', text: 'H', ring: 'ring-orange-400/30' },
-                                { bg: 'bg-gradient-to-br from-red-500 to-purple-600', text: 'U', ring: 'ring-orange-400/30' }
+                                { bg: 'bg-gradient-to-br from-blue-500 to-cyan-500', text: 'S', ring: 'ring-blue-400/30' },
+                                { bg: 'bg-gradient-to-br from-blue-500 to-purple-500', text: 'A', ring: 'ring-violet-400/30' },
+                                { bg: 'bg-gradient-to-br from-pink-500 to-rose-500', text: 'J', ring: 'ring-pink-400/30' },
+                                { bg: 'bg-gradient-to-br from-orange-500 to-amber-500', text: 'A', ring: 'ring-orange-400/30' },
+                                { bg: 'bg-gradient-to-br from-red-500 to-purple-600', text: 'L', ring: 'ring-orange-400/30' }
                             ].map((item, i) => (
                                 <div 
                                     key={i} 
