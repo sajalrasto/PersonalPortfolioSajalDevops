@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
             </MagneticButton>
             <div className="flex items-center gap-4 text-sm font-mono text-text-muted">
               <span className="w-1 h-1 bg-text-muted rounded-full" />
-              <span>4+ Years • AWS • Kubernetes • Terraform</span>
+              <span>5 Years • AWS • Kubernetes • Terraform</span>
             </div>
           </motion.div>
         </div>

@@ -6,7 +6,7 @@
 नए build की ये files upload करें:
 ```
 dist/index.html      ← Updated with ?v=2.0
-dist/v-logo.png      ← Favicon file
+dist/sr-logo.png      ← Favicon file
 dist/.htaccess       ← Updated cache headers
 dist/assets/         ← All files
 ```
@@ -26,7 +26,7 @@ dist/assets/         ← All files
 ### Step 1: Check Favicon Directly
 Browser में ये URL open करें:
 ```
-https://your-domain.com/v-logo.png?v=2.0
+https://your-domain.com/sr-logo.png?v=2.0
 ```
 अगर image दिखता है = File uploaded है ✅
 
@@ -37,7 +37,7 @@ https://your-domain.com/v-logo.png?v=2.0
 ```javascript
 // Check favicon
 console.log(document.querySelector('link[rel="icon"]').href);
-// Should show: https://your-domain.com/v-logo.png?v=2.0
+// Should show: https://your-domain.com/sr-logo.png?v=2.0
 
 // Check theme color
 console.log(document.querySelector('meta[name="theme-color"]').content);
@@ -73,9 +73,9 @@ console.log(document.querySelector('meta[name="theme-color"]').content);
 
 ### Option 3: File Path Check
 Server पर verify करें:
-- ✅ `public_html/v-logo.png` (CORRECT location)
-- ❌ `public_html/images/v-logo.png` (WRONG)
-- ❌ `public_html/dist/v-logo.png` (WRONG)
+- ✅ `public_html/sr-logo.png` (CORRECT location)
+- ❌ `public_html/images/sr-logo.png` (WRONG)
+- ❌ `public_html/dist/sr-logo.png` (WRONG)
 
 ### Option 4: Test with Different Browser
 - Chrome में test करें
@@ -92,7 +92,7 @@ Server पर verify करें:
    - Bypasses cache
 
 2. **.htaccess:** Added no-cache headers for favicon
-   - Prevents server from caching `v-logo.png`
+   - Prevents server from caching `sr-logo.png`
    - Forces fresh load every time
 
 3. **HTML Cache:** Enhanced cache-control headers

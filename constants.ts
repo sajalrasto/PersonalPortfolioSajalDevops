@@ -40,7 +40,7 @@ export const SKILLS: Skill[] = [
 export const PROJECTS: Project[] = [ { id: "1", title: "National Scale Government Digital Platform", category: "Cloud Infrastructure", description: "Designed and managed AWS infrastructure supporting a large-scale government platform using ECS, Aurora PostgreSQL, Redis, CloudFront, S3, and secure networking.", image: "https://picsum.photos/800/600?random=1", tech: ["AWS", "ECS", "Aurora PostgreSQL", "Redis", "CloudFront"], }, { id: "2", title: "Enterprise Digital Document Platform", category: "Platform Engineering", description: "Built deployment automation, cloud infrastructure, monitoring, and operational workflows for a document management platform serving enterprise users.", image: "https://picsum.photos/800/600?random=2", tech: ["AWS", "Terraform", "Jenkins", "Docker"], }, { id: "3", title: "Disaster Recovery Platform", category: "Business Continuity", description: "Provisioned and automated disaster recovery infrastructure for a leading insurance organization, ensuring high availability and rapid recovery.", image: "https://picsum.photos/800/600?random=3", tech: ["AWS", "Terraform", "RDS", "Route53"], }, { id: "4", title: "CCaaS Reliability Engineering", category: "Site Reliability", description: "Improved platform stability, deployment reliability, and operational observability for a large customer experience platform.", image: "https://picsum.photos/800/600?random=4", tech: ["Kubernetes", "Docker", "AWS", "Jenkins"], }, ];
 
 export const STATS: Stat[] = [
-  { value: "4+", label: "Years Experience" },
+  { value: "5", label: "Years Experience" },
   { value: "50+", label: "Production Deployments" },
   { value: "AWS", label: "Cloud Expertise" },
   { value: "24x7", label: "Platform Reliability" },

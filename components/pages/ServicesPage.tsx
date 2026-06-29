@@ -493,7 +493,7 @@ const ServicesPage: React.FC = () => {
                         className="flex flex-wrap justify-center gap-6 md:gap-8 mb-12"
                     >
                         {[
-                            { value: "4+", label: "Years Experience" },
+                            { value: "5", label: "Years Experience" },
                             { value: "50+", label: "Production Deployments" },
                             { value: "AWS", label: "Cloud Expertise" }
                         ].map((stat, i) => (

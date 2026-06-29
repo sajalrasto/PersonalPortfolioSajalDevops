@@ -40,7 +40,7 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
           "name": "Vishwjeet Kumar",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://sajalrastogi.com/v-logo.png"
+            "url": "https://sajalrastogi.com/sr-logo.png"
           }
         },
         "inLanguage": "en-US",
@@ -65,7 +65,7 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
             "@type": "Person",
             "name": blogPost.author || "Vishwjeet Kumar"
           },
-          "image": blogPost.image && blogPost.image !== '#' ? blogPost.image : "https://sajalrastogi.com/v-logo.png",
+          "image": blogPost.image && blogPost.image !== '#' ? blogPost.image : "https://sajalrastogi.com/sr-logo.png",
           "url": `https://sajalrastogi.com/blog/${blogPost.slug || blogPost.id}`
         }))
       };
@@ -92,7 +92,7 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
               "@type": "Person",
               "name": blogPost.author || "Vishwjeet Kumar"
             },
-            "image": blogPost.image && blogPost.image !== '#' ? blogPost.image : "https://sajalrastogi.com/v-logo.png"
+            "image": blogPost.image && blogPost.image !== '#' ? blogPost.image : "https://sajalrastogi.com/sr-logo.png"
           }
         }))
       };
@@ -118,7 +118,7 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
         "@id": `https://sajalrastogi.com/blog/${post.slug || post.id}`,
         "headline": post.title,
         "description": post.excerpt,
-        "image": post.image && post.image !== '#' ? post.image : "https://sajalrastogi.com/v-logo.png",
+        "image": post.image && post.image !== '#' ? post.image : "https://sajalrastogi.com/sr-logo.png",
         "datePublished": post.publishedDate,
         "dateModified": post.publishedDate,
         "author": {
@@ -143,7 +143,7 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
           "name": "Vishwjeet Kumar",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://sajalrastogi.com/v-logo.png",
+            "url": "https://sajalrastogi.com/sr-logo.png",
             "width": 200,
             "height": 200
           }

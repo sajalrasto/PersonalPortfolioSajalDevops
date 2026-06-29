@@ -150,7 +150,7 @@ const SEO: React.FC<SEOProps> = ({
       jobTitle: 'Full Stack Developer',
       description: 'Expert Full Stack Developer specializing in React, Next.js, TypeScript, and modern web development. Building scalable applications with premium UI/UX design.',
       url: 'https://sajalrastogi.com',
-      image: 'https://sajalrastogi.com/v-logo.png',
+      image: 'https://sajalrastogi.com/sr-logo.png',
       sameAs: [
         'https://github.com/sajalrasto9097',
         'https://linkedin.com/in/sajal-rastogi-5b474b6a',
@@ -198,7 +198,7 @@ const SEO: React.FC<SEOProps> = ({
       '@id': 'https://sajalrastogi.com/#organization',
       name: 'Sajal Rastogi - Senior DevOps Engineer',
       url: 'https://sajalrastogi.com',
-      logo: 'https://sajalrastogi.com/v-logo.png',
+      logo: 'https://sajalrastogi.com/sr-logo.png',
       description: 'Expert Full Stack Development Services - React, Next.js, TypeScript, and Modern Web Applications',
       founder: {
         '@type': 'Person',
@@ -242,7 +242,7 @@ const SEO: React.FC<SEOProps> = ({
           url: 'https://sajalrastogi.com',
           logo: {
             '@type': 'ImageObject',
-            url: 'https://sajalrastogi.com/v-logo.png'
+            url: 'https://sajalrastogi.com/sr-logo.png'
           }
         },
         datePublished: publishedTime,
