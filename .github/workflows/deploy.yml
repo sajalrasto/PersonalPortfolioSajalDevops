@@ -14,7 +14,6 @@ concurrency:
 
 jobs:
   deploy:
-    name: Build & Deploy to Hostinger
     runs-on: ubuntu-latest
 
     steps:
@@ -37,28 +36,18 @@ jobs:
         run: |
           test -f dist/index.html
           ls -lah dist
-          du -sh dist
 
-      - name: 🧹 Clean public_html
-        uses: appleboy/ssh-action@v1.2.2
-        with:
-          host: ${{ secrets.HOSTINGER_HOST }}
-          username: ${{ secrets.HOSTINGER_USERNAME }}
-          password: ${{ secrets.HOSTINGER_PASSWORD }}
-          port: ${{ secrets.HOSTINGER_PORT }}
-          script: |
-            rm -rf /home/${{ secrets.HOSTINGER_USERNAME }}/domains/sajalrastogi.com/public_html/*
-            mkdir -p /home/${{ secrets.HOSTINGER_USERNAME }}/domains/sajalrastogi.com/public_html
+      - name: 🔑 Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
 
-      - name: 🚀 Upload Website
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.HOSTINGER_HOST }}
-          username: ${{ secrets.HOSTINGER_USERNAME }}
-          password: ${{ secrets.HOSTINGER_PASSWORD }}
-          port: ${{ secrets.HOSTINGER_PORT }}
-          source: "dist/*"
-          target: "/home/${{ secrets.HOSTINGER_USERNAME }}/domains/sajalrastogi.com/public_html"
+      - name: 🚀 Deploy to Hostinger
+        env:
+          SSHPASS: ${{ secrets.HOSTINGER_PASSWORD }}
+        run: |
+          sshpass -e rsync -avz --delete \
+            -e "ssh -o StrictHostKeyChecking=no -p ${{ secrets.HOSTINGER_PORT }}" \
+            dist/ \
+            ${{ secrets.HOSTINGER_USERNAME }}@${{ secrets.HOSTINGER_HOST }}:/home/${{ secrets.HOSTINGER_USERNAME }}/domains/sajalrastogi.com/public_html/
 
       - name: 🎉 Deployment Complete
         run: echo "Portfolio deployed successfully!"
