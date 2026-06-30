@@ -1291,7 +1291,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                             <div className="flex items-center gap-2 text-[10px] sm:text-xs text-text-muted">
                               <span className="truncate">{post.author || 'John Doe'}</span>
                               <span>•</span>
-                              <span className="whitespace-nowrap">{formatDateWithYear(post.date)}</span>
+                              <span>{formatDateWithYear(post.date)}</span>
                             </div>
                 </motion.div>
                         ))}

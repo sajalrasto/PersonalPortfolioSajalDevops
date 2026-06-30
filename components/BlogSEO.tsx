@@ -19,25 +19,20 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
         "@context": "https://schema.org",
         "@type": "Blog",
         "@id": "https://sajalrastogi.com/blog#blog",
-        "name": "Engineering Journal - Full Stack Developer Blog",
-        "description": "Expert Full Stack Developer's blog featuring tech insights, tutorials, and modern web development best practices. Learn React, Next.js, TypeScript, and more from Vishwjeet Kumar in Gaya, Bihar.",
+        "name": "DevOps Engineering Journal",
+        "description": "Latest articles and technical insights from Sajal Rastogi, Senior DevOps Engineer",
         "url": "https://sajalrastogi.com/blog",
         "author": {
           "@type": "Person",
           "@id": "https://sajalrastogi.com/#person",
-          "name": "Vishwjeet Kumar",
-          "jobTitle": "Full Stack Developer",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Gaya",
-            "addressRegion": "Bihar",
-            "addressCountry": "IN"
-          }
+          "name": "Sajal Rastogi",
+          "jobTitle": "Senior DevOps Engineer",
+          "url": "https://sajalrastogi.com"
         },
         "publisher": {
           "@type": "Person",
           "@id": "https://sajalrastogi.com/#person",
-          "name": "Vishwjeet Kumar",
+          "name": "Sajal Rastogi",
           "logo": {
             "@type": "ImageObject",
             "url": "https://sajalrastogi.com/sr-logo.png"
@@ -75,7 +70,7 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Latest Blog Posts - Full Stack Developer",
-        "description": "Latest articles and tutorials from Vishwjeet Kumar, Full Stack Developer in Gaya, Bihar",
+        "description": "Latest articles and technical insights from Sajal Rastogi, Senior DevOps Engineer",
         "url": "https://sajalrastogi.com/blog",
         "numberOfItems": posts.length,
         "itemListElement": posts.slice(0, 20).map((blogPost, index) => ({
@@ -140,7 +135,7 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
         "publisher": {
           "@type": "Person",
           "@id": "https://sajalrastogi.com/#person",
-          "name": "Vishwjeet Kumar",
+          "name": "Sajal Rastogi",
           "logo": {
             "@type": "ImageObject",
             "url": "https://sajalrastogi.com/sr-logo.png",
@@ -159,13 +154,15 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
         "isAccessibleForFree": true,
         "genre": ["Technology", "Web Development", "Programming"],
         "keywords": [
-          post.category,
-          "Full Stack Developer",
-          "Web Development",
-          "Programming",
-          "Tech Tutorial",
-          "Software Engineering",
-          post.title
+          "DevOps Engineering",
+          "AWS Architecture",
+          "Kubernetes",
+          "Terraform",
+          "CI/CD",
+          "Infrastructure as Code",
+          "Cloud Engineering",
+          "Platform Engineering",
+          "Site Reliability Engineering"
         ],
         "about": {
           "@type": "Thing",

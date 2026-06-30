@@ -227,7 +227,7 @@ const BlogDetailsPage: React.FC = () => {
     if (imageUrl.startsWith('/')) {
       return `https://vishwjeetkumar.me${imageUrl}`;
     }
-    return `https://sajalrastogi.com/${imageUrl}`;
+    return `https://sajalrastogi.com${imageUrl}`;
   };
 
   // Generate optimized description

@@ -20,7 +20,7 @@ interface SEOProps {
 
 const SEO: React.FC<SEOProps> = ({
   title = 'Sajal Rastogi | Senior DevOps Engineer | AWS Cloud Architect',
-  description = 'Expert Full Stack Developer specializing in React, Next.js, TypeScript, and modern web development. Building scalable applications with premium UI/UX design. Available for projects.',
+  description = 'Senior DevOps Engineer with 5 years of experience in AWS, Kubernetes, Terraform, CI/CD automation, and Infrastructure as Code. Expert in cloud architecture, platform engineering, and site reliability engineering.',
   image = '/og-image.jpg',
   url = typeof window !== 'undefined' ? window.location.href : 'https://sajalrastogi.com',
   type = 'website',
@@ -28,34 +28,33 @@ const SEO: React.FC<SEOProps> = ({
   publishedTime,
   modifiedTime,
   keywords = [
-    'Full Stack Developer',
-    'React Developer',
-    'Next.js Developer',
-    'TypeScript Developer',
-    'Web Developer',
-    'Frontend Developer',
-    'Backend Developer',
-    'Software Engineer',
-    'Software Engineer Freelance',
-    'Freelance Software Engineer',
-    'Freelance Full Stack Developer',
-    'Hire Full Stack Developer',
-    'Hire Software Engineer',
-    'UI/UX Developer',
-    'JavaScript Developer',
-    'Node.js Developer',
-    'Full Stack Engineer',
-    'React Expert',
-    'Next.js Expert',
-    'TypeScript Expert',
-    'Web Development Services',
-    'Custom Web Development',
-    'Responsive Web Design',
-    'Modern Web Applications',
-    'Scalable Web Solutions',
-    'Experienced Developer',
-    'Professional Developer',
-    'Expert Developer'
+    'Senior DevOps Engineer',
+    'AWS DevOps Engineer',
+    'DevOps Engineer India',
+    'Kubernetes Engineer',
+    'Cloud Engineer',
+    'Infrastructure Engineer',
+    'Platform Engineer',
+    'Site Reliability Engineer',
+    'Terraform Engineer',
+    'AWS Cloud Engineer',
+    'Docker',
+    'Jenkins',
+    'Azure DevOps',
+    'GitHub Actions',
+    'Linux',
+    'CI/CD',
+    'Infrastructure as Code',
+    'Kubernetes',
+    'Amazon Web Services',
+    'CloudFormation',
+    'AWS CDK',
+    'ECS',
+    'EKS',
+    'CloudFront',
+    'Route53',
+    'RDS',
+    'DevOps Portfolio'
   ],
   articleSection,
   tags = [],
@@ -124,7 +123,7 @@ const SEO: React.FC<SEOProps> = ({
     updateMetaTag('twitter:title', optimizedTitle);
     updateMetaTag('twitter:description', optimizedDescription);
     updateMetaTag('twitter:image', image.startsWith('http') ? image : `https://sajalrastogi.com${image}`);
-    updateMetaTag('twitter:site', '@vishwjeetkumar', 'name');
+    updateMetaTag('twitter:site', '@SajalRastogitTo', 'name');
     updateMetaTag('twitter:creator', '@vishwjeetkumar', 'name');
 
     // Canonical URL
