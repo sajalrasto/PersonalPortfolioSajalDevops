@@ -1,0 +1,61 @@
+name: 🚀 Build & Deploy Portfolio
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: 📦 Install Dependencies
+        run: npm ci
+
+      - name: 🏗️ Build Portfolio
+        run: npm run build
+
+      - name: ✅ Verify Build
+        run: |
+          test -f dist/index.html
+          ls -lah dist
+          du -sh dist
+
+      - name: 🚀 Deploy to Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          protocol: sftp
+          server: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+
+          local-dir: ./dist/
+          server-dir: ./public_html/
+
+          dangerous-clean-slate: true
+          exclude: |
+            **/.git*
+            **/.github*
+            **/node_modules/**
+            portfolio*.zip
+
+      - name: ✅ Deployment Finished
+        run: echo "Deployment completed successfully."
