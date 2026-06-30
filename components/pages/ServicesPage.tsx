@@ -1097,8 +1097,8 @@ const ServicesPage: React.FC = () => {
                                                 </div>
                                                 {slot.event ? (
                                                     <div className={`ml-4 p-2.5 rounded-xl ${
-                                                        slot.event.color === 'purple' 
-                                                            ? 'bg-gradient-to-br from-cyan-400 via-sky-400 to-cyan-300 text-white' 
+                                                        slot.event.color === 'purple'
+                                                            ? 'bg-gradient-to-br from-cyan-400 via-sky-400 to-cyan-300 text-white'
                                                             : 'bg-gradient-to-br from-cyan-400 via-sky-400 to-cyan-300 text-white'
                                                     } shadow-md`}>
                                                         <p className="text-sm font-semibold">{slot.event.title}</p>
@@ -1244,7 +1244,7 @@ const ServicesPage: React.FC = () => {
                                     <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3 w-full sm:w-auto lg:w-auto flex-shrink-0">
                                         <button 
                                             onClick={() => window.dispatchEvent(new CustomEvent('openClientInfoModal'))}
-                                            className="px-6 md:px-8 py-3 md:py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-300 text-white font-bold text-sm md:text-base hover:shadow-[0_0_30px_rgba(6,182,212,0.5),0_0_50px_rgba(56,189,248,0.3)] transition-all duration-300 shadow-lg hover:scale-105 whitespace-nowrap flex items-center justify-center gap-2"
+                                            className="px-6 md:px-8 py-3 md:py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 via-sky-400 to-cyan-300 text-white font-bold text-sm md:text-base hover:shadow-[0_0_30px_rgba(6,182,212,0.5),0_0_60px_rgba(56,189,248,0.3)] transition-all duration-300 shadow-lg hover:scale-105 whitespace-nowrap flex items-center justify-center gap-2"
                                         >
                                             <Mail size={18} className="md:w-5 md:h-5" />
                                         Get Started

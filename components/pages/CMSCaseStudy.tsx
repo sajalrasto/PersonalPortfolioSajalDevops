@@ -134,7 +134,7 @@ const CMSCaseStudy: React.FC = () => {
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary">Technologies & Infrastructure</h2>
           <ul className="list-disc pl-6 text-lg text-text-muted space-y-2">
             <li>Frontend: Angular for dynamic, component-driven UI</li>
-            <li>Backend/API: Laravel for business logic and REST APIs</li>
+            <li>Backend/API: Node.js for business logic and REST APIs</li>
             <li>Database: MySQL for structured data, Redis for caching and notifications</li>
             <li>Admin Panel: Role-based dashboard for managing admissions, academics, and support</li>
             <li>Cloud: AWS CLI, S3 for storage, EC2 for hosting, scalable and secure infrastructure</li>

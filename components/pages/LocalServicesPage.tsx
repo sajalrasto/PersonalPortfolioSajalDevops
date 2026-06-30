@@ -55,6 +55,12 @@ const LocalServicesPage: React.FC = () => {
       business: "Bihar Tech Solutions",
       text: "Best web developer in Bihar! Created our complete digital presence with modern technology stack.",
       rating: 5
+    },
+    {
+      name: "Rajeev Rai",
+      business: "Teckno Services",
+      text: "Excellent DevOps engineering services! Sajal transformed our cloud infrastructure with automated deployments, reduced downtime, and improved reliability. Highly recommended for enterprise organizations.",
+      rating: 5
     }
   ];
 

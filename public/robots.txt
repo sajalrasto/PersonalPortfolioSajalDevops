@@ -1,5 +1,5 @@
-# robots.txt for vishwjeetkumar.me
-# Optimized for Full Stack Developer SEO
+# robots.txt for sajalrastogi.com
+# Optimized for Senior DevOps Engineer SEO
 
 # Allow all search engines
 User-agent: *
@@ -33,5 +33,5 @@ Crawl-delay: 1
 Sitemap: https://sajalrastogi.com/sitemap.xml
 
 # Host information
-Host: https://vishwjeetkumar.me
+Host: https://sajalrastogi.com
 
