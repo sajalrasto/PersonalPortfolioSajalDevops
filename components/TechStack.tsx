@@ -124,11 +124,11 @@ const TechStack: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-6">
-          {/* AWS Cloud Services - Large */}
+          {/* AWS Cloud Platform - Largest */}
           <BentoCard 
             className="md:col-span-6 lg:col-span-8"
-            title="AWS Cloud Services"
-            subtitle="Cloud Platform"
+            title="AWS Cloud Platform"
+            subtitle="Cloud Services"
             icon={Cloud}
             glowColor="from-orange-500/20"
             delay={0.1}
@@ -137,98 +137,209 @@ const TechStack: React.FC = () => {
               <TechItem label="EC2" icon={Server} color="text-orange-400" />
               <TechItem label="ECS" icon={Layers} color="text-orange-400" />
               <TechItem label="EKS" icon={Cpu} color="text-orange-400" />
+              <TechItem label="Lambda" icon={Code2} color="text-orange-400" />
               <TechItem label="RDS" icon={Database} color="text-orange-400" />
+              <TechItem label="S3" icon={Box} color="text-orange-400" />
+              <TechItem label="VPC" icon={Globe} color="text-orange-400" />
+              <TechItem label="IAM" icon={Lock} color="text-orange-400" />
               <TechItem label="CloudFront" icon={Globe} color="text-orange-400" />
               <TechItem label="Route53" icon={Globe} color="text-orange-400" />
-              <TechItem label="S3" icon={Box} color="text-orange-400" />
               <TechItem label="CloudFormation" icon={Code2} color="text-orange-400" />
-              <TechItem label="AWS CDK" icon={Layers} color="text-orange-400" />
+              <TechItem label="CloudWatch" icon={ChartNetwork} color="text-orange-400" />
+              <TechItem label="API Gateway" icon={Server} color="text-orange-400" />
+              <TechItem label="SNS/SQS" icon={Layers} color="text-orange-400" />
+              <TechItem label="Secrets Manager" icon={Lock} color="text-orange-400" />
+              <TechItem label="DocumentDB" icon={Database} color="text-orange-400" />
+              <TechItem label="EventBridge" icon={Layers} color="text-orange-400" />
+              <TechItem label="Athena" icon={Code2} color="text-orange-400" />
             </div>
           </BentoCard>
 
-          {/* Infrastructure as Code - Medium */}
+          {/* Multi-Cloud & GCP */}
           <BentoCard 
             className="md:col-span-6 lg:col-span-4"
-            title="Infrastructure as Code"
-            subtitle="IaC Tools"
-            icon={Code2}
-            glowColor="from-purple-500/20"
+            title="Multi-Cloud"
+            subtitle="Cloud Platforms"
+            icon={Cloud}
+            glowColor="from-blue-500/20"
             delay={0.2}
           >
             <div className="grid grid-cols-1 gap-3">
-              <TechItem label="Terraform" icon={Terminal} color="text-purple-400" />
-              <TechItem label="Ansible" icon={Code2} color="text-purple-400" />
-              <TechItem label="Git/GitOps" icon={GitBranch} color="text-purple-400" />
+              <TechItem label="Google Cloud Platform" icon={Cloud} color="text-blue-400" />
+              <TechItem label="Compute Engine" icon={Server} color="text-blue-400" />
+              <TechItem label="Cloud Storage" icon={Box} color="text-blue-400" />
+              <TechItem label="App Engine" icon={Server} color="text-blue-400" />
             </div>
           </BentoCard>
 
-          {/* Containerization - Medium */}
+          {/* Infrastructure as Code */}
           <BentoCard 
-            className="md:col-span-6 lg:col-span-5"
-            title="Containerization & Orchestration"
-            subtitle="Container Tech"
-            icon={Box}
-            glowColor="from-blue-500/20"
+            className="md:col-span-6 lg:col-span-6"
+            title="Infrastructure as Code"
+            subtitle="IaC & Automation"
+            icon={Code2}
+            glowColor="from-purple-500/20"
             delay={0.3}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <TechItem label="Docker" icon={Box} color="text-blue-500" />
-              <TechItem label="Kubernetes" icon={Layers} color="text-blue-400" />
-              <TechItem label="Helm" icon={Layers} color="text-blue-400" />
-              <TechItem label="Docker Compose" icon={Box} color="text-blue-500" />
+              <TechItem label="Terraform" icon={Terminal} color="text-purple-400" />
+              <TechItem label="AWS CDK" icon={Layers} color="text-purple-400" />
+              <TechItem label="CloudFormation" icon={Code2} color="text-purple-400" />
+              <TechItem label="Ansible" icon={Code2} color="text-purple-400" />
+              <TechItem label="Boto3" icon={Code2} color="text-purple-400" />
+              <TechItem label="Serverless Framework" icon={Layers} color="text-purple-400" />
             </div>
           </BentoCard>
 
-          {/* CI/CD & Automation - Large */}
+          {/* Container & Orchestration */}
           <BentoCard 
-            className="md:col-span-6 lg:col-span-7"
-            title="CI/CD & Automation"
-            subtitle="Deployment"
-            icon={GitBranch}
+            className="md:col-span-6 lg:col-span-6"
+            title="Container Management"
+            subtitle="Container Tech"
+            icon={Box}
             glowColor="from-cyan-500/20"
             delay={0.4}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              <TechItem label="Jenkins" icon={Terminal} color="text-red-500" />
-              <TechItem label="GitHub Actions" icon={GitBranch} color="text-text-muted" />
-              <TechItem label="Azure DevOps" icon={Code2} color="text-blue-600" />
-              <TechItem label="GitLab CI/CD" icon={GitBranch} color="text-orange-500" />
-              <TechItem label="ArgoCD" icon={GitBranch} color="text-cyan-400" />
-              <TechItem label="Terraform Cloud" icon={Cloud} color="text-purple-400" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <TechItem label="Docker" icon={Box} color="text-cyan-400" />
+              <TechItem label="Kubernetes" icon={Layers} color="text-cyan-400" />
+              <TechItem label="ECS" icon={Layers} color="text-cyan-400" />
+              <TechItem label="ECR" icon={Box} color="text-cyan-400" />
             </div>
           </BentoCard>
 
-          {/* Monitoring & Observability */}
+          {/* CI/CD & Build Tools */}
+          <BentoCard 
+            className="md:col-span-6 lg:col-span-7"
+            title="CI/CD & Source Control"
+            subtitle="DevOps Pipeline"
+            icon={GitBranch}
+            glowColor="from-red-500/20"
+            delay={0.5}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <TechItem label="Jenkins" icon={Terminal} color="text-red-500" />
+              <TechItem label="Azure DevOps Pipelines" icon={Code2} color="text-blue-600" />
+              <TechItem label="SonarQube" icon={ChartNetwork} color="text-text-muted" />
+              <TechItem label="Git" icon={GitBranch} color="text-red-600" />
+              <TechItem label="GitHub" icon={GitBranch} color="text-text-muted" />
+              <TechItem label="GitLab" icon={GitBranch} color="text-orange-500" />
+              <TechItem label="Azure Repos" icon={GitBranch} color="text-blue-600" />
+              <TechItem label="Bitbucket" icon={GitBranch} color="text-blue-500" />
+              <TechItem label="Maven" icon={Code2} color="text-red-600" />
+            </div>
+          </BentoCard>
+
+          {/* Monitoring & Logging */}
           <BentoCard 
             className="md:col-span-6 lg:col-span-5"
-            title="Monitoring & Observability"
+            title="Monitoring & Logging"
             subtitle="Observability"
             icon={ChartNetwork}
             glowColor="from-green-500/20"
-            delay={0.5}
+            delay={0.6}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <TechItem label="Datadog" icon={ChartNetwork} color="text-purple-500" />
               <TechItem label="CloudWatch" icon={ChartNetwork} color="text-orange-400" />
               <TechItem label="Prometheus" icon={ChartNetwork} color="text-orange-500" />
               <TechItem label="Grafana" icon={ChartNetwork} color="text-green-500" />
+              <TechItem label="ELK Stack" icon={ChartNetwork} color="text-yellow-600" />
+              <TechItem label="Elasticsearch" icon={Database} color="text-yellow-600" />
+              <TechItem label="Kibana" icon={ChartNetwork} color="text-yellow-600" />
+              <TechItem label="Uptime Kuma" icon={ChartNetwork} color="text-green-400" />
             </div>
           </BentoCard>
 
-          {/* Scripting & Automation */}
+          {/* Databases & Caching */}
+          <BentoCard 
+            className="md:col-span-6 lg:col-span-6"
+            title="Databases & Caching"
+            subtitle="Data Storage"
+            icon={Database}
+            glowColor="from-blue-500/20"
+            delay={0.7}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <TechItem label="PostgreSQL" icon={Database} color="text-blue-400" />
+              <TechItem label="MySQL" icon={Database} color="text-blue-500" />
+              <TechItem label="MongoDB" icon={Database} color="text-green-500" />
+              <TechItem label="MongoDB Atlas" icon={Database} color="text-green-500" />
+              <TechItem label="SQL Server" icon={Database} color="text-red-500" />
+              <TechItem label="Redis" icon={Layers} color="text-red-600" />
+              <TechItem label="RabbitMQ" icon={Layers} color="text-orange-400" />
+              <TechItem label="SQS" icon={Layers} color="text-orange-400" />
+            </div>
+          </BentoCard>
+
+          {/* Web/App Servers & Build Tools */}
+          <BentoCard 
+            className="md:col-span-6 lg:col-span-6"
+            title="Application Servers"
+            subtitle="Server Tech"
+            icon={Server}
+            glowColor="from-yellow-500/20"
+            delay={0.8}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <TechItem label="Nginx" icon={Server} color="text-green-400" />
+              <TechItem label="Apache HTTP Server" icon={Server} color="text-red-600" />
+              <TechItem label="Tomcat" icon={Server} color="text-red-700" />
+              <TechItem label="Gradle" icon={Code2} color="text-blue-600" />
+              <TechItem label="NPM" icon={Code2} color="text-red-500" />
+              <TechItem label="Poetry" icon={Code2} color="text-blue-400" />
+            </div>
+          </BentoCard>
+
+          {/* Programming & Scripting */}
           <BentoCard 
             className="md:col-span-6 lg:col-span-5"
-            title="Scripting & Automation"
+            title="Programming Languages"
             subtitle="Scripting"
             icon={Terminal}
-            glowColor="from-green-500/20"
-            delay={0.6}
+            glowColor="from-cyan-500/20"
+            delay={0.9}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <TechItem label="Python" icon={Code2} color="text-blue-500" />
-              <TechItem label="Bash" icon={Terminal} color="text-green-400" />
-              <TechItem label="Linux" icon={Terminal} color="text-yellow-600" />
+              <TechItem label="Bash/Shell" icon={Terminal} color="text-green-400" />
+              <TechItem label="Java" icon={Code2} color="text-red-600" />
               <TechItem label="YAML" icon={Code2} color="text-red-500" />
+            </div>
+          </BentoCard>
+
+          {/* Operating Systems */}
+          <BentoCard 
+            className="md:col-span-6 lg:col-span-5"
+            title="Operating Systems"
+            subtitle="Linux & Windows"
+            icon={Terminal}
+            glowColor="from-yellow-500/20"
+            delay={1.0}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <TechItem label="Red Hat Linux" icon={Terminal} color="text-red-600" />
+              <TechItem label="CentOS" icon={Terminal} color="text-red-600" />
+              <TechItem label="Ubuntu" icon={Terminal} color="text-orange-600" />
+              <TechItem label="Debian" icon={Terminal} color="text-red-700" />
+              <TechItem label="Windows" icon={Server} color="text-blue-600" />
+            </div>
+          </BentoCard>
+
+          {/* Additional Tools */}
+          <BentoCard 
+            className="md:col-span-6 lg:col-span-5"
+            title="Additional Tools"
+            subtitle="DevOps Ecosystem"
+            icon={Box}
+            glowColor="from-purple-500/20"
+            delay={1.1}
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <TechItem label="Azure Artifacts" icon={Box} color="text-blue-600" />
+              <TechItem label="Jira" icon={ChartNetwork} color="text-blue-500" />
+              <TechItem label="Azure Boards" icon={ChartNetwork} color="text-blue-600" />
+              <TechItem label="PIP" icon={Code2} color="text-blue-500" />
             </div>
           </BentoCard>
         </div>
