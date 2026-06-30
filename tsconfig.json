@@ -7,7 +7,9 @@
     "lib": [
       "ES2022",
       "DOM",
-      "DOM.Iterable"
+      "DOM.Iterable"      git add -A
+      git commit -m "Remove all Vishwjeet template artifacts and update to Sajal Rastogi DevOps branding"
+      git push
     ],
     "skipLibCheck": true,
     "types": [

@@ -225,7 +225,7 @@ const BlogDetailsPage: React.FC = () => {
       return imageUrl;
     }
     if (imageUrl.startsWith('/')) {
-      return `https://vishwjeetkumar.me${imageUrl}`;
+      return `https://sajalrastogi.com${imageUrl}`;
     }
     return `https://sajalrastogi.com${imageUrl}`;
   };
@@ -247,8 +247,8 @@ const BlogDetailsPage: React.FC = () => {
       return cleanExcerpt.substring(0, 157) + '...';
     }
     
-    // Fallback description with local SEO
-    return `${post.title} - Expert insights on ${post.category} by Full Stack Developer Vishwjeet Kumar from Gaya, Bihar. Learn modern web development techniques, best practices, and industry trends.`;
+    // Fallback description with SEO
+    return `${post.title} - Expert insights on ${post.category} by Senior DevOps Engineer Sajal Rastogi. Learn cloud architecture, infrastructure automation, and modern DevOps practices.`;
   };
 
   // Generate local SEO keywords
@@ -310,7 +310,7 @@ const BlogDetailsPage: React.FC = () => {
         image={getAbsoluteImageUrl(post.image)}
         url={seoUrl}
         type="article"
-        author={post.author || 'Vishwjeet Kumar'}
+        author={post.author || 'Sajal Rastogi'}
         publishedTime={formatDateForSEO(post.publishedDate)}
         modifiedTime={formatDateForSEO(post.publishedDate)}
         keywords={getLocalSEOKeywords()}

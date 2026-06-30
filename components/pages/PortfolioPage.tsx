@@ -54,9 +54,9 @@ const PortfolioPage: React.FC = () => {
           'e-commerce development bihar',
           'business websites bihar',
           'custom software bihar',
-          'web developer work gaya',
-          'portfolio vishwjeet kumar',
-          'bihar developer projects'
+          'devops engineer portfolio',
+          'portfolio sajal rastogi',
+          'aws cloud engineer portfolio'
         ]}
         breadcrumbs={[
           { name: 'Home', url: 'https://sajalrastogi.com/' },

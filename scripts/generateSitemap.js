@@ -67,7 +67,7 @@ const mockBlogPosts = [
 ];
 
 const generateSitemap = () => {
-  const baseUrl = 'https://vishwjeetkumar.me';
+  const baseUrl = 'https://sajalrastogi.com';
   const currentDate = '2025-01-02'; // Fixed current date
   
   // Static URLs

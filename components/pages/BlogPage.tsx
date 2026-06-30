@@ -758,15 +758,15 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
           },
           {
             question: 'Who writes the Engineering Journal blog?',
-            answer: 'The Engineering Journal is written by Vishwjeet Kumar, an expert Full Stack Developer from Gaya, Bihar specializing in React, Next.js, TypeScript, and modern web development serving businesses across Bihar.'
+            answer: 'The DevOps Engineering Journal is written by Sajal Rastogi, a Senior DevOps Engineer with 5 years of experience specializing in AWS, Kubernetes, Terraform, CI/CD automation, Infrastructure as Code, and cloud architecture.'
           },
           {
             question: 'How often are new articles published?',
             answer: 'New articles are published regularly covering the latest trends in web development, software engineering, and full stack development practices relevant to developers and businesses in Bihar.'
           },
           {
-            question: 'Why should you hire an experienced Full Stack Developer in Bihar?',
-            answer: 'Hiring an experienced Full Stack Developer like Vishwjeet Kumar in Gaya, Bihar ensures you get proven expertise in React, Next.js, TypeScript, and modern web technologies. Local developers understand Bihar market needs, provide on-site support, and deliver cost-effective solutions with cultural understanding.'
+            question: 'Why should you hire an experienced DevOps Engineer?',
+            answer: 'Hiring an experienced DevOps Engineer like Sajal Rastogi ensures you get proven expertise in AWS, Kubernetes, Terraform, CI/CD automation, and infrastructure engineering. Senior DevOps engineers provide strategic cloud architecture, operational excellence, security best practices, and automation that transforms your deployment pipeline and improves system reliability.'
           },
           {
             question: 'Why is an experienced developer better than AI for software development in Bihar?',
@@ -901,9 +901,9 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                       <div className="text-xs text-text-muted font-mono">
                         <span>{new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).toUpperCase()}</span>
                         <span className="mx-2">|</span>
-                        <span>CALL US (123) 456 7890</span>
+                        <span>CONTACT</span>
                         <span className="mx-2">/</span>
-                        <span>HELLO@VISHWJEET.ME</span>
+                        <span>SAJALRASTOGI20@GMAIL.COM</span>
                       </div>
                         </div>
 

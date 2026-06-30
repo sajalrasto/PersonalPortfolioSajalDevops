@@ -41,7 +41,7 @@ const LocalServicesPage: React.FC = () => {
     {
       name: "Rajesh Kumar",
       business: "Kumar Enterprises, Gaya",
-      text: "Excellent web development services! Vishwjeet created a professional website for our business in Gaya. Highly recommended for local businesses.",
+      text: "Excellent DevOps engineering services! Sajal transformed our cloud infrastructure with automated deployments, improved reliability, and reduced operational overhead. Highly recommended for enterprises.",
       rating: 5
     },
     {
