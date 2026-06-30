@@ -389,7 +389,7 @@ const ResumePage: React.FC = () => {
                         </div>
                                 <div className="mt-3 md:mt-4 inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
                                     <Sparkles size={12} className="text-primary md:w-[14px] md:h-[14px]" />
-                                    <span className="text-[10px] md:text-xs text-primary font-semibold">Expert in React & Node.js</span>
+                                    <span className="text-[10px] md:text-xs text-primary font-semibold">Expert in Disaster Recovery</span>
                                 </div>
                             </div>
 
@@ -418,9 +418,9 @@ const ResumePage: React.FC = () => {
                                     />
 
                                     <ExperienceItem
-                                        title="Software Engineer"
+                                        title="Senior Software Engineer"
                                         company="GlobalLogic India Pvt. Ltd."
-                                        period="Jun 2022 – Mar 2025"
+                                        period="Jun 2022 – Aug 2024"
                                         description="Implemented cloud infrastructure, deployment automation, and containerized application delivery for enterprise applications. Worked extensively with Docker, Kubernetes, Jenkins, AWS services, monitoring solutions, and Infrastructure as Code."
                                         highlights={[
                                             "AWS",
@@ -437,14 +437,16 @@ const ResumePage: React.FC = () => {
                                     <ExperienceItem
                                         title="Project Engineer"
                                         company="Wipro Limited"
-                                        period="Jan 2022 – Jun 2022"
-                                        description="Worked on enterprise application support and software development while collaborating in Agile teams. Gained hands-on experience with Java, SQL, Git, Linux, and software delivery best practices."
+                                        period="Jun 2019 – Sep 2020"
+                                        description="Worked on enterprise application for Rating and Review module and software development while collaborating in Agile teams. Gained hands-on experience with Java, SQL, Git, Linux, and software delivery best practices."
                                         highlights={[
                                             "Java",
                                             "SQL",
                                             "Linux",
                                             "Git",
-                                            "Agile"
+                                            "Agile",
+                                            "AWS",
+                                            "Jenkins"
                                         ]}
                                     />    
                                 </div>
@@ -557,7 +559,7 @@ const ResumePage: React.FC = () => {
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 relative z-10">
-                        {/* Angel Monkey Project */}
+                        {/* Government Digital Platform Modernization */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -568,15 +570,14 @@ const ResumePage: React.FC = () => {
                             <div>
                                 <div className="inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-3 md:mb-4">
                                     <Sparkles size={10} className="text-primary md:w-3 md:h-3" />
-                                    <span className="text-[10px] md:text-xs text-primary font-semibold">E-Commerce</span>
+                                    <span className="text-[10px] md:text-xs text-primary font-semibold">Government Digital Platform</span>
                                 </div>
-                                <h3 className="text-xl md:text-2xl font-display font-bold text-text mb-2 md:mb-3">Angel Monkey Ecommerce</h3>
+                                <h3 className="text-xl md:text-2xl font-display font-bold text-text mb-2 md:mb-3">Government Digital Platform Modernization</h3>
                                 <p className="text-xs md:text-sm text-text-muted leading-relaxed mb-3 md:mb-4">
-                                    Comprehensive eCommerce platform using Next.js, Laravel, and MySQL with AWS S3 integration.
-                                    Features robust authentication, payment gateways, and admin dashboard.
+                                    Designed and managed cloud infrastructure for a large-scale government digital platform running production workloads on AWS. Automated deployments using Jenkins, deployed containerized microservices on Amazon ECS, configured CloudFront, EFS, Aurora PostgreSQL, Redis, RabbitMQ, ClamAV malware scanning, VPC Endpoints and AWS Network Firewall to deliver a secure, scalable and highly available platform.
                                 </p>
                                 <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
-                                    {['Next.js', 'Laravel', 'MySQL', 'AWS S3', 'Tailwind'].map((tech) => (
+                                    {['Amazon ECS', 'Aurora PostgreSQL', 'CloudFront', 'Amazon EFS', 'Redis', 'RabbitMQ', 'Terraform', 'Jenkins'].map((tech) => (
                                         <span key={tech} className="px-2 py-0.5 md:py-1 bg-text/5 text-text-muted text-[10px] md:text-xs rounded">
                                             {tech}
                                         </span>
@@ -585,17 +586,17 @@ const ResumePage: React.FC = () => {
                                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs md:text-sm text-text-muted">
                                     <span className="flex items-center gap-1">
                                         <CheckCircle size={12} className="text-green-400 md:w-[14px] md:h-[14px]" />
-                                        <span className="text-[10px] md:text-xs">Secure Transactions</span>
+                                        <span className="text-[10px] md:text-xs">Highly Available Architecture</span>
                                     </span>
                                     <span className="flex items-center gap-1">
                                         <CheckCircle size={12} className="text-green-400 md:w-[14px] md:h-[14px]" />
-                                        <span className="text-[10px] md:text-xs">Admin Dashboard</span>
+                                        <span className="text-[10px] md:text-xs">Secure Government Platform</span>
                                     </span>
                                 </div>
                             </div>
                         </motion.div>
 
-                        {/* Plantation at Home Project */}
+                        {/* Enterprise Disaster Recovery Platform */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -606,15 +607,14 @@ const ResumePage: React.FC = () => {
                             <div>
                                 <div className="inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 mb-3 md:mb-4">
                                     <Sparkles size={10} className="text-green-400 md:w-3 md:h-3" />
-                                    <span className="text-[10px] md:text-xs text-green-400 font-semibold">E-Commerce</span>
+                                    <span className="text-[10px] md:text-xs text-green-400 font-semibold">Disaster Recovery</span>
                                 </div>
-                                <h3 className="text-xl md:text-2xl font-display font-bold text-text mb-2 md:mb-3">Plantation At Home</h3>
+                                <h3 className="text-xl md:text-2xl font-display font-bold text-text mb-2 md:mb-3">Enterprise Disaster Recovery Platform</h3>
                                 <p className="text-xs md:text-sm text-text-muted leading-relaxed mb-3 md:mb-4">
-                                    Online nursery platform built with Angular, SCSS, Bootstrap, and Laravel REST API.
-                                    Features responsive design, product browsing, and comprehensive admin controls.
+                                    Built Infrastructure as Code solutions to provision complete AWS disaster recovery environments using Terraform, AWS CDK, CloudFormation, Kubernetes and Python. Automated cloud resource provisioning enabling one-click disaster recovery for enterprise applications while reducing recovery time and manual intervention.
                                 </p>
                                 <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
-                                    {['Angular', 'Laravel', 'MySQL', 'Bootstrap', 'SCSS'].map((tech) => (
+                                    {['Terraform', 'AWS CDK', 'CloudFormation', 'Python', 'Kubernetes'].map((tech) => (
                                         <span key={tech} className="px-2 py-0.5 md:py-1 bg-text/5 text-text-muted text-[10px] md:text-xs rounded">
                                             {tech}
                                         </span>
@@ -623,17 +623,17 @@ const ResumePage: React.FC = () => {
                                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs md:text-sm text-text-muted">
                                     <span className="flex items-center gap-1">
                                         <CheckCircle size={12} className="text-green-400 md:w-[14px] md:h-[14px]" />
-                                        <span className="text-[10px] md:text-xs">REST API</span>
+                                        <span className="text-[10px] md:text-xs">One-Click Recovery</span>
                                     </span>
                                     <span className="flex items-center gap-1">
                                         <CheckCircle size={12} className="text-green-400 md:w-[14px] md:h-[14px]" />
-                                        <span className="text-[10px] md:text-xs">Responsive Design</span>
+                                        <span className="text-[10px] md:text-xs">Infrastructure as Code</span>
                                     </span>
                                 </div>
                             </div>
                         </motion.div>
 
-                        {/* Tripatakaland Travel Agency - Fading Card */}
+                        {/* National Digital Document Wallet Platform */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -645,14 +645,14 @@ const ResumePage: React.FC = () => {
                             <div>
                                 <div className="inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 rounded-full bg-violet/10 border border-violet/20 mb-3 md:mb-4">
                                     <Sparkles size={10} className="text-violet md:w-3 md:h-3" />
-                                    <span className="text-[10px] md:text-xs text-violet font-semibold">Travel Agency</span>
+                                    <span className="text-[10px] md:text-xs text-violet font-semibold">Government Platform</span>
                                 </div>
-                                <h3 className="text-xl md:text-2xl font-display font-bold text-text mb-2 md:mb-3">Tripatakaland Travels</h3>
+                                <h3 className="text-xl md:text-2xl font-display font-bold text-text mb-2 md:mb-3">National Digital Document Wallet Platform</h3>
                                 <p className="text-xs md:text-sm text-text-muted leading-relaxed mb-3 md:mb-4">
-                                    Modern travel agency platform for creating and managing dynamic travel packages. Features real-time content updates and role-based access for admins, agents, and customers.
+                                    Engineered cloud infrastructure supporting a national digital document platform. Built secure CI/CD pipelines, containerized application deployments, Redis caching, RabbitMQ messaging and production monitoring using AWS services while ensuring scalability, security and operational reliability.
                                 </p>
                                 <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
-                                    {['Angular', 'Laravel', 'Tailwind', 'MySQL', 'Bootstrap'].map((tech) => (
+                                    {['AWS ECS', 'RabbitMQ', 'Redis', 'Jenkins', 'CloudWatch'].map((tech) => (
                                         <span key={tech} className="px-2 py-0.5 md:py-1 bg-text/5 text-text-muted text-[10px] md:text-xs rounded">
                                             {tech}
                                         </span>
@@ -661,17 +661,17 @@ const ResumePage: React.FC = () => {
                                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs md:text-sm text-text-muted">
                                     <span className="flex items-center gap-1">
                                         <CheckCircle size={12} className="text-green-400 md:w-[14px] md:h-[14px]" />
-                                        <span className="text-[10px] md:text-xs">Dynamic Packages</span>
+                                        <span className="text-[10px] md:text-xs">Production Infrastructure</span>
                                     </span>
                                     <span className="flex items-center gap-1">
                                         <CheckCircle size={12} className="text-green-400 md:w-[14px] md:h-[14px]" />
-                                        <span className="text-[10px] md:text-xs">Role-based Access</span>
+                                        <span className="text-[10px] md:text-xs">National Scale Platform</span>
                                     </span>
                                 </div>
                             </div>
                         </motion.div>
 
-                        {/* Personal Portfolio - Fading Card */}
+                        {/* Cloud Cost Optimization Initiative */}
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -683,14 +683,14 @@ const ResumePage: React.FC = () => {
                             <div>
                                 <div className="inline-flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 rounded-full bg-fuchsia/10 border border-fuchsia/20 mb-3 md:mb-4">
                                     <Sparkles size={10} className="text-fuchsia md:w-3 md:h-3" />
-                                    <span className="text-[10px] md:text-xs text-fuchsia font-semibold">Portfolio</span>
+                                    <span className="text-[10px] md:text-xs text-fuchsia font-semibold">Cloud Optimization</span>
                                 </div>
-                                <h3 className="text-xl md:text-2xl font-display font-bold text-text mb-2 md:mb-3">Personal Portfolio Website</h3>
+                                <h3 className="text-xl md:text-2xl font-display font-bold text-text mb-2 md:mb-3">54% AWS RDS Cost Optimization</h3>
                                 <p className="text-xs md:text-sm text-text-muted leading-relaxed mb-3 md:mb-4">
-                                    Modern, interactive portfolio showcasing projects and skills with stunning animations. Built with React, Next.js, and Framer Motion for smooth user experience.
+                                    Optimized production AWS database infrastructure resulting in a 54% reduction in Amazon RDS costs while maintaining application performance and reliability. Improved cloud resource utilization, monitoring and operational efficiency through performance tuning and infrastructure optimization.
                                 </p>
                                 <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
-                                    {['React', 'Next.js', 'Framer Motion', 'Tailwind', 'TypeScript'].map((tech) => (
+                                    {['Amazon RDS', 'CloudWatch', 'AWS', 'Performance Tuning', 'Cost Optimization'].map((tech) => (
                                         <span key={tech} className="px-2 py-0.5 md:py-1 bg-text/5 text-text-muted text-[10px] md:text-xs rounded">
                                             {tech}
                                         </span>
@@ -699,11 +699,11 @@ const ResumePage: React.FC = () => {
                                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs md:text-sm text-text-muted">
                                     <span className="flex items-center gap-1">
                                         <CheckCircle size={12} className="text-green-400 md:w-[14px] md:h-[14px]" />
-                                        <span className="text-[10px] md:text-xs">Smooth Animations</span>
+                                        <span className="text-[10px] md:text-xs">54% Cost Reduction</span>
                                     </span>
                                     <span className="flex items-center gap-1">
                                         <CheckCircle size={12} className="text-green-400 md:w-[14px] md:h-[14px]" />
-                                        <span className="text-[10px] md:text-xs">3D Effects</span>
+                                        <span className="text-[10px] md:text-xs">Performance Maintained</span>
                                     </span>
                                 </div>
                             </div>
