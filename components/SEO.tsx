@@ -124,7 +124,7 @@ const SEO: React.FC<SEOProps> = ({
     updateMetaTag('twitter:description', optimizedDescription);
     updateMetaTag('twitter:image', image.startsWith('http') ? image : `https://sajalrastogi.com${image}`);
     updateMetaTag('twitter:site', '@SajalRastogitTo', 'name');
-    updateMetaTag('twitter:creator', '@vishwjeetkumar', 'name');
+    updateMetaTag('twitter:creator', '@SajalRastogitTo', 'name');
 
     // Canonical URL
     let canonical = document.querySelector('link[rel="canonical"]');

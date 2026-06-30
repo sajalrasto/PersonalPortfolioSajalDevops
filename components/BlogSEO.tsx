@@ -58,7 +58,7 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
           "dateModified": blogPost.publishedDate,
           "author": {
             "@type": "Person",
-            "name": blogPost.author || "Vishwjeet Kumar"
+            "name": blogPost.author || "Sajal Rastogi"
           },
           "image": blogPost.image && blogPost.image !== '#' ? blogPost.image : "https://sajalrastogi.com/sr-logo.png",
           "url": `https://sajalrastogi.com/blog/${blogPost.slug || blogPost.id}`
@@ -85,7 +85,7 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
             "datePublished": blogPost.publishedDate,
             "author": {
               "@type": "Person",
-              "name": blogPost.author || "Vishwjeet Kumar"
+              "name": blogPost.author || "Sajal Rastogi"
             },
             "image": blogPost.image && blogPost.image !== '#' ? blogPost.image : "https://sajalrastogi.com/sr-logo.png"
           }

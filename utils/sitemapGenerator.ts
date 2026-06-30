@@ -2,7 +2,7 @@
 import { getAllBlogPosts } from '../services/blogService';
 
 export const generateDynamicSitemap = (): string => {
-  const baseUrl = 'https://vishwjeetkumar.me';
+  const baseUrl = 'https://sajalrastogi.com';
   const currentDate = new Date().toISOString().split('T')[0];
   
   // Get all blog posts
