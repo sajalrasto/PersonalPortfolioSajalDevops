@@ -14,6 +14,7 @@ concurrency:
 
 jobs:
   deploy:
+    name: Build & Deploy to Hostinger
     runs-on: ubuntu-latest
 
     steps:
@@ -38,24 +39,26 @@ jobs:
           ls -lah dist
           du -sh dist
 
-      - name: 🚀 Deploy to Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: 🧹 Clean public_html
+        uses: appleboy/ssh-action@v1.2.2
         with:
-          protocol: sftp
-          server: ${{ secrets.HOSTINGER_HOST }}
+          host: ${{ secrets.HOSTINGER_HOST }}
           username: ${{ secrets.HOSTINGER_USERNAME }}
           password: ${{ secrets.HOSTINGER_PASSWORD }}
           port: ${{ secrets.HOSTINGER_PORT }}
+          script: |
+            rm -rf /home/${{ secrets.HOSTINGER_USERNAME }}/domains/sajalrastogi.com/public_html/*
+            mkdir -p /home/${{ secrets.HOSTINGER_USERNAME }}/domains/sajalrastogi.com/public_html
 
-          local-dir: ./dist/
-          server-dir: ./public_html/
+      - name: 🚀 Upload Website
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+          source: "dist/*"
+          target: "/home/${{ secrets.HOSTINGER_USERNAME }}/domains/sajalrastogi.com/public_html"
 
-          dangerous-clean-slate: true
-          exclude: |
-            **/.git*
-            **/.github*
-            **/node_modules/**
-            portfolio*.zip
-
-      - name: ✅ Deployment Finished
-        run: echo "Deployment completed successfully."
+      - name: 🎉 Deployment Complete
+        run: echo "Portfolio deployed successfully!"
