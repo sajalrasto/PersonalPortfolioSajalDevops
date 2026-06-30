@@ -40,14 +40,15 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
         },
         "inLanguage": "en-US",
         "keywords": [
-          "Full Stack Developer Blog",
-          "Web Developer Gaya",
-          "Software Engineer Bihar",
-          "React Tutorials",
-          "Next.js Tutorials",
-          "TypeScript Tutorials",
-          "Tech Blog Bihar",
-          "Programming Blog India"
+          "DevOps Engineering Blog",
+          "AWS Architecture",
+          "Kubernetes Tutorials",
+          "Terraform Infrastructure",
+          "CI/CD Pipelines",
+          "Cloud Engineering",
+          "Infrastructure as Code",
+          "Platform Engineering",
+          "Site Reliability Engineering"
         ],
         "blogPost": posts.slice(0, 10).map(blogPost => ({
           "@type": "BlogPosting",
@@ -69,7 +70,7 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
       const itemListSchema = {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "Latest Blog Posts - Full Stack Developer",
+        "name": "Latest Blog Posts - DevOps Engineering",
         "description": "Latest articles and technical insights from Sajal Rastogi, Senior DevOps Engineer",
         "url": "https://sajalrastogi.com/blog",
         "numberOfItems": posts.length,
@@ -119,14 +120,8 @@ const BlogSEO: React.FC<BlogSEOProps> = ({ post, posts = [], isListPage = false 
         "author": {
           "@type": "Person",
           "@id": "https://sajalrastogi.com/#person",
-          "name": post.author || "Vishwjeet Kumar",
-          "jobTitle": "Full Stack Developer",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Gaya",
-            "addressRegion": "Bihar",
-            "addressCountry": "IN"
-          },
+          "name": post.author || "Sajal Rastogi",
+          "jobTitle": "Senior DevOps Engineer",
           "sameAs": [
             "https://github.com/sajalrasto9097",
             "https://linkedin.com/in/sajal-rastogi-5b474b6a"
