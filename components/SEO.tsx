@@ -147,7 +147,7 @@ const SEO: React.FC<SEOProps> = ({
       name: 'Sajal Rastogi',
       alternateName: 'Sajal',
       jobTitle: 'Senior DevOps Engineer',
-      description: 'Senior DevOps Engineer specializing in AWS cloud architecture, Kubernetes operations, Terraform infrastructure automation, CI/CD orchestration, and platform engineering. Building scalable, reliable cloud infrastructure with industry best practices.'
+      description: 'Senior DevOps Engineer specializing in AWS cloud architecture, Kubernetes operations, Terraform infrastructure automation, CI/CD orchestration, and platform engineering. Building scalable, reliable cloud infrastructure with industry best practices.',
       url: 'https://sajalrastogi.com',
       image: 'https://sajalrastogi.com/sr-logo.png',
       sameAs: [
