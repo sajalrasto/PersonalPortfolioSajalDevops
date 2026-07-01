@@ -369,20 +369,20 @@ const ServicesPage: React.FC = () => {
     return (
         <>
             <SEO
-                title="Full Stack Development Services | Software Engineer Freelance | Hire Expert Developer"
-                description="Hire an experienced Full Stack Developer and Software Engineer Freelance. Expert in React, Next.js, TypeScript, Node.js. Custom web applications, e-commerce solutions, and scalable software development. Why choose experienced developer over AI? Get professional, tailored solutions."
+                title="DevOps Engineering Services | Senior DevOps Engineer | AWS, Kubernetes, Terraform"
+                description="Hire an experienced Senior DevOps Engineer specializing in AWS, Kubernetes, Terraform, CI/CD automation, and cloud infrastructure. Infrastructure as Code, platform engineering, and site reliability engineering services with proven expertise in enterprise deployments."
                 url={typeof window !== 'undefined' ? window.location.href : 'https://sajalrastogi.com/services'}
                 keywords={[
-                    'Software Engineer Freelance',
-                    'Freelance Software Engineer',
-                    'Hire Full Stack Developer',
-                    'Hire Software Engineer',
-                    'Freelance Full Stack Developer',
-                    'Full Stack Development Services',
-                    'React Developer',
-                    'Next.js Developer',
-                    'TypeScript Developer',
-                    'Web Development Services',
+                    'Senior DevOps Engineer',
+                    'DevOps Engineer Services',
+                    'Hire DevOps Engineer',
+                    'Hire Cloud Engineer',
+                    'DevOps Consulting',
+                    'Infrastructure Automation Services',
+                    'AWS Cloud Architect',
+                    'Kubernetes Expert',
+                    'Terraform Specialist',
+                    'CI/CD Pipeline Services',
                     'Custom Web Development',
                     'E-commerce Development',
                     'API Development',
@@ -400,8 +400,8 @@ const ServicesPage: React.FC = () => {
                 ]}
                 faq={[
                     {
-                        question: 'Why should you hire an experienced Full Stack Developer?',
-                        answer: 'Hiring an experienced Full Stack Developer ensures you get proven expertise in React, Next.js, TypeScript, Node.js, and modern web technologies. Experienced developers bring real-world problem-solving skills, best practices, code quality, performance optimization, security expertise, and the ability to deliver scalable, maintainable solutions that meet your specific business needs and deadlines.'
+                        question: 'Why should you hire an experienced DevOps Engineer?',
+                        answer: 'Hiring an experienced Senior DevOps Engineer like Sajal Rastogi brings proven expertise in AWS, Kubernetes, Terraform, CI/CD automation, and cloud architecture. DevOps engineers deliver infrastructure reliability, security hardening, deployment automation, monitoring solutions, and scalable systems that reduce operational complexity and improve delivery velocity.'
                     },
                     {
                         question: 'Why is an experienced software engineer freelance better than AI for development?',

@@ -38,7 +38,7 @@ const mockBlogPosts = [
   },
   {
     id: 'full-stack-developer-gaya',
-    title: 'Why Choose a Full Stack Developer in Gaya Bihar',
+    title: 'Why Choose a Senior DevOps Engineer for Cloud Infrastructure',
     slug: 'why-choose-full-stack-developer-gaya-bihar',
     publishedDate: '2024-12-22T00:00:00.000Z',
     category: 'Career'

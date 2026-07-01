@@ -33,11 +33,11 @@
 
 #### **Google Business Profile (CRITICAL)**
 ```
-Business Name: Vishwjeet Kumar - Web Developer Gaya Bihar
+Business Name: Sajal Rastogi - Senior DevOps Engineer
 Category: Web Designer, Software Company, IT Services
 Address: Gaya, Bihar 823001, India
 Phone: +91-XXXXX-XXXXX
-Website: https://vishwjeetkumar.me
+Website: https://sajalrastogi.com
 Description: Professional web development and software engineering services in Gaya, Bodhgaya, Bihar. Expert React, Next.js, and full-stack solutions for local businesses.
 ```
 

@@ -1,4 +1,4 @@
-# SEO Audit Report - Vishwjeet Kumar Portfolio
+# SEO Audit Report - Sajal Rastogi DevOps Engineer Portfolio
 
 ## 🚨 Critical Issues Fixed
 

@@ -47,7 +47,7 @@ const PortfolioPage: React.FC = () => {
         keywords={[
           'project portfolio',
           'web development projects bihar',
-          'full stack developer portfolio gaya',
+          'devops engineer portfolio',
           'software engineer projects bihar',
           'react projects bihar',
           'next.js projects gaya',

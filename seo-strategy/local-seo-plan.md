@@ -1,7 +1,7 @@
 # Local SEO Domination Strategy - Gaya/Bodhgaya, Bihar
 
 ## 1. Google Business Profile Optimization
-- Create/optimize Google Business Profile for "Vishwjeet Kumar - Web Development Services"
+- Create/optimize Google Business Profile for "Sajal Rastogi - DevOps Engineering Services"
 - Location: Gaya, Bihar, India
 - Categories: Web Designer, Software Company, IT Services
 - Add local phone number (+91 format)
@@ -13,7 +13,7 @@
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Vishwjeet Kumar - Full Stack Developer",
+  "name": "Sajal Rastogi - Senior DevOps Engineer",
   "description": "Professional web development and software engineering services in Gaya, Bodhgaya, Bihar",
   "address": {
     "@type": "PostalAddress",
@@ -28,7 +28,7 @@
     "longitude": "85.0002"
   },
   "telephone": "+91-XXXXXXXXXX",
-  "url": "https://vishwjeetkumar.me",
+  "url": "https://sajalrastogi.com",
   "areaServed": ["Gaya", "Bodhgaya", "Bihar", "Patna", "Ranchi"],
   "serviceType": ["Web Development", "Software Engineering", "Digital Marketing"],
   "priceRange": "₹₹"

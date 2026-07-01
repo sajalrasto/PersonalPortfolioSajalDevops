@@ -1,6 +1,6 @@
 # Why Local Businesses in Gaya and Bodhgaya Need Professional Web Development
 
-*Published: January 2, 2025 | By Vishwjeet Kumar, Web Developer Gaya*
+*Published: January 2, 2025 | By Sajal Rastogi, Senior DevOps Engineer*
 
 As a professional web developer serving Gaya, Bodhgaya, and the entire Bihar region, I've witnessed firsthand the digital transformation happening in our local business community. Today, I want to share why having a professional website is no longer optional for businesses in our area.
 
@@ -123,10 +123,10 @@ Professional web development is not an expense—it's an investment that pays di
 
 If you're a business owner in Gaya, Bodhgaya, or anywhere in Bihar, let's discuss how professional web development can accelerate your growth.
 
-**Contact Vishwjeet Kumar - Your Local Web Development Expert:**
+**Contact Sajal Rastogi - DevOps Engineering Expert:**
 - 📧 Email: sajalrastogi20@gmail.com
 - 📱 Phone: +91 XXXXX XXXXX
-- 🌐 Website: vishwjeetkumar.me
+- 🌐 Website: sajalrastogi.com
 - 📍 Serving: Gaya, Bodhgaya, Patna, and entire Bihar
 
 ### Free Consultation Available
@@ -141,6 +141,6 @@ Don't let your competitors get ahead. The digital revolution in Bihar is happeni
 
 ---
 
-*Vishwjeet Kumar is a professional full-stack developer specializing in modern web technologies. Based in Gaya, Bihar, he has helped 50+ local businesses establish strong digital presence and achieve remarkable growth through custom web solutions.*
+*Sajal Rastogi is a Senior DevOps Engineer with 5 years of expertise in AWS, Kubernetes, Terraform, CI/CD automation, and cloud architecture. He specializes in infrastructure automation, platform engineering, and helping organizations build scalable, reliable cloud systems.*
 
 **Keywords**: web developer gaya, software engineer bodhgaya, web development bihar, website design gaya, custom software bodhgaya, digital marketing bihar, react developer gaya, full stack developer bihar

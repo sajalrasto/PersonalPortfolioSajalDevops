@@ -146,8 +146,8 @@ const SEO: React.FC<SEOProps> = ({
       '@id': 'https://sajalrastogi.com/#person',
       name: 'Sajal Rastogi',
       alternateName: 'Sajal',
-      jobTitle: 'Full Stack Developer',
-      description: 'Expert Full Stack Developer specializing in React, Next.js, TypeScript, and modern web development. Building scalable applications with premium UI/UX design.',
+      jobTitle: 'Senior DevOps Engineer',
+      description: 'Senior DevOps Engineer specializing in AWS cloud architecture, Kubernetes operations, Terraform infrastructure automation, CI/CD orchestration, and platform engineering. Building scalable, reliable cloud infrastructure with industry best practices.'
       url: 'https://sajalrastogi.com',
       image: 'https://sajalrastogi.com/sr-logo.png',
       sameAs: [
@@ -157,7 +157,7 @@ const SEO: React.FC<SEOProps> = ({
       ],
       email: 'sajalrastogi20@gmail.com',
       knowsAbout: [
-        'Full Stack Development',
+        'DevOps Engineering',
         'React',
         'Next.js',
         'TypeScript',
@@ -177,12 +177,12 @@ const SEO: React.FC<SEOProps> = ({
       },
       worksFor: {
         '@type': 'Organization',
-        name: 'Freelance Full Stack Developer',
+        name: 'Senior DevOps Engineer',
         url: 'https://sajalrastogi.com'
       },
       hasOccupation: {
         '@type': 'Occupation',
-        name: 'Full Stack Developer',
+        name: 'DevOps Engineer',
         occupationLocation: {
           '@type': 'Country',
           name: 'India'
@@ -198,7 +198,7 @@ const SEO: React.FC<SEOProps> = ({
       name: 'Sajal Rastogi - Senior DevOps Engineer',
       url: 'https://sajalrastogi.com',
       logo: 'https://sajalrastogi.com/sr-logo.png',
-      description: 'Expert Full Stack Development Services - React, Next.js, TypeScript, and Modern Web Applications',
+      description: 'Expert DevOps Engineering Services - AWS, Kubernetes, Terraform, CI/CD Pipelines, and Cloud Infrastructure Automation'
       founder: {
         '@type': 'Person',
         name: 'Sajal Rastogi'

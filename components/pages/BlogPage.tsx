@@ -717,64 +717,63 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
   return (
     <>
       <SEO
-        title="Engineering Journal | Full Stack Developer Blog Gaya Bihar | Tech Insights & Tutorials"
-        description="Expert Full Stack Developer's blog from Gaya, Bihar featuring in-depth tutorials, tech insights, AI breakthroughs, software architecture patterns, and modern web development best practices. Learn React, Next.js, TypeScript from experienced developer in Bihar."
+        title="DevOps Engineering Journal | Senior DevOps Engineer Blog | AWS, Kubernetes, Terraform"
+        description="DevOps Engineering Journal by Sajal Rastogi covers cloud architecture, AWS automation, Kubernetes operations, Terraform infrastructure, CI/CD best practices, and platform engineering strategies."
         url="https://sajalrastogi.com/blog"
         keywords={[
-          'Full Stack Developer Blog',
-          'Tech Blog Bihar',
-          'Web Developer Gaya Blog',
-          'Software Engineer Bihar Blog',
-          'React Tutorials Bihar',
-          'Next.js Tutorials Gaya',
-          'TypeScript Tutorials Bihar',
-          'Web Development Blog India',
-          'Programming Blog Bihar',
-          'AI Development Bihar',
-          'Software Architecture Bihar',
-          'Frontend Development Gaya',
-          'Backend Development Bihar',
-          'Modern Web Development Bihar',
-          'Full Stack Engineer Blog Bihar',
-          'Web Developer Resources Bihar',
-          'Coding Tutorials Bihar',
-          'Tech Insights Bihar',
-          'Developer Blog Gaya',
-          'Software Engineer Freelance Bihar',
-          'Freelance Software Engineer Gaya',
-          'Hire Full Stack Developer Bihar',
-          'Experienced Developer vs AI Bihar',
-          'Why Hire Developer Bihar',
-          'Freelance Web Developer Gaya'
+          'DevOps Engineering Blog',
+          'Senior DevOps Engineer',
+          'AWS Architecture',
+          'Kubernetes Operations',
+          'Terraform Infrastructure',
+          'CI/CD Automation',
+          'Platform Engineering',
+          'Infrastructure as Code',
+          'Cloud Engineering',
+          'Site Reliability Engineering',
+          'DevOps Best Practices',
+          'Cloud Native Architecture',
+          'GitOps',
+          'Monitoring and Observability',
+          'Security Automation',
+          'Deployment Pipelines',
+          'Serverless Infrastructure',
+          'Container Orchestration',
+          'DevOps Portfolio',
+          'AWS DevOps Engineer',
+          'Kubernetes Blog',
+          'Terraform Blog',
+          'CI/CD Blog',
+          'Cloud Infrastructure Blog'
         ]}
         breadcrumbs={[
           { name: 'Home', url: 'https://sajalrastogi.com/' },
-          { name: 'Engineering Journal', url: 'https://sajalrastogi.com/blog' }
+          { name: 'DevOps Engineering Journal', url: 'https://sajalrastogi.com/blog' }
         ]}
         faq={[
           {
-            question: 'What topics does the Engineering Journal cover?',
-            answer: 'The Engineering Journal covers Full Stack Development, React, Next.js, TypeScript, AI development, software architecture, web development best practices, and modern programming techniques with focus on Bihar tech community.'
+            question: 'What topics does the DevOps Engineering Journal cover?',
+            answer: 'The DevOps Engineering Journal covers AWS cloud architecture, Kubernetes operations, Terraform infrastructure automation, CI/CD pipelines, platform engineering, observability, and cloud-native best practices for enterprise-grade systems.'
           },
           {
-            question: 'Who writes the Engineering Journal blog?',
+            question: 'Who writes the DevOps Engineering Journal blog?',
             answer: 'The DevOps Engineering Journal is written by Sajal Rastogi, a Senior DevOps Engineer with 5 years of experience specializing in AWS, Kubernetes, Terraform, CI/CD automation, Infrastructure as Code, and cloud architecture.'
           },
           {
             question: 'How often are new articles published?',
-            answer: 'New articles are published regularly covering the latest trends in web development, software engineering, and full stack development practices relevant to developers and businesses in Bihar.'
+            answer: 'New articles are published regularly covering the latest DevOps trends, cloud infrastructure practices, automation strategies, and operational insights for modern engineering teams.'
           },
           {
             question: 'Why should you hire an experienced DevOps Engineer?',
-            answer: 'Hiring an experienced DevOps Engineer like Sajal Rastogi ensures you get proven expertise in AWS, Kubernetes, Terraform, CI/CD automation, and infrastructure engineering. Senior DevOps engineers provide strategic cloud architecture, operational excellence, security best practices, and automation that transforms your deployment pipeline and improves system reliability.'
+            answer: 'Hiring an experienced DevOps Engineer like Sajal Rastogi brings expertise in cloud automation, infrastructure reliability, security hardening, CI/CD orchestration, and scalable system design that improves deployment velocity and operational stability.'
           },
           {
-            question: 'Why is an experienced developer better than AI for software development in Bihar?',
-            answer: 'While AI tools are helpful, experienced developers in Bihar provide critical thinking, creative problem-solving, understanding of local business context, code architecture decisions, debugging complex issues, security best practices, and human communication. Local developers can adapt to unique Bihar market requirements and ensure projects align with regional business goals.'
+            question: 'Why is an experienced DevOps engineer better than AI for cloud infrastructure automation?',
+            answer: 'Experienced DevOps engineers provide architectural judgment, security awareness, operational readiness, custom automation, and deep systems knowledge that AI alone cannot deliver. They integrate tools with business requirements and ensure resilient, maintainable infrastructure.'
           },
           {
-            question: 'What makes an experienced software engineer freelance in Gaya better than AI development tools?',
-            answer: 'An experienced freelance software engineer in Gaya offers personalized solutions, understands local Bihar business needs, provides ongoing support, makes strategic technical decisions, ensures code quality and maintainability, handles edge cases, and delivers human-centered design. Unlike AI tools that generate generic code, local developers create custom solutions tailored to Bihar market requirements.'
+            question: 'What makes an experienced DevOps engineer better than generic AI tooling?',
+            answer: 'An experienced DevOps engineer provides thoughtful orchestration, platform design, observability, compliance, and troubleshooting across the stack. They tailor solutions to your environment, manage edge cases, and build sustainable automation instead of relying on one-size-fits-all AI outputs.'
           }
         ]}
       />
@@ -918,7 +917,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6 pb-6 border-b-2 border-text/20 dark:border-white/20">
                       {/* Mobile: Title First */}
                       <h1 className="md:hidden text-2xl font-display font-bold text-text text-center w-full">
-                        ENGINEERING JOURNAL
+                        DEVOPS ENGINEERING JOURNAL
                       </h1>
                       
                       {/* Desktop: Search and Language */}
@@ -940,7 +939,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ onBlogClick }) => {
 
                       {/* Desktop: Title */}
                       <h1 className="hidden md:block text-3xl md:text-4xl lg:text-5xl font-display font-bold text-text text-center md:text-left">
-                        ENGINEERING JOURNAL
+                        DEVOPS ENGINEERING JOURNAL
                       </h1>
                       
                       {/* Desktop: Buttons */}

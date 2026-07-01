@@ -80,7 +80,7 @@ const LocalServicesPage: React.FC = () => {
           'website development gaya',
           'software company bodhgaya',
           'IT services bihar',
-          'full stack developer bihar',
+          'devops engineer india',
           'web design gaya',
           'custom software gaya',
           'digital marketing bihar'

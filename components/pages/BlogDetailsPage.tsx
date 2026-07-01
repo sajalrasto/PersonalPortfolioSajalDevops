@@ -232,7 +232,7 @@ const BlogDetailsPage: React.FC = () => {
 
   // Generate optimized description
   const getOptimizedDescription = (): string => {
-    if (!post) return 'Expert Full Stack Developer blog post with insights on modern web development from Gaya, Bihar.';
+    if (!post) return 'DevOps Engineering insights covering AWS, Kubernetes, Terraform, CI/CD automation, and cloud infrastructure best practices.';
     
     if (post.excerpt && post.excerpt.length > 0) {
       // Clean excerpt and ensure it's within 160 characters
@@ -255,7 +255,7 @@ const BlogDetailsPage: React.FC = () => {
   const getLocalSEOKeywords = (): string[] => {
     const baseKeywords = [
       post?.category || 'Web Development',
-      'Full Stack Developer Blog',
+      'DevOps Engineering Blog',
       'Tech Blog Bihar',
       'Web Developer Gaya',
       'Software Engineer Bihar',
@@ -305,7 +305,7 @@ const BlogDetailsPage: React.FC = () => {
   return (
     <>
       <SEO
-        title={`${post.title} | Full Stack Developer Blog Gaya Bihar | Engineering Journal`}
+        title={`${post.title} | DevOps Engineering Journal | AWS, Kubernetes, Terraform`}
         description={getOptimizedDescription()}
         image={getAbsoluteImageUrl(post.image)}
         url={seoUrl}
@@ -315,7 +315,7 @@ const BlogDetailsPage: React.FC = () => {
         modifiedTime={formatDateForSEO(post.publishedDate)}
         keywords={getLocalSEOKeywords()}
         articleSection={post.category}
-        tags={post.tags || [post.category, 'Web Development', 'Full Stack Development', 'Bihar Tech', 'Gaya Developer']}
+        tags={post.tags || [post.category, 'DevOps', 'AWS', 'Kubernetes', 'Infrastructure as Code', 'Cloud Engineering']}
         breadcrumbs={[
           { name: 'Home', url: 'https://sajalrastogi.com/' },
           { name: 'Engineering Journal', url: 'https://sajalrastogi.com/blog' },

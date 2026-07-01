@@ -1,4 +1,4 @@
-# Vishwjeet Kumar - Full Stack Developer Portfolio
+# Sajal Rastogi - Senior DevOps Engineer Portfolio
 
 एक आधुनिक, interactive और professional portfolio website जो React, TypeScript, और Framer Motion के साथ बनाई गई है।
 
@@ -70,7 +70,7 @@ npm run preview
 ## 📁 Project Structure
 
 ```
-vishwjeet-kumar-portfolio/
+sajal-rastogi-portfolio/
 ├── components/
 │   ├── pages/
 │   │   ├── ResumePage.tsx          # Resume builder page
@@ -253,11 +253,11 @@ MIT License - feel free to use this project for your own portfolio!
 
 ## 👤 Author
 
-**Vishwjeet Kumar**
-- Email: hello@vishwjeet.dev
-- Portfolio: [vishwjeet.dev](https://vishwjeet.dev)
-- GitHub: [@vishwjeet](https://github.com/sajalrasto)
-- LinkedIn: [Vishwjeet Kumar](https://linkedin.com/in/vishwjeet)
+**Sajal Rastogi**
+- Email: sajalrastogi20@gmail.com
+- Portfolio: [sajalrastogi.com](https://sajalrastogi.com)
+- GitHub: [@sajalrasto9097](https://github.com/sajalrasto9097)
+- LinkedIn: [Sajal Rastogi](https://linkedin.com/in/sajal-rastogi-5b474b6a)
 
 ## 🙏 Acknowledgments
 
@@ -270,10 +270,10 @@ MIT License - feel free to use this project for your own portfolio!
 
 Issues या questions के लिए:
 - GitHub Issues create करें
-- Email करें: hello@vishwjeet.dev
+- Email करें: sajalrastogi20@gmail.com
 
 ---
 
 <div align="center">
-  Made with ❤️ by Vishwjeet Kumar
+  Made with ❤️ by Sajal Rastogi
 </div>
