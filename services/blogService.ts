@@ -22,50 +22,49 @@ export interface BlogPost {
 const STORAGE_KEY = "blog_posts";
 const LAST_UPDATE_KEY = "blog_last_update";
 
-// Free RSS Feeds for Real Tech News - Trending & Popular Content (No API Key Required)
-// Prioritized by content quality and reliability
+// RSS feeds for DevOps, cloud, and AI/MLOps content
 const RSS_FEEDS = [
   {
-    name: "Dev.to - Top Posts",
-    url: "https://dev.to/feed",
-    category: "Development",
-    type: "trending", // Dev.to feed shows popular posts with full content
-  },
-  {
-    name: "FreeCodeCamp - Latest",
-    url: "https://www.freecodecamp.org/news/rss/",
-    category: "Programming",
-    type: "latest",
-  },
-  {
-    name: "CSS-Tricks",
-    url: "https://css-tricks.com/feed/",
-    category: "Frontend",
-    type: "latest",
-  },
-  {
-    name: "Smashing Magazine",
-    url: "https://www.smashingmagazine.com/feed/",
-    category: "Web Design",
-    type: "latest",
-  },
-  {
-    name: "TechCrunch - Latest",
-    url: "https://techcrunch.com/feed/",
-    category: "Tech",
-    type: "trending", // TechCrunch covers trending tech news
-  },
-  {
-    name: "The Verge - Tech",
-    url: "https://www.theverge.com/rss/index.xml",
-    category: "Tech",
+    name: "DevOps.com",
+    url: "https://devops.com/feed/",
+    category: "DevOps",
     type: "trending",
   },
   {
-    name: "Hacker News - Top Stories",
-    url: "https://hnrss.org/frontpage",
-    category: "Tech",
-    type: "trending", // Front page usually has trending content (may have limited content)
+    name: "The New Stack",
+    url: "https://thenewstack.io/blog/feed/",
+    category: "Platform Engineering",
+    type: "latest",
+  },
+  {
+    name: "Kubernetes Blog",
+    url: "https://kubernetes.io/blog/feed.xml",
+    category: "Kubernetes",
+    type: "latest",
+  },
+  {
+    name: "AWS News Blog",
+    url: "https://aws.amazon.com/blogs/aws/feed/",
+    category: "Cloud",
+    type: "trending",
+  },
+  {
+    name: "Google Cloud Blog",
+    url: "https://cloud.google.com/blog/rss",
+    category: "Cloud",
+    type: "trending",
+  },
+  {
+    name: "GitHub Blog",
+    url: "https://github.blog/feed/",
+    category: "Developer Tools",
+    type: "latest",
+  },
+  {
+    name: "HashiCorp Blog",
+    url: "https://www.hashicorp.com/blog/feed.xml",
+    category: "Infrastructure",
+    type: "trending",
   },
 ];
 
@@ -98,114 +97,92 @@ function isLikelyTrending(title: string): boolean {
   return TRENDING_KEYWORDS.some((keyword) => lowerTitle.includes(keyword));
 }
 
-// Trending tech topics for fallback blog generation
+// DevOps, cloud, platform engineering, and AI/MLOps topics for fallback blog generation
 const TRENDING_TOPICS = [
-  {
-    category: "AI",
-    topics: [
-      "GPT-5 Rumors: What to Expect from OpenAI's Next Model",
-      "Google's Gemini 2.0: Multimodal AI Revolution",
-      "Anthropic Claude 4: Enhanced Reasoning Capabilities",
-      "Meta Llama 4: Open Source AI for Enterprise",
-      "Microsoft Copilot Pro: Advanced AI Features",
-      "Apple Intelligence: On-Device AI Processing",
-      "NVIDIA Blackwell: Next-Gen AI Chips",
-      "Stability AI: Open Source Image Generation",
-      "Midjourney v7: Photorealistic AI Art",
-      "Runway ML: AI Video Generation Tools",
-      "Perplexity AI: Search Engine Revolution",
-      "Character.AI: Conversational AI Platform",
-      "Hugging Face: Open Source AI Hub",
-      "LangChain: AI Application Framework",
-      "Ollama: Local LLM Deployment",
-    ],
-    excerpts: [
-      "Latest developments in artificial intelligence and machine learning are transforming how we build applications.",
-      "AI models are becoming more capable, efficient, and accessible to developers worldwide.",
-      "The future of AI is here, with new models pushing the boundaries of what's possible.",
-      "Enterprise AI adoption is accelerating with new tools and platforms.",
-      "Open source AI is democratizing access to advanced machine learning capabilities.",
-    ],
-  },
-  {
-    category: "Frontend",
-    topics: [
-      "React 20: Concurrent Features and Performance",
-      "Next.js 16: Server Components Evolution",
-      "Vite 6: Lightning Fast Build Tool",
-      "TypeScript 5.7: Enhanced Type Safety",
-      "Tailwind CSS 4: New Utility Classes",
-      "Svelte 5: Runes and Reactivity",
-      "Astro 4: Islands Architecture",
-      "Remix 2.0: Full-Stack Framework",
-      "SolidJS: Fine-Grained Reactivity",
-      "Qwik: Resumable Framework",
-      "Vue 4: Composition API Updates",
-      "Angular 19: Standalone Components",
-      "Web Components: Native Browser Support",
-      "Progressive Web Apps: Offline First",
-      "WebAssembly: High Performance Web",
-    ],
-    excerpts: [
-      "Frontend frameworks are evolving rapidly with new features and performance improvements.",
-      "Modern web development is focusing on better developer experience and user performance.",
-      "The JavaScript ecosystem continues to innovate with new tools and frameworks.",
-      "Build tools are becoming faster and more efficient for large-scale applications.",
-      "Type safety and developer experience are priorities in modern frontend development.",
-    ],
-  },
-  {
-    category: "Backend",
-    topics: [
-      "Node.js 22: Performance Improvements",
-      "Deno 2.0: Secure Runtime Environment",
-      "Bun: All-in-One JavaScript Runtime",
-      "Fastify: High Performance Web Framework",
-      "tRPC: End-to-End Type Safety",
-      "GraphQL: Modern API Architecture",
-      "PostgreSQL 17: Database Features",
-      "MongoDB 8: Document Database Updates",
-      "Redis 8: In-Memory Data Store",
-      "Docker: Container Orchestration",
-      "Kubernetes: Cloud Native Deployments",
-      "Serverless: AWS Lambda Updates",
-      "Edge Computing: Cloudflare Workers",
-      "Microservices: Architecture Patterns",
-      "API Design: REST vs GraphQL",
-    ],
-    excerpts: [
-      "Backend technologies are focusing on performance, scalability, and developer productivity.",
-      "Modern backend architectures are embracing serverless and edge computing.",
-      "Database technologies are evolving to handle larger datasets and better performance.",
-      "API design patterns are improving developer experience and type safety.",
-      "Cloud-native technologies are making deployment and scaling easier.",
-    ],
-  },
   {
     category: "DevOps",
     topics: [
-      "GitHub Actions: CI/CD Automation",
-      "GitLab CI: Pipeline Optimization",
-      "Jenkins: Continuous Integration",
-      "Terraform: Infrastructure as Code",
-      "Ansible: Configuration Management",
-      "Kubernetes: Container Orchestration",
-      "Docker: Containerization Best Practices",
-      "AWS: Cloud Services Updates",
-      "Azure: Microsoft Cloud Platform",
-      "GCP: Google Cloud Platform",
-      "Vercel: Frontend Deployment",
-      "Netlify: JAMstack Hosting",
-      "Cloudflare: Edge Network",
-      "Monitoring: Observability Tools",
-      "Security: DevSecOps Practices",
+      "GitHub Actions: Enterprise CI/CD Automation",
+      "Argo CD: GitOps for Kubernetes Deployments",
+      "Terraform 1.8: Better Drift Detection and State Management",
+      "Jenkins vs GitHub Actions: Choosing the Right Pipeline",
+      "Docker Best Practices for Production Environments",
+      "Kubernetes: Multi-Cluster Deployment Strategies",
+      "Ansible: Configuration Management at Scale",
+      "AWS EKS: Managing Containers with Confidence",
+      "Azure DevOps: CI/CD for Modern Teams",
+      "Pulumi: Infrastructure as Code with Real Programming Languages",
     ],
     excerpts: [
-      "DevOps tools are automating deployment and infrastructure management.",
-      "CI/CD pipelines are becoming more efficient and reliable.",
-      "Cloud platforms are offering new services and improved performance.",
-      "Infrastructure as code is standardizing deployment practices.",
-      "Monitoring and observability are critical for production applications.",
+      "Modern DevOps teams are focusing on automation, reliability, and faster delivery cycles.",
+      "CI/CD pipelines are becoming more secure, scalable, and easier to manage.",
+      "Infrastructure as code is now a core practice for cloud-native teams.",
+      "Platform engineering is helping teams standardize delivery across environments.",
+      "Cloud-native operations are shifting from reactive support to proactive automation.",
+    ],
+  },
+  {
+    category: "Platform Engineering",
+    topics: [
+      "Internal Developer Platforms: The New Standard",
+      "Backstage: Building a Service Catalog for Teams",
+      "Golden Paths for Faster and Safer Delivery",
+      "Developer Experience: Self-Service Infrastructure",
+      "Cloud Native Platform Teams at Scale",
+      "Portals and Templates for Standardized Deployments",
+    ],
+    excerpts: [
+      "Platform engineering is improving developer experience by removing repetitive operational work.",
+      "Teams are building internal platforms that standardize delivery and reduce friction.",
+      "Self-service tooling is helping organizations move faster without losing control.",
+    ],
+  },
+  {
+    category: "AI/ML Ops",
+    topics: [
+      "MLOps: Deploying Models with Confidence",
+      "Kubeflow on Kubernetes for Scalable ML Workflows",
+      "MLflow: Experiment Tracking and Model Governance",
+      "Ray Serve: Production Inference at Scale",
+      "Model Monitoring for Drift and Reliability",
+      "AI on Kubernetes: Building a Repeatable Delivery Stack",
+    ],
+    excerpts: [
+      "AI and machine learning workflows now require dedicated operational practices for deployment and monitoring.",
+      "MLOps is bridging the gap between model development and reliable production delivery.",
+      "Teams are combining DevOps automation with model lifecycle management.",
+    ],
+  },
+  {
+    category: "Cloud Security",
+    topics: [
+      "Zero Trust Architecture for Cloud Teams",
+      "Policy as Code with OPA and Gatekeeper",
+      "Secrets Management in CI/CD Pipelines",
+      "Cloud Security Posture Management at Scale",
+      "Identity and Access Control for Multi-Cloud Systems",
+      "DevSecOps: Secure Delivery Without Slowing Innovation",
+    ],
+    excerpts: [
+      "Cloud security is now inseparable from delivery pipelines and infrastructure automation.",
+      "Securing modern systems requires policy automation, identity controls, and continuous validation.",
+      "DevSecOps is helping teams build security into the workflow from day one.",
+    ],
+  },
+  {
+    category: "SRE",
+    topics: [
+      "OpenTelemetry: Unified Observability for Distributed Systems",
+      "Site Reliability Engineering for Cloud Platforms",
+      "Incident Response Automation and Runbooks",
+      "Service Level Objectives for Modern Applications",
+      "Chaos Engineering for Resilient Systems",
+      "Cost Optimization with Automated Monitoring",
+    ],
+    excerpts: [
+      "SRE practices are helping teams build systems that are reliable, observable, and resilient.",
+      "Modern operations are centered on measurable service health and proactive response.",
+      "Observability and automation are key to keeping production systems stable.",
     ],
   },
 ];
@@ -229,6 +206,22 @@ function getCategoryImage(category: string): string {
     DevOps: [
       "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    "Platform Engineering": [
+      "https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    "AI/ML Ops": [
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    "Cloud Security": [
+      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    SRE: [
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     ],
   };
 
