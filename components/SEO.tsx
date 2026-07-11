@@ -20,8 +20,8 @@ interface SEOProps {
 
 const SEO: React.FC<SEOProps> = ({
   title = 'Sajal Rastogi | Senior DevOps Engineer | AWS Cloud Architect',
-  description = 'Senior DevOps Engineer with 5 years of experience in AWS, Kubernetes, Terraform, CI/CD automation, and Infrastructure as Code. Expert in cloud architecture, platform engineering, and site reliability engineering.',
-  image = '/og-image.jpg',
+  description = 'Senior DevOps Engineer building scalable AWS, Kubernetes, Terraform, and CI/CD solutions for modern cloud platforms and reliable infrastructure.',
+  image = 'https://sajalrastogi.com/sr-logo.png',
   url = typeof window !== 'undefined' ? window.location.href : 'https://sajalrastogi.com',
   type = 'website',
   author = 'Sajal Rastogi',
