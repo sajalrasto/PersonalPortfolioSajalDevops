@@ -44,10 +44,32 @@ jobs:
         env:
           SSHPASS: ${{ secrets.HOSTINGER_PASSWORD }}
         run: |
-          sshpass -e rsync -avz --delete \
-            -e "ssh -o StrictHostKeyChecking=no -p ${{ secrets.HOSTINGER_PORT }}" \
-            dist/ \
-            ${{ secrets.HOSTINGER_USERNAME }}@${{ secrets.HOSTINGER_HOST }}:/home/${{ secrets.HOSTINGER_USERNAME }}/domains/sajalrastogi.com/public_html/
+          mkdir -p ~/.ssh
+          cat > ~/.ssh/config <<'EOF'
+          Host *
+            StrictHostKeyChecking no
+            UserKnownHostsFile /dev/null
+            ConnectTimeout 15
+            ServerAliveInterval 10
+            ServerAliveCountMax 3
+            PreferredAuthentications password
+          EOF
+          chmod 600 ~/.ssh/config
+
+          for attempt in 1 2 3; do
+            echo "Deploy attempt $attempt/3"
+            if sshpass -e rsync -avz --delete \
+              -e "ssh -o ConnectTimeout=15 -o ServerAliveInterval=10 -o ServerAliveCountMax=3 -p ${{ secrets.HOSTINGER_PORT }}" \
+              dist/ \
+              ${{ secrets.HOSTINGER_USERNAME }}@${{ secrets.HOSTINGER_HOST }}:/home/${{ secrets.HOSTINGER_USERNAME }}/domains/sajalrastogi.com/public_html/; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              echo "Deployment failed, retrying in 15 seconds..."
+              sleep 15
+            fi
+          done
+          exit 1
 
       - name: 🎉 Deployment Complete
         run: echo "Portfolio deployed successfully!"
