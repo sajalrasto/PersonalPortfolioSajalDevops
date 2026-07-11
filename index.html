@@ -169,6 +169,18 @@
       background: var(--background);
     }
 
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     ::-webkit-scrollbar-thumb {
       background: var(--surface-highlight);
       border-radius: 4px;
@@ -236,6 +248,7 @@
 </head>
 
 <body>
+  <h1 class="sr-only">Senior DevOps Engineer | AWS Cloud Architect</h1>
   <div id="root"></div>
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
