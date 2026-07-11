@@ -32,6 +32,4 @@ Crawl-delay: 1
 # Sitemap location
 Sitemap: https://sajalrastogi.com/sitemap.xml
 
-# Host information
-Host: https://sajalrastogi.com
 
