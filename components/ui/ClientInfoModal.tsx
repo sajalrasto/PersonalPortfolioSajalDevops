@@ -3,14 +3,10 @@ import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motio
 import emailjs from '@emailjs/browser';
 import { Mail, Send, CheckCircle, AlertCircle, X, Sparkles } from 'lucide-react';
 
-// INSTRUCTIONS:
-// 1. Go to https://www.emailjs.com/ and sign up for a free account.
-// 2. Create an email service and email template (with fields: name, email, phone, message).
-// 3. Get your Service ID, Template ID, and Public Key from EmailJS dashboard.
-// 4. Replace the placeholders below with your actual values.
-const EMAILJS_SERVICE_ID = 'sajal_portfolio'; // TODO: Replace with your EmailJS Service ID
-const EMAILJS_TEMPLATE_ID = 'template_xxxxx'; // TODO: Replace with your EmailJS Template ID
-const EMAILJS_PUBLIC_KEY = 'your_public_key_here'; // TODO: Replace with your EmailJS Public Key
+// EmailJS Configuration (Service: sajal_portfolio)
+const EMAILJS_SERVICE_ID = 'service_uazy9ul';
+const EMAILJS_TEMPLATE_ID = 'template_ge5hqnn';
+const EMAILJS_PUBLIC_KEY = 'rO5HA-k6bsp4dj4n7';
 
 interface ClientInfoModalProps {
   open: boolean;
