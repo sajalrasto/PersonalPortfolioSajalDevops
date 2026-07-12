@@ -97,7 +97,8 @@ const WhatsAppModal: React.FC<WhatsAppModalProps> = ({ open, onClose }) => {
               placeholder="Enter your name"
               value={form.name}
               onChange={handleChange}
-              className="w-full rounded-lg px-4 py-3 bg-surface/90 dark:bg-surface/80 border border-text/20 dark:border-white/20 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-text placeholder:text-text-muted transition-all duration-200"
+              className="w-full rounded-lg px-4 py-3 bg-surface/95 dark:bg-surface/80 border border-text/20 dark:border-white/20 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-black placeholder:text-text-muted dark:placeholder:text-slate-400 transition-all duration-200"
+              style={{ color: '#000' }}
             />
           </div>
           
@@ -114,7 +115,8 @@ const WhatsAppModal: React.FC<WhatsAppModalProps> = ({ open, onClose }) => {
               value={form.reason}
               onChange={handleChange}
               rows={4}
-              className="w-full rounded-lg px-4 py-3 bg-surface/90 dark:bg-surface/80 border border-text/20 dark:border-white/20 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-text placeholder:text-text-muted resize-none transition-all duration-200"
+              className="w-full rounded-lg px-4 py-3 bg-surface/95 dark:bg-surface/80 border border-text/20 dark:border-white/20 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-black placeholder:text-text-muted dark:placeholder:text-slate-400 resize-none transition-all duration-200"
+              style={{ color: '#000' }}
             />
           </div>
           

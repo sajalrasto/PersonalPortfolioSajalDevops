@@ -244,7 +244,8 @@ const ClientInfoModal: React.FC<ClientInfoModalProps> = ({ open, onClose }) => {
                           onChange={handleChange}
                           onFocus={() => setFocusedField(field.id)}
                           onBlur={() => setFocusedField(null)}
-                          className="w-full pt-6 pb-3 px-4 rounded-xl bg-surface/90 dark:bg-surface/80 border border-text/20 dark:border-white/20 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-text placeholder:text-text-muted transition-all duration-300 hover:border-text/30 dark:hover:border-white/30"
+                          className="w-full pt-6 pb-3 px-4 rounded-xl bg-surface/95 dark:bg-surface/80 border border-text/20 dark:border-white/20 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-black placeholder:text-text-muted dark:placeholder:text-slate-400 transition-all duration-300 hover:border-text/30 dark:hover:border-white/30"
+                          style={{ color: '#000' }}
                         />
                         {focusedField === field.id && (
                           <motion.div
@@ -283,7 +284,8 @@ const ClientInfoModal: React.FC<ClientInfoModalProps> = ({ open, onClose }) => {
                         onFocus={() => setFocusedField('message')}
                         onBlur={() => setFocusedField(null)}
                         rows={5}
-                        className="w-full pt-6 pb-3 px-4 rounded-xl bg-surface/90 dark:bg-surface/80 border border-text/20 dark:border-white/20 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-text placeholder:text-text-muted resize-none transition-all duration-300 hover:border-text/30 dark:hover:border-white/30"
+                        className="w-full pt-6 pb-3 px-4 rounded-xl bg-surface/95 dark:bg-surface/80 border border-text/20 dark:border-white/20 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none text-black placeholder:text-text-muted dark:placeholder:text-slate-400 resize-none transition-all duration-300 hover:border-text/30 dark:hover:border-white/30"
+                        style={{ color: '#000' }}
                       />
                       {focusedField === 'message' && (
                         <motion.div
